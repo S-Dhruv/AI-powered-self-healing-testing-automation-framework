@@ -1,0 +1,35 @@
+# App-specific configuration for automationexercise.com.
+# No code in framework/ may reference this app by name — only this file does.
+
+app_name: automationexercise
+
+environments:
+  test:
+    name: test
+    base_url: https://www.automationexercise.com/
+    allowed_hosts:
+      - www.automationexercise.com
+      - automationexercise.com
+
+# Declarative login routine (steps are generic verbs the executor already knows).
+# Credentials are never written here — only the names of the env vars that hold them.
+login_steps:
+  - action: navigate
+    target: "Home page"
+  - action: click
+    target: "Signup / Login link"
+  - action: type
+    target: "Login email field"
+    data: "${TEST_ACCOUNT_EMAIL}"
+  - action: type
+    target: "Login password field"
+    data: "${TEST_ACCOUNT_PASSWORD}"
+  - action: click
+    target: "Login button"
+
+test_account_env_vars:
+  email: TEST_ACCOUNT_EMAIL
+  password: TEST_ACCOUNT_PASSWORD
+
+rate_limit_delay_ms: 500
+max_concurrency: 1

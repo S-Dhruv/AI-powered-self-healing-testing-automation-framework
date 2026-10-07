@@ -1,0 +1,39 @@
+[project]
+name = "shtaf"
+version = "0.1.0"
+description = "Self-Healing Test Automation Framework"
+requires-python = ">=3.10"
+dependencies = [
+    "playwright==1.63.0",
+    "openpyxl==3.1.5",
+    "pydantic==2.9.2",
+    "pyyaml==6.0.2",
+    "openai==1.54.4",
+    "python-dotenv==1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.3",
+    "pytest-mock==3.14.0",
+    "ruff==0.7.4",
+    "black==24.10.0",
+]
+
+[project.scripts]
+shtaf = "framework.cli:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["framework*"]
