@@ -1,0 +1,52 @@
+# App-specific configuration for bbc.com.
+# No code in framework/ may reference this app by name — only this file does.
+#
+# Replaces saucedemo.com as the framework's second application. A real,
+# globally recognized news site rather than a QA-practice demo, chosen after
+# ruling out two riskier options live: a real airline's production site
+# (real bookings/payments, no authorization to automate it) and imdb.com
+# (confirmed, live: an AWS WAF "Human Verification" wall blocks a plain
+# Selenium session on the very first page load). bbc.com needs no login, no
+# payment, and no account for every flow this suite exercises -- search,
+# section navigation, and article pages -- while still being a real,
+# popular, visually rich site, not a sandbox.
+
+app_name: bbc
+
+environments:
+  test:
+    name: test
+    base_url: https://www.bbc.com/
+    allowed_hosts:
+      - www.bbc.com
+      - bbc.com
+
+# No login_steps / registration_steps / test_account_env_vars: every test
+# case in this suite's workbook is a read-only flow (search, browse a
+# section, open an article) that needs no account at all.
+
+# A React/styled-components SPA (same risk class as saucedemo.com's React
+# controls, see framework/browser.py's click-reliability notes) -- starting
+# on the same proven mitigation rather than waiting to rediscover the same
+# silent-click issue on a second React app.
+click_strategy: action_chains
+
+# Common ad/tracking domains on a large ad-supported news site, refused at
+# the network layer (CDP) the same way automationexercise.com's are --
+# unlike that list, not yet individually confirmed live against bbc.com's
+# own traffic, so narrow this down (or extend it) if a specific overlay is
+# ever observed interfering with a real element here.
+blocked_ad_url_patterns:
+  - "*doubleclick.net*"
+  - "*googlesyndication.com*"
+  - "*googleadservices.com*"
+  - "*googletagservices.com*"
+  - "*adtrafficquality.google*"
+  - "*google.com/pagead*"
+  - "*taboola.com*"
+  - "*outbrain.com*"
+  - "*chartbeat.com*"
+  - "*comscore.com*"
+
+rate_limit_delay_ms: 500
+max_concurrency: 1

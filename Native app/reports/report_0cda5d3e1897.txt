@@ -1,0 +1,36 @@
+==============================================================================
+FINAL REPORT  run 0cda5d3e1897  suite AI_Assignment_Test_Cases.xlsx
+==============================================================================
+Test cases : 20  Pass 19  Fail 1  Blocked 0  Skipped 0
+Steps      : {'Pass': 93, 'Skipped': 0, 'Blocked': 0, 'Fail': 1}
+LLM usage  : 0 calls, 0 tokens (0 in / 0 out), cost $0.0000
+Lookups    : 123 element lookups -> 123 cache, 0 fallback, 0 AI, 0 healed, 0 blocked (cache hit rate 100.0%)
+Store      : {'total_elements': 100, 'pages': 12, 'pending_review': 0, 'healed_versions': 0, 'plans_cached': 70}
+Duration   : 394.8s
+
+Test case Status     Tokens  Time(s)  Sources
+------------------------------------------------------------------------------
+TC_001    Pass            0      6.2  -
+TC_002    Pass            0     33.2  Cache
+TC_003    Pass            0      8.9  Cache
+TC_004    Pass            0     12.1  Cache
+TC_005    Pass            0      8.3  Cache
+TC_006    Pass            0     10.8  Cache
+TC_007    Pass            0     16.9  Cache
+TC_008    Pass            0     40.0  Cache
+TC_009    Pass            0     25.1  Cache
+TC_010    Pass            0     15.8  Cache
+TC_011    Pass            0     18.8  Cache
+TC_012    Pass            0     19.0  Cache
+TC_013    Pass            0     33.9  Cache
+TC_014    Pass            0     15.0  Cache
+TC_015    Pass            0     12.9  Cache
+TC_016    Pass            0     12.8  Cache
+TC_017    Pass            0     59.9  Cache
+TC_018    Pass            0     11.0  Cache
+TC_019    Fail            0      9.0  Cache
+TC_020    Pass            0     13.7  Cache
+
+NEEDS ATTENTION
+  TC_019 [Fail] Step 5 [Fail]: Expected text never shown: 'You have been successfully subscribed!'
+==============================================================================

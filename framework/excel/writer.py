@@ -4,6 +4,7 @@ original (timestamped copy) before modifying, per spec §5.2. Never pandas.to_ex
 
 from __future__ import annotations
 
+import logging
 import shutil
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -12,6 +13,8 @@ from pathlib import Path
 import openpyxl
 
 from framework.excel.reader import RESULT_COLUMNS
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -62,7 +65,7 @@ def backup_workbook(path: str | Path) -> Path:
 
 def write_results(
     path: str | Path, sheet_name: str, results: list[RowResult]
-) -> None:
+) -> Path:
     """Writes result columns in place. Backs up first. Only writes to existing
     result columns (creates them at the end of the header row if absent, without
     disturbing any other column's position/formatting)."""
@@ -93,11 +96,25 @@ def write_results(
         ws.cell(row=r.row_index, column=col_index["Run ID"], value=r.run_id)
         ws.cell(row=r.row_index, column=col_index["Executed At"], value=r.executed_at)
 
-    wb.save(p)
-    wb.close()
+    try:
+        wb.save(p)
+        output_path = p
+    except PermissionError:
+        # Excel keeps a workbook open exclusively surprisingly often. Never
+        # discard a completed run just because write-back is unavailable.
+        output_path = p.with_name(
+            f"{p.stem}.results-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}{p.suffix}"
+        )
+        wb.save(output_path)
+        logger.warning(
+            "Workbook is locked; results were written to recovery copy %s", output_path
+        )
+    finally:
+        wb.close()
+    return output_path
 
 
-def append_run_summary(path: str | Path, totals: RunTotals) -> None:
+def append_run_summary(path: str | Path, totals: RunTotals) -> Path:
     """Appends a 'Run Summary' sheet entry for this run (spec §5.2). Does not
     overwrite prior runs' summaries — each run gets its own labeled block."""
     p = Path(path)
@@ -146,5 +163,17 @@ def append_run_summary(path: str | Path, totals: RunTotals) -> None:
         ws.cell(row=start_row + offset, column=1, value=label)
         ws.cell(row=start_row + offset, column=2, value=value)
 
-    wb.save(p)
-    wb.close()
+    try:
+        wb.save(p)
+        output_path = p
+    except PermissionError:
+        output_path = p.with_name(
+            f"{p.stem}.results-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}{p.suffix}"
+        )
+        wb.save(output_path)
+        logger.warning(
+            "Workbook is locked; run summary was written to recovery copy %s", output_path
+        )
+    finally:
+        wb.close()
+    return output_path

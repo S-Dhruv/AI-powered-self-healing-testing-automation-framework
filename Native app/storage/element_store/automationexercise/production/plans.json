@@ -1,0 +1,951 @@
+{
+  "5c2756dc563fb7be": {
+    "step": "Launch browser",
+    "actions": [
+      {
+        "action": "observe"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:57:37"
+  },
+  "d90e94b03c45f876": {
+    "step": "Navigate to https://www.automationexercise.com",
+    "actions": [
+      {
+        "action": "navigate",
+        "value": "https://www.automationexercise.com"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:57:40"
+  },
+  "7b1dc61e6a4ffc04": {
+    "step": "Observe the page",
+    "actions": [
+      {
+        "action": "observe"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:57:49"
+  },
+  "fba85f51286f3dee": {
+    "step": "Navigate to home page",
+    "actions": [
+      {
+        "action": "navigate",
+        "value": "home"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:57:55"
+  },
+  "327b90d2bd89baf5": {
+    "step": "Click 'Signup / Login'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Signup / Login link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:58:04"
+  },
+  "a81f3abb4bef3b71": {
+    "step": "Enter name and new email under 'New User Signup!'",
+    "actions": [
+      {
+        "action": "type",
+        "target": "name input under 'New User Signup!'",
+        "value": "{{name}}"
+      },
+      {
+        "action": "type",
+        "target": "email input under 'New User Signup!'",
+        "value": "{{email}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:58:14"
+  },
+  "305fc2bcb55639b8": {
+    "step": "Click 'Signup'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Signup button under 'New User Signup!'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:58:22"
+  },
+  "ee80adc53414d06e": {
+    "step": "Fill Title, Password, DOB, First/Last name, Address, Country, State, City, Zipcode, Mobile",
+    "actions": [
+      {
+        "action": "click",
+        "target": "radio button for 'Mr.' under 'ADDRESS INFORMATION'"
+      },
+      {
+        "action": "type",
+        "target": "Password input under 'ADDRESS INFORMATION'",
+        "value": "{{password}}"
+      },
+      {
+        "action": "select",
+        "target": "Day dropdown under 'ADDRESS INFORMATION'",
+        "value": "{{DOB.day}}"
+      },
+      {
+        "action": "select",
+        "target": "Month dropdown under 'ADDRESS INFORMATION'",
+        "value": "{{DOB.month}}"
+      },
+      {
+        "action": "select",
+        "target": "Year dropdown under 'ADDRESS INFORMATION'",
+        "value": "{{DOB.year}}"
+      },
+      {
+        "action": "type",
+        "target": "First name input under 'ADDRESS INFORMATION'",
+        "value": "{{Name.first}}"
+      },
+      {
+        "action": "type",
+        "target": "Last name input under 'ADDRESS INFORMATION'",
+        "value": "{{Name.last}}"
+      },
+      {
+        "action": "type",
+        "target": "Address input under 'ADDRESS INFORMATION'",
+        "value": "{{address}}"
+      },
+      {
+        "action": "select",
+        "target": "Country dropdown under 'ADDRESS INFORMATION'",
+        "value": "{{country}}"
+      },
+      {
+        "action": "type",
+        "target": "State input under 'ADDRESS INFORMATION'",
+        "value": "{{state}}"
+      },
+      {
+        "action": "type",
+        "target": "City input under 'ADDRESS INFORMATION'",
+        "value": "{{city}}"
+      },
+      {
+        "action": "type",
+        "target": "Zipcode input under 'ADDRESS INFORMATION'",
+        "value": "{{zip}}"
+      },
+      {
+        "action": "type",
+        "target": "Mobile Number input under 'ADDRESS INFORMATION'",
+        "value": "{{mobile}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:58:40"
+  },
+  "ec4ed9fc8de60007": {
+    "step": "Click 'Create Account'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Create Account button in the signup form"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:59:29"
+  },
+  "29ff98daa4489c12": {
+    "step": "Click 'Continue'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Continue button under 'ACCOUNT CREATED!'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T15:59:42"
+  },
+  "0926966ee3e6cb06": {
+    "step": "Click 'Signup / Login'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Signup / Login link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:00:12"
+  },
+  "a61da9f3e0a6ff24": {
+    "step": "Enter name and an already registered email under 'New User Signup!'",
+    "actions": [
+      {
+        "action": "type",
+        "target": "name input under 'New User Signup!'",
+        "value": "{{name}}"
+      },
+      {
+        "action": "type",
+        "target": "email input under 'New User Signup!'",
+        "value": "{{email}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:00:21"
+  },
+  "6f4a90682f91ee49": {
+    "step": "Click 'Signup'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Signup button under 'New User Signup!'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:00:24"
+  },
+  "28b3041364b01c22": {
+    "step": "Click 'Signup / Login'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Signup / Login link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:00:42"
+  },
+  "8faa08fbb4a593ea": {
+    "step": "Enter registered email and correct password under 'Login to your account'",
+    "actions": [
+      {
+        "action": "type",
+        "target": "email input under 'Login to your account'",
+        "value": "{{email}}"
+      },
+      {
+        "action": "type",
+        "target": "password input under 'Login to your account'",
+        "value": "{{password}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:00:48"
+  },
+  "f96064d7710d825f": {
+    "step": "Click 'Login'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Login button under 'Login to your account'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:00:56"
+  },
+  "1fee251ab27d8610": {
+    "step": "Enter registered email and wrong password",
+    "actions": [
+      {
+        "action": "type",
+        "target": "email input in the login form",
+        "value": "{{email}}"
+      },
+      {
+        "action": "type",
+        "target": "password input in the login form",
+        "value": "wrongpassword"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:01:29"
+  },
+  "8064ab942db1738f": {
+    "step": "Click 'Login'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Login button under 'Login to your account'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:01:37"
+  },
+  "14c158a015aaccc0": {
+    "step": "Leave Email and Password empty",
+    "actions": [
+      {
+        "action": "observe"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:01:52"
+  },
+  "e06977aae4e81f4a": {
+    "step": "Click 'Login'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Login button in the 'Login to your account' form"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:01:54"
+  },
+  "8882fefd0546a4d1": {
+    "step": "Login with valid credentials",
+    "actions": [
+      {
+        "action": "login",
+        "value": "attempt"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:02:16"
+  },
+  "0dbab87fa3a58a39": {
+    "step": "Click 'Logout' in header",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Logout link in header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:02:43"
+  },
+  "3d45feb83c5d36f3": {
+    "step": "Click 'Delete Account'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Delete Account link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:03:25"
+  },
+  "da0a869fc7749855": {
+    "step": "Click 'Continue'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Continue button under 'ACCOUNT DELETED!'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:03:34"
+  },
+  "5e7ce00977dfdf45": {
+    "step": "Try logging in again with same credentials",
+    "actions": [
+      {
+        "action": "navigate",
+        "value": "home"
+      },
+      {
+        "action": "click",
+        "target": "Signup / Login link in the header"
+      },
+      {
+        "action": "type",
+        "target": "email input on the login page",
+        "value": "{{email}}"
+      },
+      {
+        "action": "type",
+        "target": "password input on the login page",
+        "value": "{{password}}"
+      },
+      {
+        "action": "click",
+        "target": "Login button on the login page"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:03:47"
+  },
+  "bafcc0e566e46f70": {
+    "step": "Click 'Contact us'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Contact us link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:04:20"
+  },
+  "0121e78c340698bd": {
+    "step": "Enter Name, Email, Subject, Message",
+    "actions": [
+      {
+        "action": "type",
+        "target": "name input in the contact-us form",
+        "value": "{{name}}"
+      },
+      {
+        "action": "type",
+        "target": "email input in the contact-us form",
+        "value": "{{email}}"
+      },
+      {
+        "action": "type",
+        "target": "subject input in the contact-us form",
+        "value": "{{subject}}"
+      },
+      {
+        "action": "type",
+        "target": "message textarea in the contact-us form",
+        "value": "{{message}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:04:33"
+  },
+  "95ea14d88cd310dc": {
+    "step": "Upload a file",
+    "actions": [
+      {
+        "action": "upload",
+        "target": "file input in the contact-us-form",
+        "value": "{{File.name}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:04:48"
+  },
+  "de9ed978cf64ec77": {
+    "step": "Click 'Submit' and accept the browser alert",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Submit button in the contact-us-form"
+      },
+      {
+        "action": "accept_alert"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:04:54"
+  },
+  "7abff669639f3974": {
+    "step": "Click 'Home'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Home link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:05:01"
+  },
+  "c02f8386dfb8e428": {
+    "step": "Click 'Products'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Products link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:05:15"
+  },
+  "45d297492a96886f": {
+    "step": "Verify product list",
+    "actions": [
+      {
+        "action": "find_text",
+        "value": "{{Product.name}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:05:28"
+  },
+  "04b1d1c0b51eb6b4": {
+    "step": "Click 'View Product' on the first product",
+    "actions": [
+      {
+        "action": "click",
+        "target": "View Product link for the first product"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:05:30"
+  },
+  "998d803af3d80f5f": {
+    "step": "Click 'Products'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "'Products' link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:05:44"
+  },
+  "1a1618d59c241df5": {
+    "step": "Enter keyword in search box",
+    "actions": [
+      {
+        "action": "type",
+        "target": "search box input under 'CATEGORY'",
+        "value": "{{search}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:05:53"
+  },
+  "012b9fa6183b3cf5": {
+    "step": "Click search icon",
+    "actions": [
+      {
+        "action": "click",
+        "target": "search icon button next to the search input under 'CATEGORY'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:05:59"
+  },
+  "dc39082fb567ab7f": {
+    "step": "Enter an invalid keyword",
+    "actions": [
+      {
+        "action": "type",
+        "target": "search input under 'CATEGORY'",
+        "value": "{{search}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:06:16"
+  },
+  "dfaf89b5fb12b7a5": {
+    "step": "Click search icon",
+    "actions": [
+      {
+        "action": "click",
+        "target": "search icon button next to the search input"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:06:23"
+  },
+  "e0bac08681455a01": {
+    "step": "Click 'Products'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Products link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:06:35"
+  },
+  "74f258f865e50bbb": {
+    "step": "Hover first product and click 'Add to cart'",
+    "actions": [
+      {
+        "action": "hover",
+        "target": "first product 'Add to cart' link"
+      },
+      {
+        "action": "click",
+        "target": "first product 'Add to cart' link"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:06:42"
+  },
+  "a1d021383bea61e5": {
+    "step": "Click 'Continue Shopping'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Continue Shopping button in the cart modal"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:06:53"
+  },
+  "ded818233bb338b7": {
+    "step": "Add second product",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Add to cart button under 'Rs. 400 Men Tshirt'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:07:01"
+  },
+  "e566ba1a17844192": {
+    "step": "Click 'View Cart'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "View Cart link in the cart modal"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:07:10"
+  },
+  "8097e68fa4be975a": {
+    "step": "Open product detail page",
+    "actions": [
+      {
+        "action": "click",
+        "target": "View Product link for product {{product}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:07:30"
+  },
+  "ce30b47a8672573e": {
+    "step": "Change quantity to 4",
+    "actions": [
+      {
+        "action": "type",
+        "target": "quantity input under 'Blue Top'",
+        "value": "4"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:07:39"
+  },
+  "8bed35a6dc8c9bf4": {
+    "step": "Click 'Add to cart'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Add to cart button under 'Blue Top'"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:07:44"
+  },
+  "81db07c9becd0301": {
+    "step": "Click 'View Cart'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "View Cart link in the cart modal"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:07:52"
+  },
+  "3f746721a20c883d": {
+    "step": "Add a product to cart",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Add to cart button for {{Product.name}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:08:04"
+  },
+  "b4595c9b93ff793b": {
+    "step": "Click 'Cart'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Cart link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:08:25"
+  },
+  "49abac28054a5b93": {
+    "step": "Click 'X' (delete) icon against the product",
+    "actions": [
+      {
+        "action": "click",
+        "target": "delete icon for the product 'Blue Top' in the cart"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:08:37"
+  },
+  "2f9564e8476b0453": {
+    "step": "Add a product to cart as guest",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Add to cart button for {{Product.name}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:08:48"
+  },
+  "9ed8d29078942d95": {
+    "step": "Go to Cart",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Cart link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:08:57"
+  },
+  "f4aa09ccda52a971": {
+    "step": "Click 'Proceed To Checkout'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Proceed To Checkout button under Checkout"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:09:05"
+  },
+  "7c6ba6edd5600c4c": {
+    "step": "Login",
+    "actions": [
+      {
+        "action": "login"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:09:15"
+  },
+  "f11ebf01cdd09b15": {
+    "step": "Add product to cart and go to Cart",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Add to cart button for the first listed product"
+      },
+      {
+        "action": "click",
+        "target": "Cart link in the header"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:10:47"
+  },
+  "b2e27eab2a184a90": {
+    "step": "Click 'Proceed To Checkout'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Proceed To Checkout link under Checkout"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:11:01"
+  },
+  "0a7648354c85f48d": {
+    "step": "Verify Address Details & Review Order",
+    "actions": [
+      {
+        "action": "observe"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:11:10"
+  },
+  "18fe8a5bf1b4fa19": {
+    "step": "Enter comment, click 'Place Order'",
+    "actions": [
+      {
+        "action": "type",
+        "target": "comment textarea under Address Details",
+        "value": "{{comment}}"
+      },
+      {
+        "action": "click",
+        "target": "Place Order link under Address Details"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:11:12"
+  },
+  "c92ad95298418357": {
+    "step": "Enter card details, click 'Pay and Confirm Order'",
+    "actions": [
+      {
+        "action": "type",
+        "target": "Name on Card input in the payment form",
+        "value": "{{name on card}}"
+      },
+      {
+        "action": "type",
+        "target": "Card Number input in the payment form",
+        "value": "{{card no}}"
+      },
+      {
+        "action": "type",
+        "target": "CVC input in the payment form",
+        "value": "{{cvc}}"
+      },
+      {
+        "action": "type",
+        "target": "Expiration Month input in the payment form",
+        "value": "{{Expiry.month}}"
+      },
+      {
+        "action": "type",
+        "target": "Expiration Year input in the payment form",
+        "value": "{{Expiry.year}}"
+      },
+      {
+        "action": "click",
+        "target": "Pay and Confirm Order button in the payment form"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:11:27"
+  },
+  "252d7cc5960fb976": {
+    "step": "On home/products page, click 'Women' in Category sidebar",
+    "actions": [
+      {
+        "action": "click",
+        "target": "'Women' link in Category sidebar"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:11:55"
+  },
+  "e512c165ea736a0d": {
+    "step": "Click 'Tops'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "link 'Tops' under 'WOMEN' in the Category sidebar"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:12:04"
+  },
+  "8a1d0451ca9769c2": {
+    "step": "Click brand 'Polo' in Brands sidebar",
+    "actions": [
+      {
+        "action": "click",
+        "target": "brand 'Polo' link in Brands sidebar"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:12:14"
+  },
+  "313909bb593f83b6": {
+    "step": "Scroll to footer on home page",
+    "actions": [
+      {
+        "action": "scroll",
+        "value": "bottom"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:12:27"
+  },
+  "044acb1dc6737a1f": {
+    "step": "Enter email in Subscription field",
+    "actions": [
+      {
+        "action": "type",
+        "target": "email input in the Subscription form",
+        "value": "{{valid}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:12:30"
+  },
+  "8c171fc8b3fef410": {
+    "step": "Click arrow button",
+    "actions": [
+      {
+        "action": "click",
+        "target": "arrow button next to the subscription email input in the footer"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:12:37"
+  },
+  "f5d86ca4651edd5e": {
+    "step": "Repeat with invalid email 'abc'",
+    "actions": [
+      {
+        "action": "type",
+        "target": "email input in the Subscription form in the footer",
+        "value": "abc"
+      },
+      {
+        "action": "click",
+        "target": "arrow button next to the subscription email input in the footer"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:12:47"
+  },
+  "6263589cbff3cd9c": {
+    "step": "Click 'Products' > 'View Product'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Products link in the header"
+      },
+      {
+        "action": "click",
+        "target": "View Product link for the first product"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:13:04"
+  },
+  "a52c0500f25d3405": {
+    "step": "Locate 'Write Your Review'",
+    "actions": [
+      {
+        "action": "find_text",
+        "value": "Write Your Review"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:13:14"
+  },
+  "251e8d89bfb3468f": {
+    "step": "Enter name, email and review",
+    "actions": [
+      {
+        "action": "type",
+        "target": "name input in the review form",
+        "value": "{{name}}"
+      },
+      {
+        "action": "type",
+        "target": "email input in the review form",
+        "value": "{{email}}"
+      },
+      {
+        "action": "type",
+        "target": "review textarea in the review form",
+        "value": "{{review}}"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:13:19"
+  },
+  "54cf54ef63eba385": {
+    "step": "Click 'Submit'",
+    "actions": [
+      {
+        "action": "click",
+        "target": "Submit button in the review form"
+      }
+    ],
+    "model": "gpt-4-turbo",
+    "learned_at": "2026-10-07T16:13:31"
+  }
+}

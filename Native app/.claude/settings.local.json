@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($apiKey = $env:ANTHROPIC_API_KEY; if\\($apiKey\\) { Write-Host \"✓ API Key found\" } else { Write-Host \"⚠️  API Key not set. Please set it first:\" ; Write-Host '$env:ANTHROPIC_API_KEY = \"sk-ant-v0-...\"' })"
+    ]
+  }
+}

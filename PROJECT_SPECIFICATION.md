@@ -5,7 +5,7 @@
 
 ## 1. Objective
 
-Build a reusable, application-agnostic test automation framework in **Python + Playwright** that:
+Build a reusable, application-agnostic test automation framework in **Python + Selenium** that:
 
 1. Reads test steps from an **Excel workbook** (only rows with `Execute = Y`).
 2. Executes them against a web application.
@@ -95,7 +95,7 @@ Each interactive step carries a **target description** (natural-language, e.g. "
 | 5 | **Refuse to guess** | If the LLM is unsure, returns nothing, returns multiple matches, or verification fails, **do not act**. | - | `Blocked` |
 
 ### 4.1 Compact page representation (for Tier 3)
-- **Primary:** the page's **ARIA snapshot** (`locator("body").aria_snapshot()`), a YAML accessibility tree. Playwright's older `page.accessibility.snapshot()` is deprecated and removed in recent versions, so prefer ARIA snapshots and pin your Playwright version in the README.
+- **Primary:** a compact, indexed representation generated from the live rendered DOM. Selenium does not expose Playwright's ARIA snapshot API, so the representation includes visible interactive elements, semantic roles, labels, key attributes, nearby context, and a stable index. The model returns only an index, confidence, and reason; Selenium derives and verifies the locator locally.
 - **Supplement (optional):** a filtered DOM containing only interactive elements (links, buttons, inputs, selects, elements with roles/test-ids), with scripts, styles and hidden nodes removed.
 - **Optional:** a screenshot, **only after masking**, for visually ambiguous cases.
 - Never send raw full-page HTML. Truncate and prioritise nearby context if the tree exceeds a configured token budget.
@@ -200,7 +200,7 @@ Every LLM call is logged with: `timestamp, run_id, test_case_id, step_no, user_i
 - Mask **before** sending to the LLM; test with a canary secret to prove it never leaves the machine.
 
 ### R9. Packaging
-- `pip install .` (with `pyproject.toml`) **or** Docker image; Playwright browsers installed in the image.
+- `pip install .` (with `pyproject.toml`) **or** Docker image; Selenium Manager provisions the configured browser driver.
 - Example: `shtaf run --suite apps/demo/suite.xlsx --env staging --headless`.
 - Exit code non-zero on any `Fail`/`Blocked` (CI-friendly).
 

@@ -16,7 +16,13 @@ class ConsoleNarrator:
 
     def line(self, text: str) -> None:
         if self._enabled:
-            print(f"[{self._ts()}] {text}", file=sys.stdout, flush=True)
+            self._print_safe(f"[{self._ts()}] {text}", flush=True)
+
+    def _print_safe(self, text: str, *, flush: bool = False) -> None:
+        """Keep console reporting reliable on legacy Windows code pages."""
+        output = getattr(sys.stdout, "encoding", None) or "utf-8"
+        safe = text.encode(output, errors="replace").decode(output, errors="replace")
+        print(safe, file=sys.stdout, flush=flush)
 
     def step_start(self, test_case_id: str, step_no: int, action: str, description: str) -> None:
         self.line(f"  [{test_case_id}][step {step_no}] {action} -> '{description}'")
@@ -31,15 +37,23 @@ class ConsoleNarrator:
         )
 
     def llm_io(self, test_case_id: str, step_no: int, user_prompt: str, raw_response: str) -> None:
-        """Prints the raw response from the LLM."""
+        """Prints both the exact prompt sent to the LLM and its exact raw
+        response -- the dashboard parses both blocks out of this same
+        console stream (never a second, separate transport) so a developer
+        can see precisely what the model was given and precisely what it
+        said back, not just the short reason string."""
         if not self._enabled:
             return
         separator = "-" * 70
-        print(f"\n    {separator}", file=sys.stdout)
-        print(f"    [{test_case_id}][step {step_no}] LLM RESPONSE (raw):", file=sys.stdout)
+        self._print_safe(f"\n    {separator}")
+        self._print_safe(f"    [{test_case_id}][step {step_no}] LLM REQUEST (prompt):")
+        for line in user_prompt.splitlines():
+            self._print_safe(f"    | {line}")
+        self._print_safe(f"    {separator}")
+        self._print_safe(f"    [{test_case_id}][step {step_no}] LLM RESPONSE (raw):")
         for line in raw_response.splitlines():
-            print(f"    | {line}", file=sys.stdout)
-        print(f"    {separator}\n", file=sys.stdout, flush=True)
+            self._print_safe(f"    | {line}")
+        self._print_safe(f"    {separator}\n", flush=True)
 
     def verify(self, test_case_id: str, step_no: int, ok: bool, reason: str) -> None:
         status = "PASS" if ok else "FAIL"
@@ -50,6 +64,13 @@ class ConsoleNarrator:
 
     def blocked(self, test_case_id: str, step_no: int, reason: str) -> None:
         self.line(f"    [{test_case_id}][step {step_no}] BLOCKED: {reason}")
+
+    def action(self, test_case_id: str, step_no: int, verb: str, selector: str) -> None:
+        """Logged at the moment an action actually touches the page -- distinct
+        from step_result (the step's final outcome) so a live run shows exactly
+        which element was clicked/typed into/selected/checked, in order, as it
+        happens, not just the summary after the fact."""
+        self.line(f"    [{test_case_id}][step {step_no}] ACTION {verb} -> {selector}")
 
     def step_result(self, test_case_id: str, step_no: int, status: str) -> None:
         self.line(f"  [{test_case_id}][step {step_no}] => {status}")

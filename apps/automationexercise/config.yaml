@@ -31,5 +31,92 @@ test_account_env_vars:
   email: TEST_ACCOUNT_EMAIL
   password: TEST_ACCOUNT_PASSWORD
 
+# A freshly registered account on this site is already signed in by the time
+# the "Continue" button lands back on the home page -- this is what lets the
+# registration fallback recognize that and skip a redundant (and here,
+# actually broken: the login link it would click no longer exists) retry.
+login_success_text: "Logged in as"
+
+# Run only as a fallback, from inside the framework's own auto-login step,
+# when a login attempt is rejected (most often: an earlier row in the same
+# suite deleted the account). Reuses the same ${TEST_ACCOUNT_EMAIL} /
+# ${TEST_ACCOUNT_PASSWORD} substitution as login_steps -- the executor
+# supplies a freshly generated address and a fixed throwaway password for
+# those placeholders in this flow, never a real credential. Everything else
+# here is deliberately inert, reusable dummy data (no payment info is ever
+# collected by this form).
+registration_steps:
+  # No navigate step here, deliberately: this runs only as a fallback from
+  # inside _run_auto_login, after login_steps already left the browser on
+  # the /login page -- the same page that also holds the Signup form. A
+  # redundant re-navigate here used a different description ("Signup /
+  # Login page") than login_steps' already-cached "Signup / Login link",
+  # forcing a fresh, sometimes-failing LLM resolution on every fallback
+  # instead of reusing the zero-token cached click.
+  - action: type
+    target: "name input in the New User Signup form"
+    data: "QA Tester"
+  - action: type
+    target: "email address input in the New User Signup form"
+    data: "${TEST_ACCOUNT_EMAIL}"
+  - action: click
+    target: "Signup button in the New User Signup form"
+  - action: check
+    target: "Mr title radio button in the account information form"
+  - action: type
+    target: "password input in the account information form"
+    data: "${TEST_ACCOUNT_PASSWORD}"
+  - action: select
+    target: "date of birth day dropdown"
+    data: "10"
+  - action: select
+    target: "date of birth month dropdown"
+    data: "5"
+  - action: select
+    target: "date of birth year dropdown"
+    data: "1995"
+  - action: type
+    target: "first name input in the account information form"
+    data: "QA"
+  - action: type
+    target: "last name input in the account information form"
+    data: "Tester"
+  - action: type
+    target: "address input in the account information form"
+    data: "221B Baker Street"
+  - action: select
+    target: "country dropdown in the account information form"
+    data: "United States"
+  - action: type
+    target: "state input in the account information form"
+    data: "California"
+  - action: type
+    target: "city input in the account information form"
+    data: "Los Angeles"
+  - action: type
+    target: "zipcode input in the account information form"
+    data: "90001"
+  - action: type
+    target: "mobile number input in the account information form"
+    data: "9876543210"
+  - action: click
+    target: "Create Account button"
+  - action: click
+    target: "Continue button on the account created page"
+
+# Third-party ad/tracker request patterns to refuse at the network layer
+# (Chrome DevTools Protocol) -- automationexercise.com is ad-supported, and
+# a live ad interstitial or an iframe physically overlapping a real element
+# was the single largest source of this app's flaky runs. Discovered by
+# direct, repeated observation of the real site during framework debugging,
+# not guessed in advance.
+blocked_ad_url_patterns:
+  - "*doubleclick.net*"
+  - "*googlesyndication.com*"
+  - "*googleadservices.com*"
+  - "*googletagservices.com*"
+  - "*adtrafficquality.google*"
+  - "*google.com/pagead*"
+
 rate_limit_delay_ms: 500
 max_concurrency: 1

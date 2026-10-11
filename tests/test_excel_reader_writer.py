@@ -92,3 +92,33 @@ def test_append_run_summary_creates_sheet(tmp_path):
     assert "Run Summary" in wb.sheetnames
     values = [c.value for row in wb["Run Summary"].iter_rows() for c in row if c.value]
     assert "run-1" in values
+
+
+def test_write_results_uses_recovery_copy_when_workbook_is_locked(tmp_path, monkeypatch):
+    path = tmp_path / "locked.xlsx"
+    _make_workbook(path, [["TC_001", "Home loads", "1. Navigate to https://x.test", "", "Home visible", "Y"]])
+
+    result = RowResult(
+        row_index=2, status="Blocked", actual_result="locked", screenshot_path="",
+        execution_time_ms=1, element_source="None", tokens_used=0, llm_model=None,
+        run_id="run-locked", executed_at="2026-10-11T00:00:00Z",
+    )
+    original_save = openpyxl.workbook.workbook.Workbook.save
+    state = {"raised": False}
+
+    def save_with_lock_once(workbook, filename):
+        if filename == path and not state["raised"]:
+            state["raised"] = True
+            raise PermissionError("simulated Excel lock")
+        return original_save(workbook, filename)
+
+    monkeypatch.setattr(openpyxl.workbook.workbook.Workbook, "save", save_with_lock_once)
+    output = write_results(path, "Test Cases", [result])
+
+    assert output != path
+    assert output.exists()
+    wb = openpyxl.load_workbook(output)
+    ws = wb["Test Cases"]
+    header = [c.value for c in next(ws.iter_rows(min_row=1, max_row=1))]
+    status_col = header.index("Status") + 1
+    assert ws.cell(row=2, column=status_col).value == "Blocked"

@@ -29,13 +29,11 @@ def test_verify_locator_rejects_implausible_description(login_page):
     assert "not plausibly consistent" in result.reason
 
 
-def test_verify_locator_accepts_multiple_matches_using_first(login_page):
-    # 'input' matches both email and password fields -> use the first match (email field).
+def test_verify_locator_rejects_multiple_matches(login_page):
+    # 'input' matches both email and password fields; guessing is forbidden.
     result = verify_locator(login_page, "input", "type", "Email Address field")
-    assert result.ok, result.reason
-    # The first input is the email field, which is plausibly an "Email Address field"
-    assert result.fingerprint is not None
-    assert result.fingerprint.tag == "input"
+    assert not result.ok
+    assert "multiple different visible elements" in result.reason
 
 
 def test_cache_hit_when_primary_strategy_resolves(login_page, tmp_path):

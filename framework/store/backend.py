@@ -202,5 +202,27 @@ class ElementStore:
         self._conn.commit()
         return cur.rowcount
 
+    def purge(self, *, application: str, environment: str | None = None) -> int:
+        """Hard-deletes every record (any status, any version) for this app --
+        not a status flip. invalidate() only ever retires active records, so
+        a long run of experiments leaves hundreds of invalidated/superseded
+        versions behind in the database even after "clearing the cache" --
+        still queryable, still showing up in `store history`, and still
+        meaning resolve.py's had_prior_record (any history at all, not just
+        an active record) treats the element as mid-heal rather than a clean
+        first learn. purge() is a genuine "forget this app and start over":
+        the next run resolves and stores every element completely fresh, with
+        no earlier version lingering anywhere. Returns count removed."""
+        clauses = ["application=?"]
+        params: list[str] = [application]
+        if environment:
+            clauses.append("environment=?")
+            params.append(environment)
+        cur = self._conn.execute(
+            f"DELETE FROM element_records WHERE {' AND '.join(clauses)}", params
+        )
+        self._conn.commit()
+        return cur.rowcount
+
     def export(self) -> list[dict]:
         return [vars(r) for r in self.list_all()]

@@ -1,4 +1,7 @@
-from framework.resolver.ai_finder import build_compact_page_representation
+from framework.resolver.ai_finder import (
+    build_compact_page_representation,
+    selector_for_index,
+)
 
 
 def test_interactive_list_includes_identifying_attributes_not_blank_text(login_page):
@@ -23,3 +26,18 @@ def test_interactive_list_disambiguates_identical_twin_fields_by_section(twin_fo
     assert len(lines) == 2
     sections = {ln.split("section=")[-1] for ln in lines}
     assert sections == {"'Login to your account'", "'New User Signup!'"}
+
+
+def test_selector_for_index_derives_unique_selector(login_page):
+    _, interactive_list = build_compact_page_representation(login_page)
+    assert "2. <input" in interactive_list
+    assert (
+        selector_for_index(login_page, 2)
+        == 'input[data-testid="login-email-input"][id="login-email"][name="email"]'
+        '[type="email"][placeholder="Email Address"]'
+    )
+
+
+def test_selector_for_unknown_index_returns_none(login_page):
+    build_compact_page_representation(login_page)
+    assert selector_for_index(login_page, 999) is None

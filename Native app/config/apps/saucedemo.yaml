@@ -1,0 +1,18 @@
+name: Sauce Demo
+
+environments:
+  production:
+    url: https://www.saucedemo.com
+    allow_payment_attempts: false
+    # Public demo credentials published on the login page itself
+    test_account:
+      username: standard_user
+      password: secret_sauce
+
+login:
+  success_text: "Products"
+  actions:
+    - {action: navigate, value: "home"}
+    - {action: type, target: "username input on the login page", value: "{{username}}"}
+    - {action: type, target: "password input on the login page", value: "{{password}}"}
+    - {action: click, target: "'Login' button on the login page"}

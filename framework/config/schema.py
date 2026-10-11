@@ -27,7 +27,35 @@ class AppConfig(BaseModel):
     app_name: str
     environments: dict[str, EnvironmentConfig]
     login_steps: list[LoginStep] = Field(default_factory=list)
+    # Reuses the same declarative step shape as login_steps -- run when a
+    # login attempt is rejected (e.g. a prior row deleted the account), to
+    # establish a fresh working account before retrying the login once more.
+    registration_steps: list[LoginStep] = Field(default_factory=list)
+    # Some sites (this one included) leave a freshly registered account
+    # already signed in, making a follow-up login attempt redundant -- and
+    # on this site actively wrong, since the signup link it would click is
+    # gone, replaced by "Logout". A short, visible snippet of text that only
+    # appears once truly authenticated (e.g. "Logged in as") lets the
+    # fallback recognize that state and skip the retry instead of assuming
+    # one way or the other for every application.
+    login_success_text: str | None = None
     test_account_env_vars: dict[str, str] = Field(default_factory=dict)
+    # URL substrings (not full hosts -- matched as CDP request-blocking
+    # patterns, e.g. "*doubleclick.net*") for third-party ad/tracker traffic
+    # to block at the network layer so it never loads far enough to render an
+    # overlay in the first place.
+    blocked_ad_url_patterns: list[str] = Field(default_factory=list)
+    # How a resolved, verified element actually gets clicked. "native"
+    # (WebElement.click()) is the long-proven default. "action_chains"
+    # (a real pointer move then click via the W3C Actions API) is more
+    # reliable on some React SPAs where native click silently reaches
+    # nothing -- but its pointer movement also triggers CSS :hover states
+    # along the way, which regresses a site whose UI depends on hover-reveal
+    # overlays (confirmed live: switching this globally broke several
+    # hover-dependent flows on automationexercise.com while fixing saucedemo
+    # .com's). There is no one mechanism safe for every site's UI, so this
+    # is a per-app choice, not a framework default.
+    click_strategy: Literal["native", "action_chains"] = "native"
     rate_limit_delay_ms: int = 0
     max_concurrency: int = 1
 

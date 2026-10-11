@@ -1,0 +1,280 @@
+{
+  "run_id": "539ea5ce4256",
+  "summary": {
+    "Pass": 1,
+    "Skipped": 0,
+    "Blocked": 1,
+    "Fail": 2,
+    "total_tokens": 53840,
+    "input_tokens": 52093,
+    "output_tokens": 1747,
+    "llm_calls": 39,
+    "cost_usd": 0.5733,
+    "cache_hit_rate": 14.8,
+    "lookups": 27,
+    "cache_hits": 4,
+    "fallback_hits": 0,
+    "ai_identified": 22,
+    "healed_count": 0,
+    "blocked_lookups": 1,
+    "duration_s": 202.3,
+    "steps": {
+      "Pass": 16,
+      "Skipped": 0,
+      "Blocked": 1,
+      "Fail": 2
+    }
+  },
+  "cases": [
+    {
+      "test_case_id": "TC_001",
+      "title": "Verify home page loads successfully",
+      "execute": "Y",
+      "status": "Pass",
+      "actual_result": "All 4 steps passed",
+      "screenshot_path": "",
+      "execution_time": 18.0,
+      "element_source": "",
+      "tokens_used": 7549,
+      "executed_at": "2026-10-07T11:15:55"
+    },
+    {
+      "test_case_id": "TC_002",
+      "title": "Register a new user with valid details",
+      "execute": "Y",
+      "status": "Blocked",
+      "actual_result": "Step 7 [Blocked]: Could not identify 'button:submit with text 'Continue'': LLM could not identify the element with enough confidence (0.10 < 0.7); refusing to guess",
+      "screenshot_path": "screenshots\\TC_002_step7_20261007_111759.png",
+      "execution_time": 124.2,
+      "element_source": "AI, Cache",
+      "tokens_used": 33350,
+      "executed_at": "2026-10-07T11:17:59"
+    },
+    {
+      "test_case_id": "TC_003",
+      "title": "Register with an already existing email",
+      "execute": "Y",
+      "status": "Fail",
+      "actual_result": "Step 4 [Fail]: Expected text never shown: 'Email Address already exist!'",
+      "screenshot_path": "screenshots\\TC_003_verify_20261007_111822.png",
+      "execution_time": 22.8,
+      "element_source": "AI, Cache",
+      "tokens_used": 6161,
+      "executed_at": "2026-10-07T11:18:22"
+    },
+    {
+      "test_case_id": "TC_004",
+      "title": "Login with valid credentials",
+      "execute": "Y",
+      "status": "Fail",
+      "actual_result": "Step 4 [Fail]: Expected text never shown: 'Logged in as'; 'Logout'; 'Delete Account'",
+      "screenshot_path": "screenshots\\TC_004_verify_20261007_111847.png",
+      "execution_time": 25.7,
+      "element_source": "AI, Cache",
+      "tokens_used": 6780,
+      "executed_at": "2026-10-07T11:18:48"
+    }
+  ],
+  "steps": [
+    {
+      "test_case_id": "TC_001",
+      "step_number": 1,
+      "step_text": "Launch browser",
+      "status": "Pass",
+      "actual_result": "Navigated to https://www.automationexercise.com",
+      "element_source": "",
+      "tokens_used": 2509,
+      "execution_time": 7.1
+    },
+    {
+      "test_case_id": "TC_001",
+      "step_number": 2,
+      "step_text": "Navigate to https://www.automationexercise.com",
+      "status": "Pass",
+      "actual_result": "Navigated to https://www.automationexercise.com",
+      "element_source": "",
+      "tokens_used": 2522,
+      "execution_time": 5.8
+    },
+    {
+      "test_case_id": "TC_001",
+      "step_number": 3,
+      "step_text": "Observe the page",
+      "status": "Pass",
+      "actual_result": "Observed",
+      "element_source": "",
+      "tokens_used": 2518,
+      "execution_time": 2.9
+    },
+    {
+      "test_case_id": "TC_001",
+      "step_number": 4,
+      "step_text": "Verify expected result",
+      "status": "Pass",
+      "actual_result": "All 7 expected texts were shown",
+      "element_source": "",
+      "tokens_used": 0,
+      "execution_time": 0.0
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 1,
+      "step_text": "Navigate to home page",
+      "status": "Pass",
+      "actual_result": "Navigated to https://www.automationexercise.com",
+      "element_source": "",
+      "tokens_used": 2536,
+      "execution_time": 6.4
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 2,
+      "step_text": "Click 'Signup / Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'link 'Signup / Login''",
+      "element_source": "AI",
+      "tokens_used": 4539,
+      "execution_time": 9.4
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 3,
+      "step_text": "Enter name and new email under 'New User Signup!'",
+      "status": "Pass",
+      "actual_result": "Entered a value in 'input field for name under 'New User Signup!''; Entered a value in 'input field for email under 'New User Signup!''",
+      "element_source": "AI",
+      "tokens_used": 2516,
+      "execution_time": 10.9
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 4,
+      "step_text": "Click 'Signup'",
+      "status": "Pass",
+      "actual_result": "Clicked 'button 'Signup' under 'New User Signup!''",
+      "element_source": "AI",
+      "tokens_used": 1870,
+      "execution_time": 8.4
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 5,
+      "step_text": "Fill Title, Password, DOB, First/Last name, Address, Country, State, City, Zipcode, Mobile",
+      "status": "Pass",
+      "actual_result": "Clicked 'radio button 'Mr.' under 'ADDRESS INFORMATION''; Entered a value in 'password input under 'ADDRESS INFORMATION''; Selected '10' in 'dropdown 'days' under 'ADDRESS INFORMATION''; Selected 'May' in 'dropdown 'months' under 'ADDRESS INFORMATION''; Selected '1995' in 'dropdown 'years' under 'ADDRESS INFORMATION''; Entered a value in 'text input 'First name *' under 'ADDRESS INFORMATION''; Entered a value in 'text input 'Last name *' under 'ADDRESS INFORMATION''; Entered a value in 'text input 'Address * (Street address, P.O. Box, Company name, etc.)' under 'ADDRESS INFORMATION''; Selected 'India' in 'dropdown 'Country *' under 'ADDRESS INFORMATION''; Entered a value in 'text input 'State *' under 'ADDRESS INFORMATION''; Entered a value in 'text input 'City * Zipcode *' under 'ADDRESS INFORMATION''; Entered a value in 'text input 'City * Zipcode *' under 'ADDRESS INFORMATION''; Entered a value in 'text input 'Mobile Number *' under 'ADDRESS INFORMATION''",
+      "element_source": "AI, Cache",
+      "tokens_used": 16050,
+      "execution_time": 72.1
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 6,
+      "step_text": "Click 'Create Account'",
+      "status": "Pass",
+      "actual_result": "Clicked 'button:submit with text 'Create Account' under 'ADDRESS INFORMATION''",
+      "element_source": "AI",
+      "tokens_used": 2928,
+      "execution_time": 9.4
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 7,
+      "step_text": "Click 'Continue'",
+      "status": "Blocked",
+      "actual_result": "Could not identify 'button:submit with text 'Continue'': LLM could not identify the element with enough confidence (0.10 < 0.7); refusing to guess",
+      "element_source": "",
+      "tokens_used": 2911,
+      "execution_time": 6.3
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 1,
+      "step_text": "Click 'Signup / Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'link 'Signup / Login''",
+      "element_source": "Cache",
+      "tokens_used": 2522,
+      "execution_time": 6.1
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 2,
+      "step_text": "Enter name and an already registered email under 'New User Signup!'",
+      "status": "Pass",
+      "actual_result": "Entered a value in 'input:text under 'New User Signup!''; Entered a value in 'input:email under 'New User Signup!''",
+      "element_source": "AI",
+      "tokens_used": 2450,
+      "execution_time": 9.1
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 3,
+      "step_text": "Click 'Signup'",
+      "status": "Pass",
+      "actual_result": "Clicked 'button 'Signup' under 'New User Signup!''",
+      "element_source": "Cache",
+      "tokens_used": 1189,
+      "execution_time": 5.7
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 4,
+      "step_text": "Verify expected result",
+      "status": "Fail",
+      "actual_result": "Expected text never shown: 'Email Address already exist!'",
+      "element_source": "",
+      "tokens_used": 0,
+      "execution_time": 0.0
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 1,
+      "step_text": "Click 'Signup / Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'link 'Signup / Login''",
+      "element_source": "Cache",
+      "tokens_used": 2518,
+      "execution_time": 6.2
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 2,
+      "step_text": "Enter registered email and correct password under 'Login to your account'",
+      "status": "Pass",
+      "actual_result": "Entered a value in 'input field for email under 'Login to your account''; Entered a value in 'input field for password under 'Login to your account''",
+      "element_source": "AI",
+      "tokens_used": 2465,
+      "execution_time": 9.1
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 3,
+      "step_text": "Click 'Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'button 'Login' under 'Login to your account''",
+      "element_source": "AI",
+      "tokens_used": 1797,
+      "execution_time": 7.8
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 4,
+      "step_text": "Verify expected result",
+      "status": "Fail",
+      "actual_result": "Expected text never shown: 'Logged in as'; 'Logout'; 'Delete Account'",
+      "element_source": "",
+      "tokens_used": 0,
+      "execution_time": 0.0
+    }
+  ],
+  "results_file": "C:\\Users\\admin\\AppData\\Local\\Temp\\claude\\c--Users-admin-Desktop-Native-app\\a5843e2e-f4a4-4903-a89c-8deacdb267c8\\scratchpad\\first4.xlsx",
+  "suite": "first4.xlsx",
+  "store": {
+    "total_elements": 22,
+    "pages": 3,
+    "pending_review": 0,
+    "healed_versions": 0,
+    "plans_cached": 16
+  },
+  "pending_heal_review": []
+}

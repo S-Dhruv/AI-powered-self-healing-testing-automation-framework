@@ -1,0 +1,73 @@
+name: Automation Exercise
+
+# Element aliases: alternative names for the same element that the LLM might encounter
+element_aliases:
+  "search button": ["search icon", "search icon button", "search submit"]
+  "add to cart": ["add product to cart", "add to shopping cart"]
+  "view product": ["view details", "see product", "product details link"]
+  "arrow button": ["next arrow", "continue arrow", "subscription arrow", "right arrow"]
+  "blue top": ["Blue Top product", "Blue Top item"]
+  "men tshirt": ["Men Tshirt product", "Men T-shirt item"]
+
+# Ad networks that put full-screen overlays on top of the page and swallow clicks
+block_hosts:
+  - googlesyndication.com
+  - "*.googlesyndication.com"
+  - doubleclick.net
+  - "*.doubleclick.net"
+  - googleadservices.com
+  - "*.googleadservices.com"
+  - googletagservices.com
+  - "*.googletagservices.com"
+  - adservice.google.com
+  - "*.adtrafficquality.google"
+  - fundingchoicesmessages.google.com
+
+environments:
+  production:
+    url: https://www.automationexercise.com
+    # A public practice shop: its checkout is simulated. Only the approved test cards in config.yaml can be typed.
+    allow_payment_attempts: true
+    test_account:
+      email: "qa.tester+{timestamp}@test.com"
+      password: "Test@1234"
+      name: "QA Tester"
+      dob: "10-May-1995"
+      address: "12 MG Road"
+      country: "India"
+      state: "Delhi"
+      city: "New Delhi"
+      zipcode: "110001"
+      mobile: "9876543210"
+
+# How this application logs in. Steps are plain descriptions resolved with the same cache / fallback / AI flow.
+login:
+  success_text: "Logged in as"
+  actions:
+    - {action: navigate, value: "/login"}
+    - {action: type, target: "email address input in the 'Login to your account' form", value: "{{email}}"}
+    - {action: type, target: "password input in the 'Login to your account' form", value: "{{password}}"}
+    - {action: click, target: "'Login' button in the 'Login to your account' form"}
+
+# Used when a login finds no such account (for example after a test deleted it)
+register:
+  actions:
+    - {action: navigate, value: "/login"}
+    - {action: type, target: "name input in the 'New User Signup!' form", value: "{{name}}"}
+    - {action: type, target: "email address input in the 'New User Signup!' form", value: "{{email}}"}
+    - {action: click, target: "'Signup' button in the 'New User Signup!' form"}
+    - {action: click, target: "'Mr' title radio button in the account information form"}
+    - {action: type, target: "password input in the account information form", value: "{{password}}"}
+    - {action: select, target: "date of birth day dropdown", value: "{{dob.day}}"}
+    - {action: select, target: "date of birth month dropdown", value: "{{dob.month}}"}
+    - {action: select, target: "date of birth year dropdown", value: "{{dob.year}}"}
+    - {action: type, target: "first name input in the account information form", value: "{{name.first}}"}
+    - {action: type, target: "last name input in the account information form", value: "{{name.last}}"}
+    - {action: type, target: "address input in the account information form", value: "{{address}}"}
+    - {action: select, target: "country dropdown in the account information form", value: "{{country}}"}
+    - {action: type, target: "state input in the account information form", value: "{{state}}"}
+    - {action: type, target: "city input in the account information form", value: "{{city}}"}
+    - {action: type, target: "zipcode input in the account information form", value: "{{zipcode}}"}
+    - {action: type, target: "mobile number input in the account information form", value: "{{mobile}}"}
+    - {action: click, target: "'Create Account' button"}
+    - {action: click, target: "'Continue' button on the account created page"}

@@ -87,6 +87,55 @@ def test_extract_typed_value_isolates_email_and_password_after_split():
     assert values["correct password"] == "Wrong@999"
 
 
+def test_generated_email_is_deterministic_per_run():
+    from framework.executor import _extract_typed_value
+
+    value, detail = _extract_typed_value(
+        "new email", "Email: ${GENERATED_EMAIL}", run_id="run-123"
+    )
+    assert value.startswith("qa.tester+")
+    assert value.endswith("@test.com")
+    assert detail.startswith("matched Test Data label")
+
+
+def test_type_target_removes_value_instruction():
+    from framework.executor import _normalise_type_target
+
+    assert _normalise_type_target("quantity to 4") == "quantity"
+    assert _normalise_type_target("an invalid keyword") == "keyword"
+
+
+def test_signup_composite_fields_use_control_specific_actions():
+    from framework.executor import _expand_field_target, _extract_typed_value, _field_action
+
+    data = "DOB: 10-May-1995\nZip: 110001\nCountry: India"
+    assert _field_action("DOB day") == "select"
+    assert _field_action("Country") == "select"
+    assert _field_action("Title") == "check"
+    assert _field_action("Zipcode") == "type"
+    assert _expand_field_target("DOB", data) == [
+        ("DOB day", "10"),
+        ("DOB month", "5"),
+        ("DOB year", "1995"),
+    ]
+    assert _extract_typed_value("Zipcode", data)[0] == "110001"
+
+
+def test_workbook_email_placeholders_use_same_run_scoped_email():
+    from framework.executor import _extract_typed_value
+
+    values = [
+        _extract_typed_value("new email", "Email: qa.tester+<timestamp>@test.com", run_id="run-123")[0],
+        _extract_typed_value("registered email", "Email: <registered email>", run_id="run-123")[0],
+        _extract_typed_value(
+            "previously registered email",
+            "Email: <previously registered email>",
+            run_id="run-123",
+        )[0],
+    ]
+    assert values[0] == values[1] == values[2]
+
+
 def test_type_and_click_resolve_and_pass(login_page, tmp_path):
     row = _row(
         "1. Enter email in Email Address field\n2. Click 'Login'",

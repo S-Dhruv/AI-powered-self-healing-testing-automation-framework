@@ -5,7 +5,7 @@ Read `PROJECT_SPECIFICATION.md` before changing code. This file lists the rules 
 
 ### 1. Technology Stack
 - **Language:** Python 3.10+, type-hinted, formatted with `ruff`/`black`.
-- **Browser automation:** Playwright (Python). Pin the version in `pyproject.toml`.
+- **Browser automation:** Selenium (Python). Pin the version in `pyproject.toml`.
 - **Excel:** `openpyxl` only. Never use `pandas.to_excel()` to write results. Preserve fonts, fills, borders, widths, merged cells and data validation. Write a backup/timestamped copy before modifying a workbook.
 - **Storage:** SQLite (preferred) or JSON for a persistent, **versioned** element store, partitioned by application + environment.
 - **Config:** YAML/JSON files validated against a schema (e.g. `pydantic`).
@@ -15,7 +15,7 @@ Read `PROJECT_SPECIFICATION.md` before changing code. This file lists the rules 
 - **Tier order is fixed:** cache → deterministic fallback → AI → store/heal → refuse. Never skip ahead to the LLM.
 - **Zero-token replay:** a repeat run on an unchanged app must use 0 LLM tokens. Any token spend on a repeat run must be logged with a reason.
 - **Acceptance rule for any locator:** exactly one match (`count() == 1`), visible, action-compatible, and fingerprint-consistent.
-- **Compact LLM payloads:** never send raw HTML. Send the ARIA snapshot (`locator("body").aria_snapshot()`); `page.accessibility.snapshot()` is deprecated/removed in current Playwright, so do not use it. Optionally add a filtered interactive-element list. Respect a configurable token budget.
+- **Compact LLM payloads:** never send raw HTML. Send the indexed interactive-element representation generated from the visible rendered DOM, including semantic roles, labels, key attributes, and nearby context. The LLM returns only an index, confidence, and reason. Respect a configurable token budget.
 - **Structured LLM output only:** require JSON `{selector, strategy, confidence, reason}`; discard anything else. Temperature 0.
 - **Verify before use and before storing.** Never interact with, or persist, an unverified locator.
 - **Refuse to guess:** low confidence, ambiguous, or failed verification → step is `Blocked` with a reason. Do not click.

@@ -7,5 +7,7 @@ venv/
 data/*.db
 artifacts/
 *.xlsx.bak
+*.backup-*.xlsx
 .~lock.*#
 .ruff_cache/
+*.egg-info/

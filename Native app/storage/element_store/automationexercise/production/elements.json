@@ -1,0 +1,4262 @@
+{
+  "b573088c208f599e": {
+    "key": "b573088c208f599e",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Signup / Login link in the header",
+    "locators": {
+      "css": "a[href=\"/login\"]",
+      "role_and_name": {
+        "name": "Signup / Login",
+        "role": "link"
+      },
+      "text": "Signup / Login",
+      "xpath": "//a[@href=\"/login\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/login"
+      },
+      "name": "Signup / Login",
+      "position": {
+        "h": 20,
+        "w": 105,
+        "x": 655,
+        "y": 30
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Signup / Login"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:07",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:17:50",
+    "usage_count": 11,
+    "pending": null,
+    "history": []
+  },
+  "63e0cd993ea0b6ba": {
+    "key": "63e0cd993ea0b6ba",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "name input under 'New User Signup!'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"name\"]",
+      "role_and_name": {
+        "name": "Name",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "signup-name"
+      },
+      "xpath": "//input[@data-qa=\"signup-name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "signup-name",
+        "name": "name",
+        "placeholder": "Name",
+        "type": "text"
+      },
+      "name": "Name",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 524,
+        "y": 305
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:16",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:25",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "da5a58e20745b8fe": {
+    "key": "da5a58e20745b8fe",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "email input under 'New User Signup!'",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > form:nth-of-type(1) > input:nth-of-type(3)",
+      "role_and_name": {
+        "name": "Email Address",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "signup-email"
+      },
+      "xpath": "//input[@data-qa=\"signup-email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "signup-email",
+        "name": "email",
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "name": "Email Address",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 524,
+        "y": 355
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:19",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:25",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "cdbb7c09d8c7561e": {
+    "key": "cdbb7c09d8c7561e",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "Signup button under 'New User Signup!'",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Signup",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "signup-button"
+      },
+      "text": "Signup",
+      "xpath": "//button[@data-qa=\"signup-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "signup-button",
+        "type": "submit"
+      },
+      "name": "Signup",
+      "position": {
+        "h": 32,
+        "w": 94,
+        "x": 524,
+        "y": 405
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Signup"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:25",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:26",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "1fda7b223f5fc4be": {
+    "key": "1fda7b223f5fc4be",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "radio button for 'Mr.' under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[value=\"Mr\"]",
+      "id": "id_gender1",
+      "label": "Mr.",
+      "role_and_name": {
+        "name": "Mr.",
+        "role": "radio"
+      },
+      "xpath": "//input[@id=\"id_gender1\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "id_gender1",
+        "name": "title",
+        "type": "radio",
+        "value": "Mr"
+      },
+      "name": "Mr.",
+      "position": {
+        "h": 15,
+        "w": 15,
+        "x": 140,
+        "y": 346
+      },
+      "role": "radio",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:43",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:15:59",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "350f17f2e3ed3859": {
+    "key": "350f17f2e3ed3859",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Password input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"password\"][name=\"password\"]",
+      "id": "password",
+      "label": "Password *",
+      "role_and_name": {
+        "name": "Password *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "password"
+      },
+      "xpath": "//input[@id=\"password\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "password",
+        "id": "password",
+        "name": "password",
+        "type": "password"
+      },
+      "name": "Password *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 562
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:50",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:04",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "aac57a7af0719907": {
+    "key": "aac57a7af0719907",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Day dropdown under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "select[name=\"days\"]",
+      "id": "days",
+      "role_and_name": {
+        "name": "Day 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 2",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "days"
+      },
+      "xpath": "//select[@id=\"days\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "days",
+        "id": "days",
+        "name": "days"
+      },
+      "name": "Day 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 2",
+      "position": {
+        "h": 34,
+        "w": 82,
+        "x": 120,
+        "y": 642
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "Day 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 2"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:53",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:04",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "cf286fa4e2d3bcfc": {
+    "key": "cf286fa4e2d3bcfc",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Month dropdown under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "select[name=\"months\"]",
+      "id": "months",
+      "role_and_name": {
+        "name": "Month January February March April May June July August September October Novemb",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "months"
+      },
+      "xpath": "//select[@id=\"months\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "months",
+        "id": "months",
+        "name": "months"
+      },
+      "name": "Month January February March April May June July August September October Novemb",
+      "position": {
+        "h": 34,
+        "w": 88,
+        "x": 228,
+        "y": 642
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "Month January February March April May June July August September October Novemb"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:56",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:05",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e644d00ddf479a9b": {
+    "key": "e644d00ddf479a9b",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Year dropdown under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "select[name=\"years\"]",
+      "id": "years",
+      "role_and_name": {
+        "name": "Year 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 ",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "years"
+      },
+      "xpath": "//select[@id=\"years\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "years",
+        "id": "years",
+        "name": "years"
+      },
+      "name": "Year 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 ",
+      "position": {
+        "h": 34,
+        "w": 82,
+        "x": 336,
+        "y": 642
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "Year 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 "
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:58:59",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:06",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "d29b76ab850f374d": {
+    "key": "d29b76ab850f374d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "First name input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"first_name\"]",
+      "id": "first_name",
+      "label": "First name *",
+      "role_and_name": {
+        "name": "First name *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "first_name"
+      },
+      "xpath": "//input[@id=\"first_name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "first_name",
+        "id": "first_name",
+        "name": "first_name",
+        "type": "text"
+      },
+      "name": "First name *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 843
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:02",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:07",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "ecb3efcc254a5e68": {
+    "key": "ecb3efcc254a5e68",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Last name input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"last_name\"]",
+      "id": "last_name",
+      "label": "Last name *",
+      "role_and_name": {
+        "name": "Last name *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "last_name"
+      },
+      "xpath": "//input[@id=\"last_name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "last_name",
+        "id": "last_name",
+        "name": "last_name",
+        "type": "text"
+      },
+      "name": "Last name *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 923
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:06",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:08",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "6fd2d0d3c31e1cd9": {
+    "key": "6fd2d0d3c31e1cd9",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Address input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"address1\"]",
+      "id": "address1",
+      "label": "Address * (Street address, P.O. Box, Company name, etc.)",
+      "role_and_name": {
+        "name": "Address * (Street address, P.O. Box, Company name, etc.)",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "address"
+      },
+      "xpath": "//input[@id=\"address1\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "address",
+        "id": "address1",
+        "name": "address1",
+        "type": "text"
+      },
+      "name": "Address * (Street address, P.O. Box, Company name, etc.)",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1113
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:09",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:08",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "a878ea1232560322": {
+    "key": "a878ea1232560322",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Country dropdown under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "select[name=\"country\"]",
+      "id": "country",
+      "label": "Country *",
+      "role_and_name": {
+        "name": "Country *",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "country"
+      },
+      "xpath": "//select[@id=\"country\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "country",
+        "id": "country",
+        "name": "country"
+      },
+      "name": "Country *",
+      "position": {
+        "h": 34,
+        "w": 293,
+        "x": 120,
+        "y": 1273
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "India United States Canada Australia Israel New Zealand Singapore"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:14",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:08",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "1353d7e0f4e396e1": {
+    "key": "1353d7e0f4e396e1",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "State input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"state\"]",
+      "id": "state",
+      "label": "State *",
+      "role_and_name": {
+        "name": "State *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "state"
+      },
+      "xpath": "//input[@id=\"state\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "state",
+        "id": "state",
+        "name": "state",
+        "type": "text"
+      },
+      "name": "State *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1347
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:18",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:09",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "b57bf7a1ae34306f": {
+    "key": "b57bf7a1ae34306f",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "City input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"city\"]",
+      "id": "city",
+      "label": "City * Zipcode *",
+      "role_and_name": {
+        "name": "City * Zipcode *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "city"
+      },
+      "xpath": "//input[@id=\"city\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "city",
+        "id": "city",
+        "name": "city",
+        "type": "text"
+      },
+      "name": "City * Zipcode *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1427
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:20",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:09",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "98e3607c53b67ea0": {
+    "key": "98e3607c53b67ea0",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Zipcode input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"zipcode\"]",
+      "id": "zipcode",
+      "role_and_name": {
+        "name": "zipcode",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "zipcode"
+      },
+      "xpath": "//input[@id=\"zipcode\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "zipcode",
+        "id": "zipcode",
+        "name": "zipcode",
+        "type": "text"
+      },
+      "name": "zipcode",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1507
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:24",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:09",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e257379e54a4cbab": {
+    "key": "e257379e54a4cbab",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Mobile Number input under 'ADDRESS INFORMATION'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"mobile_number\"]",
+      "id": "mobile_number",
+      "label": "Mobile Number *",
+      "role_and_name": {
+        "name": "Mobile Number *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "mobile_number"
+      },
+      "xpath": "//input[@id=\"mobile_number\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "mobile_number",
+        "id": "mobile_number",
+        "name": "mobile_number",
+        "type": "text"
+      },
+      "name": "Mobile Number *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1587
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:27",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:10",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "41b9e2484bf89e3d": {
+    "key": "41b9e2484bf89e3d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "Create Account button in the signup form",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Create Account",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "create-account"
+      },
+      "text": "Create Account",
+      "xpath": "//button[@data-qa=\"create-account\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "create-account",
+        "type": "submit"
+      },
+      "name": "Create Account",
+      "position": {
+        "h": 32,
+        "w": 146,
+        "x": 120,
+        "y": 1650
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Create Account"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:32",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:10",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "75ca00fd95f8321f": {
+    "key": "75ca00fd95f8321f",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Account Created [/account_created]",
+    "target": "Continue button under 'ACCOUNT CREATED!'",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Continue",
+        "role": "link"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "continue-button"
+      },
+      "text": "Continue",
+      "xpath": "//a[@data-qa=\"continue-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "continue-button",
+        "href": "/"
+      },
+      "name": "Continue",
+      "position": {
+        "h": 32,
+        "w": 80,
+        "x": 738,
+        "y": 404
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Continue"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T15:59:45",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:15",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "14d0ec9f82ef9c88": {
+    "key": "14d0ec9f82ef9c88",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "email input under 'Login to your account'",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > input:nth-of-type(2)",
+      "role_and_name": {
+        "name": "Email Address",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-email"
+      },
+      "xpath": "//input[@data-qa=\"login-email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-email",
+        "name": "email",
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "name": "Email Address",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 305
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:00:51",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:34",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "1dad2830089ec94f": {
+    "key": "1dad2830089ec94f",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "password input under 'Login to your account'",
+    "locators": {
+      "css": "input[type=\"password\"][name=\"password\"]",
+      "role_and_name": {
+        "name": "Password",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-password"
+      },
+      "xpath": "//input[@data-qa=\"login-password\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-password",
+        "name": "password",
+        "placeholder": "Password",
+        "type": "password"
+      },
+      "name": "Password",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 355
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:00:53",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:35",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "0651cfad2423933b": {
+    "key": "0651cfad2423933b",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "Login button under 'Login to your account'",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Login",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-button"
+      },
+      "text": "Login",
+      "xpath": "//button[@data-qa=\"login-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-button",
+        "type": "submit"
+      },
+      "name": "Login",
+      "position": {
+        "h": 32,
+        "w": 84,
+        "x": 120,
+        "y": 418
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Login"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:00:58",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:46",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "15c54aff0f0bb748": {
+    "key": "15c54aff0f0bb748",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "email input in the login form",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > input:nth-of-type(2)",
+      "role_and_name": {
+        "name": "Email Address",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-email"
+      },
+      "xpath": "//input[@data-qa=\"login-email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-email",
+        "name": "email",
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "name": "Email Address",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 305
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:01:31",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:45",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "bb7419dbbc1c574e": {
+    "key": "bb7419dbbc1c574e",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "password input in the login form",
+    "locators": {
+      "css": "input[type=\"password\"][name=\"password\"]",
+      "role_and_name": {
+        "name": "Password",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-password"
+      },
+      "xpath": "//input[@data-qa=\"login-password\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-password",
+        "name": "password",
+        "placeholder": "Password",
+        "type": "password"
+      },
+      "name": "Password",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 355
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:01:35",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:46",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "59a5dcf3e41ab3b3": {
+    "key": "59a5dcf3e41ab3b3",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "Login button in the 'Login to your account' form",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Login",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-button"
+      },
+      "text": "Login",
+      "xpath": "//button[@data-qa=\"login-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-button",
+        "type": "submit"
+      },
+      "name": "Login",
+      "position": {
+        "h": 32,
+        "w": 84,
+        "x": 120,
+        "y": 418
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Login"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:01:57",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:16:55",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "92713a985b66eba7": {
+    "key": "92713a985b66eba7",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "email address input in the 'Login to your account' form",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > input:nth-of-type(2)",
+      "role_and_name": {
+        "name": "Email Address",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-email"
+      },
+      "xpath": "//input[@data-qa=\"login-email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-email",
+        "name": "email",
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "name": "Email Address",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 305
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:02:21",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:37",
+    "usage_count": 5,
+    "pending": null,
+    "history": []
+  },
+  "e16b54151b808cc2": {
+    "key": "e16b54151b808cc2",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "password input in the 'Login to your account' form",
+    "locators": {
+      "css": "input[type=\"password\"][name=\"password\"]",
+      "role_and_name": {
+        "name": "Password",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-password"
+      },
+      "xpath": "//input[@data-qa=\"login-password\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-password",
+        "name": "password",
+        "placeholder": "Password",
+        "type": "password"
+      },
+      "name": "Password",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 355
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:02:23",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:38",
+    "usage_count": 5,
+    "pending": null,
+    "history": []
+  },
+  "78e1b41785411363": {
+    "key": "78e1b41785411363",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "'Login' button in the 'Login to your account' form",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Login",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-button"
+      },
+      "text": "Login",
+      "xpath": "//button[@data-qa=\"login-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-button",
+        "type": "submit"
+      },
+      "name": "Login",
+      "position": {
+        "h": 32,
+        "w": 84,
+        "x": 120,
+        "y": 418
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Login"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:02:27",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:38",
+    "usage_count": 5,
+    "pending": null,
+    "history": []
+  },
+  "d8ecade458ee1c0d": {
+    "key": "d8ecade458ee1c0d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Logout link in header",
+    "locators": {
+      "css": "a[href=\"/logout\"]",
+      "role_and_name": {
+        "name": "Logout",
+        "role": "link"
+      },
+      "text": "Logout",
+      "xpath": "//a[@href=\"/logout\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/logout"
+      },
+      "name": "Logout",
+      "position": {
+        "h": 20,
+        "w": 59,
+        "x": 655,
+        "y": 30
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Logout"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:02:47",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:17:13",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "70b9716c4260d7b5": {
+    "key": "70b9716c4260d7b5",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Delete Account link in the header",
+    "locators": {
+      "css": "a[href=\"/delete_account\"]",
+      "role_and_name": {
+        "name": "Delete Account",
+        "role": "link"
+      },
+      "text": "Delete Account",
+      "xpath": "//a[@href=\"/delete_account\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/delete_account"
+      },
+      "name": "Delete Account",
+      "position": {
+        "h": 20,
+        "w": 112,
+        "x": 743,
+        "y": 30
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Delete Account"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:03:29",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:17:32",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "a034e0229f65fd8d": {
+    "key": "a034e0229f65fd8d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Account Created [/delete_account]",
+    "target": "Continue button under 'ACCOUNT DELETED!'",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Continue",
+        "role": "link"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "continue-button"
+      },
+      "text": "Continue",
+      "xpath": "//a[@data-qa=\"continue-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "continue-button",
+        "href": "/"
+      },
+      "name": "Continue",
+      "position": {
+        "h": 32,
+        "w": 80,
+        "x": 738,
+        "y": 404
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Continue"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:03:37",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:17:35",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "b04d210f9fd3c4ac": {
+    "key": "b04d210f9fd3c4ac",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "email input on the login page",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > input:nth-of-type(2)",
+      "role_and_name": {
+        "name": "Email Address",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-email"
+      },
+      "xpath": "//input[@data-qa=\"login-email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-email",
+        "name": "email",
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "name": "Email Address",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 305
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:03:58",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:17:53",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e24f8c5f9488b719": {
+    "key": "e24f8c5f9488b719",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "password input on the login page",
+    "locators": {
+      "css": "input[type=\"password\"][name=\"password\"]",
+      "role_and_name": {
+        "name": "Password",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-password"
+      },
+      "xpath": "//input[@data-qa=\"login-password\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-password",
+        "name": "password",
+        "placeholder": "Password",
+        "type": "password"
+      },
+      "name": "Password",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 355
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:00",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:17:53",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "7ac4a9942c32fbcd": {
+    "key": "7ac4a9942c32fbcd",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "Login button on the login page",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Login",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "login-button"
+      },
+      "text": "Login",
+      "xpath": "//button[@data-qa=\"login-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "login-button",
+        "type": "submit"
+      },
+      "name": "Login",
+      "position": {
+        "h": 32,
+        "w": 84,
+        "x": 120,
+        "y": 418
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Login"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:11",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:17:54",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "985bc4eb307bbabe": {
+    "key": "985bc4eb307bbabe",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Contact us link in the header",
+    "locators": {
+      "css": "a[href=\"/contact_us\"]",
+      "role_and_name": {
+        "name": "Contact us",
+        "role": "link"
+      },
+      "text": "Contact us",
+      "xpath": "//a[@href=\"/contact_us\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/contact_us"
+      },
+      "name": "Contact us",
+      "position": {
+        "h": 20,
+        "w": 88,
+        "x": 842,
+        "y": 60
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Contact us"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:24",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:04",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "87d52715ec034e7d": {
+    "key": "87d52715ec034e7d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Contact Us [/contact_us]",
+    "target": "name input in the contact-us form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"name\"]",
+      "role_and_name": {
+        "name": "Name",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "name"
+      },
+      "xpath": "//input[@data-qa=\"name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "name",
+        "name": "name",
+        "placeholder": "Name",
+        "type": "text"
+      },
+      "name": "Name",
+      "position": {
+        "h": 46,
+        "w": 293,
+        "x": 40,
+        "y": 253
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:36",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:07",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "f455332a23308d49": {
+    "key": "f455332a23308d49",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Contact Us [/contact_us]",
+    "target": "email input in the contact-us form",
+    "locators": {
+      "css": "input[type=\"email\"][name=\"email\"]",
+      "role_and_name": {
+        "name": "Email",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "email"
+      },
+      "xpath": "//input[@data-qa=\"email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "email",
+        "name": "email",
+        "placeholder": "Email",
+        "type": "email"
+      },
+      "name": "Email",
+      "position": {
+        "h": 46,
+        "w": 293,
+        "x": 363,
+        "y": 253
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:39",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:08",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "8863ef960cec8614": {
+    "key": "8863ef960cec8614",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Contact Us [/contact_us]",
+    "target": "subject input in the contact-us form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"subject\"]",
+      "role_and_name": {
+        "name": "Subject",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "subject"
+      },
+      "xpath": "//input[@data-qa=\"subject\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "subject",
+        "name": "subject",
+        "placeholder": "Subject",
+        "type": "text"
+      },
+      "name": "Subject",
+      "position": {
+        "h": 46,
+        "w": 617,
+        "x": 40,
+        "y": 319
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:42",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:08",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "b81daeeb4a356210": {
+    "key": "b81daeeb4a356210",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Contact Us [/contact_us]",
+    "target": "message textarea in the contact-us form",
+    "locators": {
+      "css": "textarea[name=\"message\"]",
+      "id": "message",
+      "role_and_name": {
+        "name": "Your Message Here",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "message"
+      },
+      "xpath": "//textarea[@id=\"message\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "message",
+        "id": "message",
+        "name": "message",
+        "placeholder": "Your Message Here"
+      },
+      "name": "Your Message Here",
+      "position": {
+        "h": 160,
+        "w": 617,
+        "x": 40,
+        "y": 385
+      },
+      "role": "textbox",
+      "tag": "textarea",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:45",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:08",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "f4cfe97fcad9f0b2": {
+    "key": "f4cfe97fcad9f0b2",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Contact Us [/contact_us]",
+    "target": "file input in the contact-us-form",
+    "locators": {
+      "css": "input[type=\"file\"][name=\"upload_file\"]",
+      "role_and_name": {
+        "name": "upload_file",
+        "role": "file"
+      },
+      "xpath": "//input[@name=\"upload_file\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "name": "upload_file",
+        "type": "file"
+      },
+      "name": "upload_file",
+      "position": {
+        "h": 46,
+        "w": 617,
+        "x": 40,
+        "y": 565
+      },
+      "role": "file",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:51",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:09",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "2abff319d74362ce": {
+    "key": "2abff319d74362ce",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Contact Us [/contact_us]",
+    "target": "Submit button in the contact-us-form",
+    "locators": {
+      "css": "input[type=\"submit\"][name=\"submit\"]",
+      "role_and_name": {
+        "name": "Submit",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "submit-button"
+      },
+      "xpath": "//input[@data-qa=\"submit-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "submit-button",
+        "name": "submit",
+        "type": "submit",
+        "value": "Submit"
+      },
+      "name": "Submit",
+      "position": {
+        "h": 46,
+        "w": 96,
+        "x": 40,
+        "y": 631
+      },
+      "role": "button",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:04:57",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:09",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "1e839c5ed9b5a381": {
+    "key": "1e839c5ed9b5a381",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Contact Us [/contact_us]",
+    "target": "Home link in the header",
+    "locators": {
+      "css": "#header > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Home",
+        "role": "link"
+      },
+      "text": "Home",
+      "xpath": "(//a[normalize-space(.)=\"Home\"])[1]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/"
+      },
+      "name": "Home",
+      "position": {
+        "h": 20,
+        "w": 57,
+        "x": 383,
+        "y": 30
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Home"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:05:04",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:12",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "3cb52d8033329686": {
+    "key": "3cb52d8033329686",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Products link in the header",
+    "locators": {
+      "css": "a[href=\"/products\"]",
+      "role_and_name": {
+        "name": "\ue8f8 Products",
+        "role": "link"
+      },
+      "text": "\ue8f8 Products",
+      "xpath": "//a[@href=\"/products\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/products"
+      },
+      "name": "\ue8f8 Products",
+      "position": {
+        "h": 21,
+        "w": 78,
+        "x": 470,
+        "y": 30
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "\ue8f8 Products"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:05:20",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:53",
+    "usage_count": 5,
+    "pending": null,
+    "history": []
+  },
+  "014821bcb4c268a4": {
+    "key": "014821bcb4c268a4",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "View Product link for the first product",
+    "locators": {
+      "css": "a[href=\"/product_details/1\"]",
+      "role_and_name": {
+        "name": "View Product",
+        "role": "link"
+      },
+      "text": "View Product",
+      "xpath": "//a[@href=\"/product_details/1\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/product_details/1"
+      },
+      "name": "View Product",
+      "position": {
+        "h": 39,
+        "w": 198,
+        "x": 302,
+        "y": 897
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "View Product"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:05:34",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:57",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "aa191c5b0f216071": {
+    "key": "aa191c5b0f216071",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "'Products' link in the header",
+    "locators": {
+      "css": "a[href=\"/products\"]",
+      "role_and_name": {
+        "name": "\ue8f8 Products",
+        "role": "link"
+      },
+      "text": "\ue8f8 Products",
+      "xpath": "//a[@href=\"/products\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/products"
+      },
+      "name": "\ue8f8 Products",
+      "position": {
+        "h": 21,
+        "w": 78,
+        "x": 470,
+        "y": 30
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "\ue8f8 Products"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:05:46",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:04",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "7f57a25b552af09e": {
+    "key": "7f57a25b552af09e",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "search box input under 'CATEGORY'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"search\"]",
+      "id": "search_product",
+      "role_and_name": {
+        "name": "Search Product",
+        "role": "textbox"
+      },
+      "xpath": "//input[@id=\"search_product\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "search_product",
+        "name": "search",
+        "placeholder": "Search Product",
+        "type": "text"
+      },
+      "name": "Search Product",
+      "position": {
+        "h": 40,
+        "w": 300,
+        "x": 155,
+        "y": 453
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:05:56",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:51",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "40fba26f86385d6c": {
+    "key": "40fba26f86385d6c",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "search icon button next to the search input under 'CATEGORY'",
+    "locators": {
+      "css": "#advertisement > div:nth-of-type(1) > button:nth-of-type(1)",
+      "id": "submit_search",
+      "xpath": "//button[@id=\"submit_search\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "submit_search",
+        "type": "button"
+      },
+      "name": "",
+      "position": {
+        "h": 40,
+        "w": 76,
+        "x": 444,
+        "y": 454
+      },
+      "role": "button",
+      "tag": "button",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:06:03",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:18:51",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "c8591d4b577e4b89": {
+    "key": "c8591d4b577e4b89",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "search input under 'CATEGORY'",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"search\"]",
+      "id": "search_product",
+      "role_and_name": {
+        "name": "Search Product",
+        "role": "textbox"
+      },
+      "xpath": "//input[@id=\"search_product\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "search_product",
+        "name": "search",
+        "placeholder": "Search Product",
+        "type": "text"
+      },
+      "name": "Search Product",
+      "position": {
+        "h": 40,
+        "w": 300,
+        "x": 155,
+        "y": 453
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:06:19",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:12",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "8f274dfc8734afe3": {
+    "key": "8f274dfc8734afe3",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "search icon button next to the search input",
+    "locators": {
+      "css": "#advertisement > div:nth-of-type(1) > button:nth-of-type(1)",
+      "id": "submit_search",
+      "xpath": "//button[@id=\"submit_search\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "submit_search",
+        "type": "button"
+      },
+      "name": "",
+      "position": {
+        "h": 40,
+        "w": 76,
+        "x": 444,
+        "y": 454
+      },
+      "role": "button",
+      "tag": "button",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:06:27",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:13",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e75c7f644c289c95": {
+    "key": "e75c7f644c289c95",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "first product 'Add to cart' link",
+    "locators": {
+      "css": "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Add to cart",
+        "role": "generic"
+      },
+      "text": "Add to cart",
+      "xpath": "(//a[normalize-space(.)=\"Add to cart\"])[1]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Add to cart",
+      "position": {
+        "h": 33,
+        "w": 115,
+        "x": 343,
+        "y": 838
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": "Add to cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:06:45",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:38",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "cb0dab5a6f13c199": {
+    "key": "cb0dab5a6f13c199",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "Continue Shopping button in the cart modal",
+    "locators": {
+      "css": "#cartModal > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Continue Shopping",
+        "role": "button"
+      },
+      "text": "Continue Shopping",
+      "xpath": "//button[normalize-space(.)=\"Continue Shopping\"]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Continue Shopping",
+      "position": {
+        "h": 40,
+        "w": 245,
+        "x": 380,
+        "y": 864
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Continue Shopping"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:06:56",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:41",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "323f6a4ee85c9750": {
+    "key": "323f6a4ee85c9750",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "Add to cart button under 'Rs. 400 Men Tshirt'",
+    "locators": {
+      "css": "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Add to cart",
+        "role": "generic"
+      },
+      "text": "Add to cart",
+      "xpath": "(//a[normalize-space(.)=\"Add to cart\"])[3]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Add to cart",
+      "position": {
+        "h": 33,
+        "w": 115,
+        "x": 581,
+        "y": 838
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": "Add to cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:07:05",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:43",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e52533010ef07c50": {
+    "key": "e52533010ef07c50",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - All Products [/products]",
+    "target": "View Cart link in the cart modal",
+    "locators": {
+      "css": "#cartModal > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "View Cart",
+        "role": "link"
+      },
+      "text": "View Cart",
+      "xpath": "//a[normalize-space(.)=\"View Cart\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/view_cart"
+      },
+      "name": "View Cart",
+      "position": {
+        "h": 16,
+        "w": 60,
+        "x": 472,
+        "y": 782
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "View Cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:07:14",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:46",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "ce27566f3e7ff619": {
+    "key": "ce27566f3e7ff619",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "View Product link for product Blue Top",
+    "locators": {
+      "css": "a[href=\"/product_details/1\"]",
+      "role_and_name": {
+        "name": "View Product",
+        "role": "link"
+      },
+      "text": "View Product",
+      "xpath": "//a[@href=\"/product_details/1\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/product_details/1"
+      },
+      "name": "View Product",
+      "position": {
+        "h": 39,
+        "w": 198,
+        "x": 302,
+        "y": 990
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "View Product"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:07:33",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:55",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "4be98918c88d8e87": {
+    "key": "4be98918c88d8e87",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Product Details [/product_details/N]",
+    "target": "quantity input under 'Blue Top'",
+    "locators": {
+      "css": "input[type=\"number\"][name=\"quantity\"]",
+      "id": "quantity",
+      "role_and_name": {
+        "name": "quantity",
+        "role": "textbox"
+      },
+      "xpath": "//input[@id=\"quantity\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "quantity",
+        "name": "quantity",
+        "type": "number"
+      },
+      "name": "quantity",
+      "position": {
+        "h": 33,
+        "w": 50,
+        "x": 725,
+        "y": 352
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:07:42",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:58",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "49c2403ec3abd159": {
+    "key": "49c2403ec3abd159",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Product Details [/product_details/N]",
+    "target": "Add to cart button under 'Blue Top'",
+    "locators": {
+      "css": "section:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(2) > div:nth-of-type(1) > span:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Add to cart",
+        "role": "button"
+      },
+      "text": "Add to cart",
+      "xpath": "//button[normalize-space(.)=\"Add to cart\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "type": "button"
+      },
+      "name": "Add to cart",
+      "position": {
+        "h": 33,
+        "w": 114,
+        "x": 799,
+        "y": 350
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Add to cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:07:48",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:19:58",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "8a3bd661b8fa5070": {
+    "key": "8a3bd661b8fa5070",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Product Details [/product_details/N]",
+    "target": "View Cart link in the cart modal",
+    "locators": {
+      "css": "#cartModal > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > p:nth-of-type(2) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "View Cart",
+        "role": "link"
+      },
+      "text": "View Cart",
+      "xpath": "//a[normalize-space(.)=\"View Cart\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/view_cart"
+      },
+      "name": "View Cart",
+      "position": {
+        "h": 16,
+        "w": 60,
+        "x": 472,
+        "y": 294
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "View Cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:07:55",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:01",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "801bc1bea9b926bb": {
+    "key": "801bc1bea9b926bb",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Add to cart button for Blue Top",
+    "locators": {
+      "css": "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Add to cart",
+        "role": "generic"
+      },
+      "text": "Add to cart",
+      "xpath": "(//a[normalize-space(.)=\"Add to cart\"])[1]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Add to cart",
+      "position": {
+        "h": 33,
+        "w": 115,
+        "x": 343,
+        "y": 930
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": "Add to cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:08:19",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:08",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "d7aa1227b9025f4d": {
+    "key": "d7aa1227b9025f4d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Cart link in the header",
+    "locators": {
+      "css": "#header > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > ul:nth-of-type(1) > li:nth-of-type(3) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Cart",
+        "role": "link"
+      },
+      "text": "Cart",
+      "xpath": "//a[normalize-space(.)=\"Cart\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/view_cart"
+      },
+      "name": "Cart",
+      "position": {
+        "h": 20,
+        "w": 46,
+        "x": 578,
+        "y": 30
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:08:29",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:12",
+    "usage_count": 5,
+    "pending": null,
+    "history": []
+  },
+  "a1c01b793c4f02be": {
+    "key": "a1c01b793c4f02be",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Checkout [/view_cart]",
+    "target": "delete icon for the product 'Blue Top' in the cart",
+    "locators": {
+      "css": "#product-1 > td:nth-of-type(6) > a:nth-of-type(1)",
+      "xpath": "/html[1]/body[1]/section[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[6]/a[1]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "",
+      "position": {
+        "h": 27,
+        "w": 27,
+        "x": 930,
+        "y": 411
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:08:40",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:14",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "c9694cd1446ad5d7": {
+    "key": "c9694cd1446ad5d7",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Add to cart button for Men Tshirt",
+    "locators": {
+      "css": "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Add to cart",
+        "role": "generic"
+      },
+      "text": "Add to cart",
+      "xpath": "(//a[normalize-space(.)=\"Add to cart\"])[3]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Add to cart",
+      "position": {
+        "h": 33,
+        "w": 115,
+        "x": 581,
+        "y": 930
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": "Add to cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:08:51",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:21",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "4bf66807050a6d70": {
+    "key": "4bf66807050a6d70",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Checkout [/view_cart]",
+    "target": "Proceed To Checkout button under Checkout",
+    "locators": {
+      "css": "#do_action > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Proceed To Checkout",
+        "role": "generic"
+      },
+      "text": "Proceed To Checkout",
+      "xpath": "//a[normalize-space(.)=\"Proceed To Checkout\"]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Proceed To Checkout",
+      "position": {
+        "h": 30,
+        "w": 164,
+        "x": 955,
+        "y": 225
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": "Proceed To Checkout"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:07",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:28",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "848dd0281fed591d": {
+    "key": "848dd0281fed591d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "name input in the 'New User Signup!' form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"name\"]",
+      "role_and_name": {
+        "name": "Name",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "signup-name"
+      },
+      "xpath": "//input[@data-qa=\"signup-name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "signup-name",
+        "name": "name",
+        "placeholder": "Name",
+        "type": "text"
+      },
+      "name": "Name",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 524,
+        "y": 305
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:28",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:44",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "c1e2cde95928364e": {
+    "key": "c1e2cde95928364e",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "email address input in the 'New User Signup!' form",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > form:nth-of-type(1) > input:nth-of-type(3)",
+      "role_and_name": {
+        "name": "Email Address",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "signup-email"
+      },
+      "xpath": "//input[@data-qa=\"signup-email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "signup-email",
+        "name": "email",
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "name": "Email Address",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 524,
+        "y": 355
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:30",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:44",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "73ca6400c8223a9a": {
+    "key": "73ca6400c8223a9a",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup / Login [/login]",
+    "target": "'Signup' button in the 'New User Signup!' form",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(3) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Signup",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "signup-button"
+      },
+      "text": "Signup",
+      "xpath": "//button[@data-qa=\"signup-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "signup-button",
+        "type": "submit"
+      },
+      "name": "Signup",
+      "position": {
+        "h": 32,
+        "w": 94,
+        "x": 524,
+        "y": 405
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Signup"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:33",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:45",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "d1e121f1e71674c2": {
+    "key": "d1e121f1e71674c2",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "'Mr' title radio button in the account information form",
+    "locators": {
+      "css": "input[value=\"Mr\"]",
+      "id": "id_gender1",
+      "label": "Mr.",
+      "role_and_name": {
+        "name": "Mr.",
+        "role": "radio"
+      },
+      "xpath": "//input[@id=\"id_gender1\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "id_gender1",
+        "name": "title",
+        "type": "radio",
+        "value": "Mr"
+      },
+      "name": "Mr.",
+      "position": {
+        "h": 15,
+        "w": 15,
+        "x": 140,
+        "y": 346
+      },
+      "role": "radio",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:39",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:48",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "2a956dca24e10c06": {
+    "key": "2a956dca24e10c06",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "password input in the account information form",
+    "locators": {
+      "css": "input[type=\"password\"][name=\"password\"]",
+      "id": "password",
+      "label": "Password *",
+      "role_and_name": {
+        "name": "Password *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "password"
+      },
+      "xpath": "//input[@id=\"password\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "password",
+        "id": "password",
+        "name": "password",
+        "type": "password"
+      },
+      "name": "Password *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 562
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:47",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:52",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "bcb2f0ae447c7db6": {
+    "key": "bcb2f0ae447c7db6",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "date of birth day dropdown",
+    "locators": {
+      "css": "select[name=\"days\"]",
+      "id": "days",
+      "role_and_name": {
+        "name": "Day 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 2",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "days"
+      },
+      "xpath": "//select[@id=\"days\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "days",
+        "id": "days",
+        "name": "days"
+      },
+      "name": "Day 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 2",
+      "position": {
+        "h": 34,
+        "w": 82,
+        "x": 120,
+        "y": 642
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "Day 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 2"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:50",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:53",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "ddd9e1479f1ea5d4": {
+    "key": "ddd9e1479f1ea5d4",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "date of birth month dropdown",
+    "locators": {
+      "css": "select[name=\"months\"]",
+      "id": "months",
+      "role_and_name": {
+        "name": "Month January February March April May June July August September October Novemb",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "months"
+      },
+      "xpath": "//select[@id=\"months\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "months",
+        "id": "months",
+        "name": "months"
+      },
+      "name": "Month January February March April May June July August September October Novemb",
+      "position": {
+        "h": 34,
+        "w": 88,
+        "x": 228,
+        "y": 642
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "Month January February March April May June July August September October Novemb"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:54",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:54",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "9f71a937c6749bc3": {
+    "key": "9f71a937c6749bc3",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "date of birth year dropdown",
+    "locators": {
+      "css": "select[name=\"years\"]",
+      "id": "years",
+      "role_and_name": {
+        "name": "Year 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 ",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "years"
+      },
+      "xpath": "//select[@id=\"years\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "years",
+        "id": "years",
+        "name": "years"
+      },
+      "name": "Year 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 ",
+      "position": {
+        "h": 34,
+        "w": 82,
+        "x": 336,
+        "y": 642
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "Year 2021 2020 2019 2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 "
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:09:59",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:54",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "47c17e62d356f3a2": {
+    "key": "47c17e62d356f3a2",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "first name input in the account information form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"first_name\"]",
+      "id": "first_name",
+      "label": "First name *",
+      "role_and_name": {
+        "name": "First name *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "first_name"
+      },
+      "xpath": "//input[@id=\"first_name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "first_name",
+        "id": "first_name",
+        "name": "first_name",
+        "type": "text"
+      },
+      "name": "First name *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 843
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:03",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:56",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "30d0eed640f9e080": {
+    "key": "30d0eed640f9e080",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "last name input in the account information form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"last_name\"]",
+      "id": "last_name",
+      "label": "Last name *",
+      "role_and_name": {
+        "name": "Last name *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "last_name"
+      },
+      "xpath": "//input[@id=\"last_name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "last_name",
+        "id": "last_name",
+        "name": "last_name",
+        "type": "text"
+      },
+      "name": "Last name *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 923
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:05",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:56",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "02f505dd0c9b43fe": {
+    "key": "02f505dd0c9b43fe",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "address input in the account information form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"address1\"]",
+      "id": "address1",
+      "label": "Address * (Street address, P.O. Box, Company name, etc.)",
+      "role_and_name": {
+        "name": "Address * (Street address, P.O. Box, Company name, etc.)",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "address"
+      },
+      "xpath": "//input[@id=\"address1\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "address",
+        "id": "address1",
+        "name": "address1",
+        "type": "text"
+      },
+      "name": "Address * (Street address, P.O. Box, Company name, etc.)",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1113
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:08",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:57",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "8facaf725770a062": {
+    "key": "8facaf725770a062",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "country dropdown in the account information form",
+    "locators": {
+      "css": "select[name=\"country\"]",
+      "id": "country",
+      "label": "Country *",
+      "role_and_name": {
+        "name": "Country *",
+        "role": "combobox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "country"
+      },
+      "xpath": "//select[@id=\"country\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "country",
+        "id": "country",
+        "name": "country"
+      },
+      "name": "Country *",
+      "position": {
+        "h": 34,
+        "w": 293,
+        "x": 120,
+        "y": 1273
+      },
+      "role": "combobox",
+      "tag": "select",
+      "text": "India United States Canada Australia Israel New Zealand Singapore"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:15",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:57",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "48f772409186a679": {
+    "key": "48f772409186a679",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "state input in the account information form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"state\"]",
+      "id": "state",
+      "label": "State *",
+      "role_and_name": {
+        "name": "State *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "state"
+      },
+      "xpath": "//input[@id=\"state\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "state",
+        "id": "state",
+        "name": "state",
+        "type": "text"
+      },
+      "name": "State *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1347
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:18",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:57",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "58a1b248104204c6": {
+    "key": "58a1b248104204c6",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "city input in the account information form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"city\"]",
+      "id": "city",
+      "label": "City * Zipcode *",
+      "role_and_name": {
+        "name": "City * Zipcode *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "city"
+      },
+      "xpath": "//input[@id=\"city\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "city",
+        "id": "city",
+        "name": "city",
+        "type": "text"
+      },
+      "name": "City * Zipcode *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1427
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:21",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:58",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "d849b3d3c8b4bda0": {
+    "key": "d849b3d3c8b4bda0",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "zipcode input in the account information form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"zipcode\"]",
+      "id": "zipcode",
+      "role_and_name": {
+        "name": "zipcode",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "zipcode"
+      },
+      "xpath": "//input[@id=\"zipcode\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "zipcode",
+        "id": "zipcode",
+        "name": "zipcode",
+        "type": "text"
+      },
+      "name": "zipcode",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1507
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:24",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:58",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "c89eb869d5d1919e": {
+    "key": "c89eb869d5d1919e",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "mobile number input in the account information form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"mobile_number\"]",
+      "id": "mobile_number",
+      "label": "Mobile Number *",
+      "role_and_name": {
+        "name": "Mobile Number *",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "mobile_number"
+      },
+      "xpath": "//input[@id=\"mobile_number\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "mobile_number",
+        "id": "mobile_number",
+        "name": "mobile_number",
+        "type": "text"
+      },
+      "name": "Mobile Number *",
+      "position": {
+        "h": 40,
+        "w": 293,
+        "x": 120,
+        "y": 1587
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:27",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:59",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "29521bd0ac9cdbff": {
+    "key": "29521bd0ac9cdbff",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Signup [/signup]",
+    "target": "'Create Account' button",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Create Account",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "create-account"
+      },
+      "text": "Create Account",
+      "xpath": "//button[@data-qa=\"create-account\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "create-account",
+        "type": "submit"
+      },
+      "name": "Create Account",
+      "position": {
+        "h": 32,
+        "w": 146,
+        "x": 120,
+        "y": 1650
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Create Account"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:31",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:20:59",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "56667ab287e4ffa2": {
+    "key": "56667ab287e4ffa2",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Account Created [/account_created]",
+    "target": "'Continue' button on the account created page",
+    "locators": {
+      "css": "#form > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Continue",
+        "role": "link"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "continue-button"
+      },
+      "text": "Continue",
+      "xpath": "//a[@data-qa=\"continue-button\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "continue-button",
+        "href": "/"
+      },
+      "name": "Continue",
+      "position": {
+        "h": 32,
+        "w": 80,
+        "x": 738,
+        "y": 404
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Continue"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:39",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:04",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "148cba9142ee0cc0": {
+    "key": "148cba9142ee0cc0",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "Add to cart button for the first listed product",
+    "locators": {
+      "css": "section:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Add to cart",
+        "role": "generic"
+      },
+      "text": "Add to cart",
+      "xpath": "(//a[normalize-space(.)=\"Add to cart\"])[1]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Add to cart",
+      "position": {
+        "h": 33,
+        "w": 115,
+        "x": 343,
+        "y": 930
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": "Add to cart"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:10:50",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:09",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e7157ac46bd59016": {
+    "key": "e7157ac46bd59016",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Checkout [/view_cart]",
+    "target": "Proceed To Checkout link under Checkout",
+    "locators": {
+      "css": "#do_action > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > a:nth-of-type(1)",
+      "role_and_name": {
+        "name": "Proceed To Checkout",
+        "role": "generic"
+      },
+      "text": "Proceed To Checkout",
+      "xpath": "//a[normalize-space(.)=\"Proceed To Checkout\"]"
+    },
+    "fingerprint": {
+      "attrs": {},
+      "name": "Proceed To Checkout",
+      "position": {
+        "h": 30,
+        "w": 164,
+        "x": 955,
+        "y": 225
+      },
+      "role": "generic",
+      "tag": "a",
+      "text": "Proceed To Checkout"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:04",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:16",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e4a7461110ca9e9d": {
+    "key": "e4a7461110ca9e9d",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Checkout [/checkout]",
+    "target": "comment textarea under Address Details",
+    "locators": {
+      "css": "textarea[name=\"message\"]",
+      "xpath": "//textarea[@name=\"message\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "name": "message"
+      },
+      "name": "",
+      "position": {
+        "h": 134,
+        "w": 940,
+        "x": 40,
+        "y": 959
+      },
+      "role": "textbox",
+      "tag": "textarea",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:14",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:20",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "f7fb8808d14fca10": {
+    "key": "f7fb8808d14fca10",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Checkout [/checkout]",
+    "target": "Place Order link under Address Details",
+    "locators": {
+      "css": "a[href=\"/payment\"]",
+      "role_and_name": {
+        "name": "Place Order",
+        "role": "link"
+      },
+      "text": "Place Order",
+      "xpath": "//a[@href=\"/payment\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/payment"
+      },
+      "name": "Place Order",
+      "position": {
+        "h": 30,
+        "w": 105,
+        "x": 60,
+        "y": 1126
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "Place Order"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:17",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:20",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "2c4bdae68a3a26d9": {
+    "key": "2c4bdae68a3a26d9",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Payment [/payment]",
+    "target": "Name on Card input in the payment form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"name_on_card\"]",
+      "role_and_name": {
+        "name": "name_on_card",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "name-on-card"
+      },
+      "xpath": "//input[@data-qa=\"name-on-card\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "name-on-card",
+        "name": "name_on_card",
+        "type": "text"
+      },
+      "name": "name_on_card",
+      "position": {
+        "h": 34,
+        "w": 263,
+        "x": 378,
+        "y": 336
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:29",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:23",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "5d987f87ccf4e391": {
+    "key": "5d987f87ccf4e391",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Payment [/payment]",
+    "target": "Card Number input in the payment form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"card_number\"]",
+      "role_and_name": {
+        "name": "card_number",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "card-number"
+      },
+      "xpath": "//input[@data-qa=\"card-number\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "card-number",
+        "name": "card_number",
+        "type": "text"
+      },
+      "name": "card_number",
+      "position": {
+        "h": 34,
+        "w": 263,
+        "x": 378,
+        "y": 410
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:32",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:23",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "1a6a1357f0e0d027": {
+    "key": "1a6a1357f0e0d027",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Payment [/payment]",
+    "target": "CVC input in the payment form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"cvc\"]",
+      "role_and_name": {
+        "name": "ex. 311",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "cvc"
+      },
+      "xpath": "//input[@data-qa=\"cvc\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "cvc",
+        "name": "cvc",
+        "placeholder": "ex. 311",
+        "type": "text"
+      },
+      "name": "ex. 311",
+      "position": {
+        "h": 34,
+        "w": 68,
+        "x": 378,
+        "y": 484
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:35",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:24",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "ead1bdbb5b0ef239": {
+    "key": "ead1bdbb5b0ef239",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Payment [/payment]",
+    "target": "Expiration Month input in the payment form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"expiry_month\"]",
+      "role_and_name": {
+        "name": "MM",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "expiry-month"
+      },
+      "xpath": "//input[@data-qa=\"expiry-month\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "expiry-month",
+        "name": "expiry_month",
+        "placeholder": "MM",
+        "type": "text"
+      },
+      "name": "MM",
+      "position": {
+        "h": 34,
+        "w": 68,
+        "x": 476,
+        "y": 484
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:38",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:25",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "592da50e7629bb17": {
+    "key": "592da50e7629bb17",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Payment [/payment]",
+    "target": "Expiration Year input in the payment form",
+    "locators": {
+      "css": "input[type=\"text\"][name=\"expiry_year\"]",
+      "role_and_name": {
+        "name": "YYYY",
+        "role": "textbox"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "expiry-year"
+      },
+      "xpath": "//input[@data-qa=\"expiry-year\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "expiry-year",
+        "name": "expiry_year",
+        "placeholder": "YYYY",
+        "type": "text"
+      },
+      "name": "YYYY",
+      "position": {
+        "h": 34,
+        "w": 68,
+        "x": 573,
+        "y": 484
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:40",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:25",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "bc6387cd63b3a059": {
+    "key": "bc6387cd63b3a059",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Payment [/payment]",
+    "target": "Pay and Confirm Order button in the payment form",
+    "locators": {
+      "css": "#payment-form > div:nth-of-type(5) > div:nth-of-type(1) > button:nth-of-type(1)",
+      "id": "submit",
+      "role_and_name": {
+        "name": "Pay and Confirm Order",
+        "role": "button"
+      },
+      "testid": {
+        "attr": "data-qa",
+        "value": "pay-button"
+      },
+      "text": "Pay and Confirm Order",
+      "xpath": "//button[@id=\"submit\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "data-qa": "pay-button",
+        "id": "submit",
+        "type": "submit"
+      },
+      "name": "Pay and Confirm Order",
+      "position": {
+        "h": 34,
+        "w": 263,
+        "x": 378,
+        "y": 549
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Pay and Confirm Order"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:43",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:25",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "e07372e287579603": {
+    "key": "e07372e287579603",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "'Women' link in Category sidebar",
+    "locators": {
+      "css": "a[href=\"#Women\"]",
+      "role_and_name": {
+        "name": "WOMEN",
+        "role": "link"
+      },
+      "text": "WOMEN",
+      "xpath": "//a[@href=\"#Women\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "#Women"
+      },
+      "name": "WOMEN",
+      "position": {
+        "h": 16,
+        "w": 55,
+        "x": 61,
+        "y": 677
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "WOMEN"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:11:59",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:32",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "555ab974713ded23": {
+    "key": "555ab974713ded23",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "link 'Tops' under 'WOMEN' in the Category sidebar",
+    "locators": {
+      "css": "a[href=\"/category_products/2\"]",
+      "role_and_name": {
+        "name": "TOPS",
+        "role": "link"
+      },
+      "text": "TOPS",
+      "xpath": "//a[@href=\"/category_products/2\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/category_products/2"
+      },
+      "name": "TOPS",
+      "position": {
+        "h": 14,
+        "w": 32,
+        "x": 76,
+        "y": 738
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "TOPS"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:12:08",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:34",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "06b512c475e80b50": {
+    "key": "06b512c475e80b50",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Tops Products [/category_products/N]",
+    "target": "brand 'Polo' link in Brands sidebar",
+    "locators": {
+      "css": "a[href=\"/brand_products/Polo\"]",
+      "role_and_name": {
+        "name": "(6) POLO",
+        "role": "link"
+      },
+      "text": "(6) POLO",
+      "xpath": "//a[@href=\"/brand_products/Polo\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "href": "/brand_products/Polo"
+      },
+      "name": "(6) POLO",
+      "position": {
+        "h": 30,
+        "w": 211,
+        "x": 41,
+        "y": 524
+      },
+      "role": "link",
+      "tag": "a",
+      "text": "(6) POLO"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:12:16",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:37",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "f8e7bb74f9c79a2c": {
+    "key": "f8e7bb74f9c79a2c",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "email input in the Subscription form",
+    "locators": {
+      "css": "input[placeholder=\"Your email address\"]",
+      "id": "susbscribe_email",
+      "role_and_name": {
+        "name": "Your email address",
+        "role": "textbox"
+      },
+      "xpath": "//input[@id=\"susbscribe_email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "susbscribe_email",
+        "placeholder": "Your email address",
+        "type": "email"
+      },
+      "name": "Your email address",
+      "position": {
+        "h": 36,
+        "w": 160,
+        "x": 120,
+        "y": 8240
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:12:34",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:43",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "0b1b32a0081d995f": {
+    "key": "0b1b32a0081d995f",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "arrow button next to the subscription email input in the footer",
+    "locators": {
+      "css": "#footer > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(1) > div:nth-of-type(2) > div:nth-of-type(1) > form:nth-of-type(1) > button:nth-of-type(1)",
+      "id": "subscribe",
+      "xpath": "//button[@id=\"subscribe\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "subscribe",
+        "type": "submit"
+      },
+      "name": "",
+      "position": {
+        "h": 36,
+        "w": 51,
+        "x": 279,
+        "y": 8240
+      },
+      "role": "button",
+      "tag": "button",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:12:41",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:46",
+    "usage_count": 3,
+    "pending": null,
+    "history": []
+  },
+  "f016e9fe92abd52e": {
+    "key": "f016e9fe92abd52e",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise [/]",
+    "target": "email input in the Subscription form in the footer",
+    "locators": {
+      "css": "input[placeholder=\"Your email address\"]",
+      "id": "susbscribe_email",
+      "role_and_name": {
+        "name": "Your email address",
+        "role": "textbox"
+      },
+      "xpath": "//input[@id=\"susbscribe_email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "susbscribe_email",
+        "placeholder": "Your email address",
+        "type": "email"
+      },
+      "name": "Your email address",
+      "position": {
+        "h": 36,
+        "w": 160,
+        "x": 120,
+        "y": 8240
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:12:51",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:21:46",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "2a340c8ccb8cc042": {
+    "key": "2a340c8ccb8cc042",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Product Details [/product_details/N]",
+    "target": "name input in the review form",
+    "locators": {
+      "css": "input[placeholder=\"Your Name\"]",
+      "id": "name",
+      "role_and_name": {
+        "name": "Your Name",
+        "role": "textbox"
+      },
+      "xpath": "//input[@id=\"name\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "name",
+        "placeholder": "Your Name",
+        "type": "text"
+      },
+      "name": "Your Name",
+      "position": {
+        "h": 36,
+        "w": 303,
+        "x": 323,
+        "y": 648
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:13:22",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:22:00",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "76baf30da94849eb": {
+    "key": "76baf30da94849eb",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Product Details [/product_details/N]",
+    "target": "email input in the review form",
+    "locators": {
+      "css": "input[placeholder=\"Email Address\"]",
+      "id": "email",
+      "role_and_name": {
+        "name": "Email Address",
+        "role": "textbox"
+      },
+      "xpath": "//input[@id=\"email\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "email",
+        "placeholder": "Email Address",
+        "type": "email"
+      },
+      "name": "Email Address",
+      "position": {
+        "h": 36,
+        "w": 303,
+        "x": 648,
+        "y": 648
+      },
+      "role": "textbox",
+      "tag": "input",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:13:24",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:22:00",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "5f1ee621b97362f2": {
+    "key": "5f1ee621b97362f2",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Product Details [/product_details/N]",
+    "target": "review textarea in the review form",
+    "locators": {
+      "css": "textarea[name=\"review\"]",
+      "id": "review",
+      "role_and_name": {
+        "name": "Add Review Here!",
+        "role": "textbox"
+      },
+      "xpath": "//textarea[@id=\"review\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "review",
+        "name": "review",
+        "placeholder": "Add Review Here!"
+      },
+      "name": "Add Review Here!",
+      "position": {
+        "h": 195,
+        "w": 627,
+        "x": 323,
+        "y": 699
+      },
+      "role": "textbox",
+      "tag": "textarea",
+      "text": ""
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:13:28",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:22:01",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  },
+  "1de68bcb171691d2": {
+    "key": "1de68bcb171691d2",
+    "app": "automationexercise",
+    "environment": "production",
+    "page": "Automation Exercise - Product Details [/product_details/N]",
+    "target": "Submit button in the review form",
+    "locators": {
+      "css": "#review-form > button:nth-of-type(1)",
+      "id": "button-review",
+      "role_and_name": {
+        "name": "Submit",
+        "role": "button"
+      },
+      "text": "Submit",
+      "xpath": "//button[@id=\"button-review\"]"
+    },
+    "fingerprint": {
+      "attrs": {
+        "id": "button-review",
+        "type": "submit"
+      },
+      "name": "Submit",
+      "position": {
+        "h": 32,
+        "w": 68,
+        "x": 886,
+        "y": 919
+      },
+      "role": "button",
+      "tag": "button",
+      "text": "Submit"
+    },
+    "version": 1,
+    "learned_at": "2026-10-07T16:13:33",
+    "learned_by_run": "481091c6c15a",
+    "model": "gpt-4-turbo",
+    "last_used": "2026-10-07T16:22:01",
+    "usage_count": 1,
+    "pending": null,
+    "history": []
+  }
+}

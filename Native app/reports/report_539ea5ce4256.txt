@@ -1,0 +1,22 @@
+==============================================================================
+FINAL REPORT  run 539ea5ce4256  suite first4.xlsx
+==============================================================================
+Test cases : 4  Pass 1  Fail 2  Blocked 1  Skipped 0
+Steps      : {'Pass': 16, 'Skipped': 0, 'Blocked': 1, 'Fail': 2}
+LLM usage  : 39 calls, 53,840 tokens (52,093 in / 1,747 out), cost $0.5733
+Lookups    : 27 element lookups -> 4 cache, 0 fallback, 22 AI, 0 healed, 1 blocked (cache hit rate 14.8%)
+Store      : {'total_elements': 22, 'pages': 3, 'pending_review': 0, 'healed_versions': 0, 'plans_cached': 16}
+Duration   : 202.3s
+
+Test case Status     Tokens  Time(s)  Sources
+------------------------------------------------------------------------------
+TC_001    Pass         7549     18.0  -
+TC_002    Blocked     33350    124.2  AI, Cache
+TC_003    Fail         6161     22.8  AI, Cache
+TC_004    Fail         6780     25.7  AI, Cache
+
+NEEDS ATTENTION
+  TC_002 [Blocked] Step 7 [Blocked]: Could not identify 'button:submit with text 'Continue'': LLM could not identify the element with enough confidence (0.10 < 0.7); ref
+  TC_003 [Fail] Step 4 [Fail]: Expected text never shown: 'Email Address already exist!'
+  TC_004 [Fail] Step 4 [Fail]: Expected text never shown: 'Logged in as'; 'Logout'; 'Delete Account'
+==============================================================================

@@ -1,0 +1,37 @@
+==============================================================================
+FINAL REPORT  run c9dbd6e430f4  suite AI_Assignment_Test_Cases.xlsx
+==============================================================================
+Test cases : 20  Pass 18  Fail 1  Blocked 1  Skipped 0
+Steps      : {'Pass': 90, 'Skipped': 1, 'Blocked': 1, 'Fail': 1}
+LLM usage  : 143 calls, 505,159 tokens (500,155 in / 5,004 out), cost $5.1517
+Lookups    : 98 element lookups -> 25 cache, 0 fallback, 72 AI, 0 healed, 1 blocked (cache hit rate 25.5%)
+Store      : {'total_elements': 72, 'pages': 10, 'pending_review': 0, 'healed_versions': 0, 'plans_cached': 69}
+Duration   : 722.5s
+
+Test case Status     Tokens  Time(s)  Sources
+------------------------------------------------------------------------------
+TC_001    Pass        19297     14.4  -
+TC_002    Pass        54872    122.0  AI
+TC_003    Pass         9536     16.5  Cache
+TC_004    Pass        12668     29.1  AI, Cache
+TC_005    Pass         6209     20.4  AI, Cache
+TC_006    Pass         3006     12.5  Cache
+TC_007    Pass        22098     37.8  AI, Cache
+TC_008    Pass        22226     46.5  AI, Cache
+TC_009    Pass        26450     52.9  AI
+TC_010    Pass        30479     22.2  AI
+TC_011    Pass        30233     29.8  AI, Cache
+TC_012    Pass        23786     19.9  AI, Cache
+TC_013    Pass        60254     50.9  AI, Cache
+TC_014    Pass        24300     34.8  AI
+TC_015    Fail        27458     33.6  AI
+TC_016    Pass        21379     24.9  AI, Cache
+TC_017    Blocked     22454     45.8  AI, Cache
+TC_018    Pass        30235     35.0  AI
+TC_019    Pass        38074     30.0  AI, Cache
+TC_020    Pass        20145     33.3  AI, Cache
+
+NEEDS ATTENTION
+  TC_015 [Fail] Step 4 [Fail]: Expected text never shown: 'Cart is empty!'
+  TC_017 [Blocked] Step 5 [Blocked]: Could not identify 'comment input in the checkout form': LLM could not identify the element with enough confidence (0.10 < 0.7); ref
+==============================================================================

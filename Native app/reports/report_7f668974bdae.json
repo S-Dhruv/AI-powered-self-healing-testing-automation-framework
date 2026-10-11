@@ -1,0 +1,290 @@
+{
+  "run_id": "7f668974bdae",
+  "summary": {
+    "Pass": 4,
+    "Skipped": 0,
+    "Blocked": 0,
+    "Fail": 0,
+    "total_tokens": 56112,
+    "input_tokens": 54515,
+    "output_tokens": 1597,
+    "llm_calls": 39,
+    "cost_usd": 0.5931,
+    "cache_hit_rate": 14.8,
+    "lookups": 27,
+    "cache_hits": 4,
+    "fallback_hits": 0,
+    "ai_identified": 23,
+    "healed_count": 0,
+    "blocked_lookups": 0,
+    "duration_s": 200.8,
+    "steps": {
+      "Pass": 20,
+      "Skipped": 0,
+      "Blocked": 0,
+      "Fail": 0
+    }
+  },
+  "cases": [
+    {
+      "test_case_id": "TC_001",
+      "title": "Verify home page loads successfully",
+      "execute": "Y",
+      "status": "Pass",
+      "actual_result": "All 4 steps passed",
+      "screenshot_path": "",
+      "execution_time": 21.2,
+      "element_source": "",
+      "tokens_used": 7703,
+      "executed_at": "2026-10-07T11:20:16"
+    },
+    {
+      "test_case_id": "TC_002",
+      "title": "Register a new user with valid details",
+      "execute": "Y",
+      "status": "Pass",
+      "actual_result": "All 8 steps passed",
+      "screenshot_path": "",
+      "execution_time": 119.9,
+      "element_source": "AI",
+      "tokens_used": 34271,
+      "executed_at": "2026-10-07T11:22:16"
+    },
+    {
+      "test_case_id": "TC_003",
+      "title": "Register with an already existing email",
+      "execute": "Y",
+      "status": "Pass",
+      "actual_result": "All 4 steps passed",
+      "screenshot_path": "",
+      "execution_time": 17.1,
+      "element_source": "Cache",
+      "tokens_used": 5043,
+      "executed_at": "2026-10-07T11:22:33"
+    },
+    {
+      "test_case_id": "TC_004",
+      "title": "Login with valid credentials",
+      "execute": "Y",
+      "status": "Pass",
+      "actual_result": "All 4 steps passed",
+      "screenshot_path": "",
+      "execution_time": 27.8,
+      "element_source": "AI",
+      "tokens_used": 9095,
+      "executed_at": "2026-10-07T11:23:01"
+    }
+  ],
+  "steps": [
+    {
+      "test_case_id": "TC_001",
+      "step_number": 1,
+      "step_text": "Launch browser",
+      "status": "Pass",
+      "actual_result": "Navigated to https://www.automationexercise.com",
+      "element_source": "",
+      "tokens_used": 2562,
+      "execution_time": 7.6
+    },
+    {
+      "test_case_id": "TC_001",
+      "step_number": 2,
+      "step_text": "Navigate to https://www.automationexercise.com",
+      "status": "Pass",
+      "actual_result": "Navigated to https://www.automationexercise.com",
+      "element_source": "",
+      "tokens_used": 2572,
+      "execution_time": 6.8
+    },
+    {
+      "test_case_id": "TC_001",
+      "step_number": 3,
+      "step_text": "Observe the page",
+      "status": "Pass",
+      "actual_result": "Observed",
+      "element_source": "",
+      "tokens_used": 2569,
+      "execution_time": 2.2
+    },
+    {
+      "test_case_id": "TC_001",
+      "step_number": 4,
+      "step_text": "Verify expected result",
+      "status": "Pass",
+      "actual_result": "All 7 expected texts were shown",
+      "element_source": "",
+      "tokens_used": 0,
+      "execution_time": 0.0
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 1,
+      "step_text": "Navigate to home page",
+      "status": "Pass",
+      "actual_result": "Navigated to https://www.automationexercise.com",
+      "element_source": "",
+      "tokens_used": 2587,
+      "execution_time": 4.8
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 2,
+      "step_text": "Click 'Signup / Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Signup / Login link'",
+      "element_source": "AI",
+      "tokens_used": 4637,
+      "execution_time": 10.8
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 3,
+      "step_text": "Enter name and new email under 'New User Signup!'",
+      "status": "Pass",
+      "actual_result": "Entered a value in 'name input under 'New User Signup!''; Entered a value in 'email input under 'New User Signup!''",
+      "element_source": "AI",
+      "tokens_used": 2633,
+      "execution_time": 9.4
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 4,
+      "step_text": "Click 'Signup'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Signup button under 'New User Signup!''",
+      "element_source": "AI",
+      "tokens_used": 1967,
+      "execution_time": 8.2
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 5,
+      "step_text": "Fill Title, Password, DOB, First/Last name, Address, Country, State, City, Zipcode, Mobile",
+      "status": "Pass",
+      "actual_result": "Clicked 'Mr. radio button'; Entered a value in 'Password input under 'ADDRESS INFORMATION''; Selected '10' in 'Day dropdown under 'ADDRESS INFORMATION''; Selected 'May' in 'Month dropdown under 'ADDRESS INFORMATION''; Selected '1995' in 'Year dropdown under 'ADDRESS INFORMATION''; Entered a value in 'First name input under 'ADDRESS INFORMATION''; Entered a value in 'Last name input under 'ADDRESS INFORMATION''; Entered a value in 'Address input under 'ADDRESS INFORMATION''; Selected 'India' in 'Country dropdown under 'ADDRESS INFORMATION''; Entered a value in 'State input under 'ADDRESS INFORMATION''; Entered a value in 'City input under 'ADDRESS INFORMATION''; Entered a value in 'Zipcode input under 'ADDRESS INFORMATION''; Entered a value in 'Mobile Number input under 'ADDRESS INFORMATION''",
+      "element_source": "AI",
+      "tokens_used": 17780,
+      "execution_time": 62.5
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 6,
+      "step_text": "Click 'Create Account'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Create Account button'",
+      "element_source": "AI",
+      "tokens_used": 3013,
+      "execution_time": 9.3
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 7,
+      "step_text": "Click 'Continue'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Continue button under 'ACCOUNT CREATED!''",
+      "element_source": "AI",
+      "tokens_used": 1654,
+      "execution_time": 12.2
+    },
+    {
+      "test_case_id": "TC_002",
+      "step_number": 8,
+      "step_text": "Verify expected result",
+      "status": "Pass",
+      "actual_result": "All 2 expected texts were shown",
+      "element_source": "",
+      "tokens_used": 0,
+      "execution_time": 0.0
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 1,
+      "step_text": "Click 'Signup / Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Signup / Login link'",
+      "element_source": "Cache",
+      "tokens_used": 2567,
+      "execution_time": 4.9
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 2,
+      "step_text": "Enter name and an already registered email under 'New User Signup!'",
+      "status": "Pass",
+      "actual_result": "Entered a value in 'name input under 'New User Signup!''; Entered a value in 'email input under 'New User Signup!''",
+      "element_source": "Cache",
+      "tokens_used": 1238,
+      "execution_time": 5.2
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 3,
+      "step_text": "Click 'Signup'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Signup button under 'New User Signup!''",
+      "element_source": "Cache",
+      "tokens_used": 1238,
+      "execution_time": 4.7
+    },
+    {
+      "test_case_id": "TC_003",
+      "step_number": 4,
+      "step_text": "Verify expected result",
+      "status": "Pass",
+      "actual_result": "All 1 expected texts were shown",
+      "element_source": "",
+      "tokens_used": 0,
+      "execution_time": 0.0
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 1,
+      "step_text": "Click 'Signup / Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Signup / Login link in the header'",
+      "element_source": "AI",
+      "tokens_used": 4616,
+      "execution_time": 8.3
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 2,
+      "step_text": "Enter registered email and correct password under 'Login to your account'",
+      "status": "Pass",
+      "actual_result": "Entered a value in 'email input under 'Login to your account''; Entered a value in 'password input under 'Login to your account''",
+      "element_source": "AI",
+      "tokens_used": 2586,
+      "execution_time": 8.3
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 3,
+      "step_text": "Click 'Login'",
+      "status": "Pass",
+      "actual_result": "Clicked 'Login button under 'Login to your account''",
+      "element_source": "AI",
+      "tokens_used": 1893,
+      "execution_time": 8.7
+    },
+    {
+      "test_case_id": "TC_004",
+      "step_number": 4,
+      "step_text": "Verify expected result",
+      "status": "Pass",
+      "actual_result": "All 3 expected texts were shown",
+      "element_source": "",
+      "tokens_used": 0,
+      "execution_time": 0.0
+    }
+  ],
+  "results_file": "C:\\Users\\admin\\AppData\\Local\\Temp\\claude\\c--Users-admin-Desktop-Native-app\\a5843e2e-f4a4-4903-a89c-8deacdb267c8\\scratchpad\\first4.xlsx",
+  "suite": "first4.xlsx",
+  "store": {
+    "total_elements": 23,
+    "pages": 4,
+    "pending_review": 0,
+    "healed_versions": 0,
+    "plans_cached": 16
+  },
+  "pending_heal_review": []
+}

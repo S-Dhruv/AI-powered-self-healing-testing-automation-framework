@@ -1,0 +1,52 @@
+# Framework settings. Application details (URL, login, accounts) live in config/apps/<name>.yaml
+
+framework:
+  version: "1.0.0"
+
+llm:
+  provider: openai
+  model: gpt-4-turbo
+  max_tokens: 800
+  temperature: 0
+  timeout_seconds: 60
+  min_confidence: 0.7            # below this the framework refuses to guess and marks the step Blocked
+  pricing:                       # USD per 1,000 tokens, used only to turn API token counts into a cost
+    input_per_1k: 0.01
+    output_per_1k: 0.03
+
+usage_logging:
+  user_id: null                  # default: USER_ID env var, else the OS user name
+  log_dir: logs                  # llm_usage.jsonl (one line per LLM call) and run_history.json
+
+execution:
+  headless: false                # the browser window is visible unless this is true or --headless is used
+  window_size: "1920x1080"
+  page_load_timeout_seconds: 30
+  settle_seconds: 0.8            # wait after each page-changing action
+  action_delay_seconds: 0.3      # extra pause after each action (raise it, or use --slow, to watch)
+  screenshot_dir: screenshots
+
+element_store:
+  location: ./storage/element_store    # <location>/<application>/<environment>/elements.json
+
+element_identification:
+  fingerprint_match_threshold: 0.8     # a stored locator must hit an element at least this similar to the stored fingerprint
+  fingerprint_scan_threshold: 0.85     # zero-token fingerprint search when every stored locator fails
+  lookup_wait_seconds: 3               # wait for a stored element to appear before declaring it missing
+  max_page_elements: 300               # cap on elements sent to the LLM
+
+self_healing:
+  auto_approve: false            # false: a healed reference waits for `healtest store approve` before replacing the old one
+
+security:
+  allowed_hosts:                 # the framework refuses to open any other host
+    - www.automationexercise.com
+    - automationexercise.com
+    - www.saucedemo.com
+  rate_limit:
+    requests_per_second: 1       # page navigations
+    llm_calls_per_second: 2
+  payment:
+    test_cards:                  # the only card numbers that may ever be typed into a payment form
+      - "4111111111111111"
+      - "4242424242424242"

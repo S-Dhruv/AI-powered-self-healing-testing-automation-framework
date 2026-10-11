@@ -1,0 +1,44 @@
+==============================================================================
+FINAL REPORT  run 144cd0b5caf6  suite AI_Assignment_Test_Cases.xlsx
+==============================================================================
+Test cases : 20  Pass 11  Fail 0  Blocked 9  Skipped 0
+Steps      : {'Pass': 60, 'Skipped': 16, 'Blocked': 9, 'Fail': 0}
+LLM usage  : 117 calls, 190,820 tokens (186,739 in / 4,081 out), cost $1.9898
+Lookups    : 76 element lookups -> 13 cache, 0 fallback, 55 AI, 0 healed, 8 blocked (cache hit rate 17.1%)
+Store      : {'total_elements': 55, 'pages': 8, 'pending_review': 0, 'healed_versions': 0, 'plans_cached': 54}
+Duration   : 611.9s
+
+Test case Status     Tokens  Time(s)  Sources
+------------------------------------------------------------------------------
+TC_001    Pass         7707     20.6  -
+TC_002    Pass        34267    113.3  AI
+TC_003    Pass         7088     20.1  AI, Cache
+TC_004    Pass         7058     25.6  AI, Cache
+TC_005    Pass         4445     21.1  AI, Cache
+TC_006    Pass         2395     13.6  Cache
+TC_007    Blocked      4441     17.5  Cache
+TC_008    Blocked      1196     11.7  Cache
+TC_009    Pass        14386     56.8  AI
+TC_010    Pass        11438     26.2  AI
+TC_011    Pass        11352     23.2  AI, Cache
+TC_012    Blocked      8777     17.3  AI, Cache
+TC_013    Blocked      8906     16.5  AI, Cache
+TC_014    Blocked      4607      8.5  -
+TC_015    Blocked      4616      7.0  -
+TC_016    Blocked      4650      8.4  -
+TC_017    Blocked     12716     61.4  AI, Cache
+TC_018    Pass        13123     36.1  AI
+TC_019    Blocked     11886     26.8  AI
+TC_020    Pass        15766     63.9  AI
+
+NEEDS ATTENTION
+  TC_007 [Blocked] Step 2 [Blocked]: Could not identify 'Logout link in header': LLM could not identify the element with enough confidence (0.10 < 0.7); refusing to gues
+  TC_008 [Blocked] Step 2 [Blocked]: Error: [Errno 2] No such file or directory: 'storage\\element_store\\automationexercise\\production\\plans.tmp'
+  TC_012 [Blocked] Step 3 [Blocked]: Could not identify 'search icon button': LLM could not identify the element with enough confidence (0.10 < 0.7); refusing to guess
+  TC_013 [Blocked] Step 2 [Blocked]: Could not identify 'Add to cart button for the first product': LLM could not identify the element with enough confidence (0.10 < 0.7
+  TC_014 [Blocked] Step 1 [Blocked]: Could not identify 'View Product link for product Blue Top': LLM could not identify the element with enough confidence (0.10 < 0.7);
+  TC_015 [Blocked] Step 1 [Blocked]: Could not identify 'View Product link for Blue Top': LLM could not identify the element with enough confidence (0.10 < 0.7); refusin
+  TC_016 [Blocked] Step 1 [Blocked]: Could not identify 'View Product link for Men Tshirt': LLM could not identify the element with enough confidence (0.10 < 0.7); refus
+  TC_017 [Blocked] Step 3 [Blocked]: Could not identify 'Proceed To Checkout button': LLM could not identify the element with enough confidence (0.10 < 0.7); refusing to
+  TC_019 [Blocked] Step 3 [Blocked]: Could not identify 'arrow button': LLM could not identify the element with enough confidence (0.10 < 0.7); refusing to guess
+==============================================================================

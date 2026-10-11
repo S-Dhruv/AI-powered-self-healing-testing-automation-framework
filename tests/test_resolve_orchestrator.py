@@ -68,20 +68,21 @@ def test_low_confidence_blocks_never_clicks(login_page, tmp_path):
     assert store.get_active("demo", "test", "Login", "Email Address field") is None
 
 
-def test_ambiguous_llm_selector_uses_first_match(login_page, tmp_path):
-    # LLM returns "input" which matches 2 elements (email and password).
-    # Verifier now picks the first match (email field) and continues verification.
+def test_ambiguous_llm_selector_is_blocked(login_page, tmp_path):
+    # LLM returns "input" which matches 2 elements; the resolver retries and
+    # then blocks rather than guessing.
     store = ElementStore(tmp_path / "store.db")
     queue = ReviewQueue(store)
     llm = FakeLlmClient([
+        ScriptedResponse(selector="input", strategy="css", confidence=0.95),
         ScriptedResponse(selector="input", strategy="css", confidence=0.95),
     ])
 
     outcome = _resolve(store, queue, llm, login_page)
 
-    assert outcome.status == "Resolved"
-    assert llm.calls == 1
-    assert store.get_active("demo", "test", "Login", "Email Address field") is not None
+    assert outcome.status == "Blocked"
+    assert llm.calls == 2
+    assert store.get_active("demo", "test", "Login", "Email Address field") is None
 
 
 def test_retry_succeeds_after_first_attempt_fails_verification(login_page, tmp_path):

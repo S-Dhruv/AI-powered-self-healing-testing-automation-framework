@@ -4,7 +4,7 @@ fingerprint similarity search. Same acceptance rule as cache. Zero tokens."""
 
 from __future__ import annotations
 
-from playwright.sync_api import Page
+from framework.browser import SeleniumPage as Page
 
 from framework.resolver.cache import TierResult, _selector_for_strategy
 from framework.resolver.verifier import ActionKind, verify_locator
@@ -39,8 +39,9 @@ def try_fallback(
         )
         if verification.ok:
             store.record_hit(record.id)
+            used_selector = verification.resolved_selector or selector
             return TierResult(
-                "Fallback", True, selector, strategy.kind, record, verification,
+                "Fallback", True, used_selector, strategy.kind, record, verification,
                 f"fallback strategy '{strategy.kind}' succeeded",
             )
 

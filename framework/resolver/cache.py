@@ -5,7 +5,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from playwright.sync_api import Page
+from framework.browser import SeleniumPage as Page
 
 from framework.resolver.verifier import ActionKind, VerificationResult, verify_locator
 from framework.store.backend import ElementStore
@@ -58,7 +58,8 @@ def try_cache(
     )
     if verification.ok:
         store.record_hit(record.id)
-        return TierResult("Cache", True, selector, primary.kind, record, verification, "cache hit")
+        used_selector = verification.resolved_selector or selector
+        return TierResult("Cache", True, used_selector, primary.kind, record, verification, "cache hit")
 
     store.record_miss(record.id)
     return TierResult(

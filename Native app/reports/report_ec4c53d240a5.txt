@@ -1,0 +1,33 @@
+==============================================================================
+FINAL REPORT  run ec4c53d240a5  suite AI_Assignment_Test_Cases.xlsx
+==============================================================================
+Test cases : 20  Pass 20  Fail 0  Blocked 0  Skipped 0
+Steps      : {'Pass': 94, 'Skipped': 0, 'Blocked': 0, 'Fail': 0}
+LLM usage  : 171 calls, 573,969 tokens (568,000 in / 5,969 out), cost $5.8591
+Lookups    : 123 element lookups -> 22 cache, 0 fallback, 101 AI, 0 healed, 0 blocked (cache hit rate 17.9%)
+Store      : {'total_elements': 101, 'pages': 12, 'pending_review': 0, 'healed_versions': 0, 'plans_cached': 70}
+Duration   : 860.5s
+
+Test case Status     Tokens  Time(s)  Sources
+------------------------------------------------------------------------------
+TC_001    Pass        19807     19.2  -
+TC_002    Pass        57283    113.3  AI
+TC_003    Pass        15925     18.6  AI, Cache
+TC_004    Pass        13032     28.7  AI, Cache
+TC_005    Pass         6402     19.0  AI, Cache
+TC_006    Pass         3162     14.4  Cache
+TC_007    Pass        22585     35.5  AI
+TC_008    Pass        24974     58.3  AI, Cache
+TC_009    Pass        27414     51.8  AI
+TC_010    Pass        31000     27.7  AI
+TC_011    Pass        36763     31.6  AI
+TC_012    Pass        24057     26.3  AI, Cache
+TC_013    Pass        55329     49.0  AI, Cache
+TC_014    Pass        24869     38.2  AI
+TC_015    Pass        28309     45.7  AI
+TC_016    Pass        22160     24.7  AI, Cache
+TC_017    Pass        64258    146.5  AI, Cache
+TC_018    Pass        31004     31.7  AI
+TC_019    Pass        44972     32.4  AI, Cache
+TC_020    Pass        20664     39.0  AI, Cache
+==============================================================================

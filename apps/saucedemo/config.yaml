@@ -1,0 +1,60 @@
+# App-specific configuration for saucedemo.com.
+# No code in framework/ may reference this app by name — only this file does.
+#
+# This is the framework's second application, added specifically to prove
+# the core runs an app it has never seen unchanged (PROJECT_SPECIFICATION
+# §4's "the core must run a second app unchanged"). Different markup, a
+# React SPA instead of server-rendered forms, a fixed set of demo accounts
+# instead of self-registration -- zero framework/ changes required to
+# support it, only this file and a matching test-case workbook.
+
+app_name: saucedemo
+
+environments:
+  test:
+    name: test
+    base_url: https://www.saucedemo.com/
+    allowed_hosts:
+      - www.saucedemo.com
+      - saucedemo.com
+
+# Declarative login routine (same generic verbs login_steps always uses).
+# "${TEST_ACCOUNT_EMAIL}"/"${TEST_ACCOUNT_PASSWORD}" are the framework's
+# fixed placeholder names regardless of what the field is actually called on
+# this site (a username, not an email) -- plain string substitution, no
+# semantic assumption baked in.
+login_steps:
+  - action: navigate
+    target: "Home page"
+  - action: type
+    target: "Username field"
+    data: "${TEST_ACCOUNT_EMAIL}"
+  - action: type
+    target: "Password field"
+    data: "${TEST_ACCOUNT_PASSWORD}"
+  - action: click
+    target: "Login button"
+
+# No registration_steps: this site has no signup flow, only a fixed set of
+# publicly documented demo accounts (standard_user, locked_out_user, ...).
+# A login rejection here (none expected, barring a site-side change) is
+# correctly Blocked rather than papered over by inventing an account.
+test_account_env_vars:
+  email: SAUCEDEMO_USERNAME
+  password: SAUCEDEMO_PASSWORD
+
+# Native WebDriver click intermittently reaches nothing on this site's React
+# controls (confirmed live, non-deterministically, across the login/cart/
+# menu/checkout buttons) -- a real pointer move-then-click is reliably not
+# silently swallowed the same way. See AppConfig.click_strategy's own
+# docstring for why this is opt-in per app rather than a framework default.
+click_strategy: action_chains
+
+# Higher than automationexercise's: several rows in this suite each trigger
+# their own fresh login attempt, and saucedemo.com's login soft-throttles
+# rapid repeated attempts within a short window (confirmed live -- every
+# auto-login row failed identically, with the same already-proven selectors,
+# only when run back-to-back; an isolated single attempt moments later
+# succeeded normally).
+rate_limit_delay_ms: 3000
+max_concurrency: 1

@@ -33,6 +33,7 @@ def test_parses_enter_field_under_quoted_section_prefers_field_over_section_name
     steps = parse_test_steps("3. Enter name and new email under 'New User Signup!'")
     assert steps[0].action == "type"
     assert steps[0].target == "name and new email"
+    assert steps[0].context == "New User Signup!"
 
 
 def test_parses_click_quoted_target_with_no_connector_still_uses_quote():
@@ -44,13 +45,32 @@ def test_parses_click_quoted_target_with_no_connector_still_uses_quote():
 def test_parses_enter_field_with_connector_when_no_quotes():
     steps = parse_test_steps("1. Enter email in search box")
     assert steps[0].action == "type"
-    assert steps[0].target == "email"
+    assert steps[0].target == "search box"
 
 
-def test_hover_and_click_resolves_the_quoted_click_target():
+def test_parses_search_field_after_value_connector():
+    steps = parse_test_steps("2. Enter keyword in search box")
+    assert steps[0].target == "search box"
+
+
+def test_hover_and_click_splits_into_a_real_hover_then_a_click():
+    # "Hover X and click 'Y'" is two actions, not one: a real pointer move
+    # onto X (revealing any hover-only overlay underneath it) followed by a
+    # separate click on Y. Confirmed live (automationexercise.com): some
+    # targets -- a product's "View Product" link, unlike its "Add to cart"
+    # button -- have no always-visible copy at all, so folding "hover" into
+    # a no-op prefix of Y's own resolution (the previous behavior) left them
+    # structurally unreachable no matter how the step was worded.
     steps = parse_test_steps("2. Hover first product and click 'Add to cart'")
-    assert steps[0].action == "click"
-    assert steps[0].target == "Add to cart"
+    assert steps[0].action == "hover"
+    assert steps[0].target == "first product"
+    assert steps[1].action == "click"
+    assert steps[1].target == "Add to cart"
+
+
+def test_bare_hover_is_its_own_action_not_a_click_synonym():
+    steps = parse_test_steps("2. Hover over the menu icon")
+    assert steps[0].action == "hover"
 
 
 def test_change_maps_to_type():
@@ -73,8 +93,19 @@ def test_add_maps_to_click():
     assert steps[0].action == "click"
 
 
-def test_login_precondition_is_unparseable_with_explanatory_reason():
+def test_bare_login_is_auto_login_not_unparseable():
+    # A bare "Login" precondition names a real, performable action (run the
+    # app's declarative login_steps with a cached/configured test account) --
+    # not just something to wave through as unresolvable.
     steps = parse_test_steps("1. Login with valid credentials")
+    assert steps[0].action == "auto_login"
+
+
+def test_bare_logout_precondition_is_unparseable_with_explanatory_reason():
+    # "logout" has no analogous auto-action (there's nothing to log out of
+    # without already being logged in via a preceding auto_login row/step),
+    # so it keeps the original explanatory-Blocked behavior.
+    steps = parse_test_steps("1. Logout")
     assert steps[0].action == "unparseable"
     assert "cross-test-case session precondition" in steps[0].target
 
@@ -89,8 +120,22 @@ def test_login_with_quoted_target_does_not_get_precondition_message():
 
 
 def test_unrecognized_verb_is_unparseable_not_guessed():
-    steps = parse_test_steps("4. Try logging in again with same credentials")
+    steps = parse_test_steps("4. Frobnicate the widget")
     assert steps[0].action == "unparseable"
+
+
+def test_try_logging_in_again_is_attempt_login_not_a_precondition():
+    # Distinct from a bare "Login" precondition: the point of this step IS
+    # the (expected-to-fail) login attempt, judged by the row's own Expected
+    # Result text, not by whether the login itself succeeded.
+    steps = parse_test_steps("4. Try logging in again with same credentials")
+    assert steps[0].action == "attempt_login"
+
+
+def test_repeat_with_value_extracts_literal_and_action():
+    steps = parse_test_steps("4. Repeat with invalid email 'abc'")
+    assert steps[0].action == "repeat_with_value"
+    assert steps[0].literal_value == "abc"
 
 
 def test_blank_lines_ignored():

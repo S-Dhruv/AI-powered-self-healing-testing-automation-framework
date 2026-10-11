@@ -1,0 +1,41 @@
+==============================================================================
+FINAL REPORT  run 335b66d418ad  suite AI_Assignment_Test_Cases.xlsx
+==============================================================================
+Test cases : 20  Pass 14  Fail 0  Blocked 6  Skipped 0
+Steps      : {'Pass': 67, 'Skipped': 15, 'Blocked': 6, 'Fail': 0}
+LLM usage  : 125 calls, 216,369 tokens (212,136 in / 4,233 out), cost $2.2483
+Lookups    : 84 element lookups -> 20 cache, 0 fallback, 58 AI, 0 healed, 6 blocked (cache hit rate 23.8%)
+Store      : {'total_elements': 58, 'pages': 9, 'pending_review': 0, 'healed_versions': 0, 'plans_cached': 55}
+Duration   : 760.8s
+
+Test case Status     Tokens  Time(s)  Sources
+------------------------------------------------------------------------------
+TC_001    Pass         7797     17.0  -
+TC_002    Pass        36836    165.9  AI
+TC_003    Pass         7255     19.3  AI, Cache
+TC_004    Pass         7477     28.9  AI, Cache
+TC_005    Pass         4836     20.9  AI, Cache
+TC_006    Pass         2395     17.9  Cache
+TC_007    Pass         9888     34.6  AI
+TC_008    Pass        11696     76.9  AI, Cache
+TC_009    Pass        15431     86.9  AI
+TC_010    Pass        11761     31.2  AI
+TC_011    Pass        11606     28.5  AI, Cache
+TC_012    Pass         6956     18.4  AI, Cache
+TC_013    Blocked     11353     27.2  AI, Cache
+TC_014    Blocked      7080     14.3  -
+TC_015    Blocked      7076     28.3  -
+TC_016    Blocked      7128     17.7  -
+TC_017    Blocked      8836     33.6  AI, Cache
+TC_018    Pass        13644     30.5  AI
+TC_019    Blocked     14966     19.1  AI
+TC_020    Pass        12352     32.7  AI, Cache
+
+NEEDS ATTENTION
+  TC_013 [Blocked] Step 2 [Blocked]: Could not identify 'Add to cart button for the first product': LLM could not identify the element with enough confidence (0.10 < 0.7
+  TC_014 [Blocked] Step 1 [Blocked]: Could not identify 'View Product link for product Blue Top': LLM could not identify the element with enough confidence (0.10 < 0.7);
+  TC_015 [Blocked] Step 1 [Blocked]: Could not identify 'View Product link for Blue Top': LLM could not identify the element with enough confidence (0.10 < 0.7); refusin
+  TC_016 [Blocked] Step 1 [Blocked]: Could not identify 'View Product link for Men Tshirt': LLM could not identify the element with enough confidence (0.10 < 0.7); refus
+  TC_017 [Blocked] Step 2 [Blocked]: Could not identify 'Add to Cart button for the first product': LLM could not identify the element with enough confidence (0.10 < 0.7
+  TC_019 [Blocked] Step 3 [Blocked]: Could not identify 'arrow button for slider carousel': LLM could not identify the element with enough confidence (0.10 < 0.7); refus
+==============================================================================

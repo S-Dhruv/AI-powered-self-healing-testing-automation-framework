@@ -1,0 +1,1087 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>shtaf — Self-Healing Test Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a14; --bg2:#0c1222; --panel:#0f1830cc; --panel-solid:#0f1830;
+  --border:#1e2a4a; --border-soft:#16203a;
+  --text:#e8edf9; --text-dim:#8b97b8; --text-faint:#596485;
+  --accent:#22d3ee; --accent2:#818cf8; --accent-glow:rgba(34,211,238,.35);
+  --pass:#22c55e; --pass-glow:rgba(34,197,94,.45);
+  --fail:#f43f5e; --fail-glow:rgba(244,63,94,.45);
+  --blocked:#f59e0b; --blocked-glow:rgba(245,158,11,.45);
+  --pending:#1a2443; --pending-border:#283868;
+  --radius:16px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.14), transparent 60%),
+    radial-gradient(1000px 500px at 90% 0%, rgba(34,211,238,.10), transparent 55%),
+    var(--bg);
+  color:var(--text);
+  font-family:'Inter',system-ui,sans-serif;
+  min-height:100vh;
+  padding-bottom:80px;
+}
+.wrap{max-width:1400px;margin:0 auto;padding:0 28px}
+
+/* ---------- Header ---------- */
+header{padding:48px 28px 28px;text-align:center;position:relative}
+header .badge{
+  display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;
+  background:var(--panel);border:1px solid var(--border);font-size:12.5px;color:var(--text-dim);
+  letter-spacing:.04em;margin-bottom:18px;
+}
+header .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent-glow);animation:pulse 2s infinite}
+h1{
+  font-size:44px;font-weight:800;letter-spacing:-.02em;
+  background:linear-gradient(135deg,#fff 10%,var(--accent) 60%,var(--accent2) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+header p.tag{color:var(--text-dim);font-size:16px;margin-top:10px;font-weight:500}
+header p.tag code{background:var(--panel);border:1px solid var(--border);padding:2px 8px;border-radius:6px;color:var(--accent);font-family:'JetBrains Mono',monospace;font-size:13.5px}
+
+/* ---------- Launch cards ---------- */
+.launchpad{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:30px 0 10px}
+@media(max-width:860px){.launchpad{grid-template-columns:1fr}}
+.appcard{
+  position:relative;overflow:hidden;border-radius:var(--radius);
+  background:linear-gradient(160deg,var(--panel),rgba(15,24,48,.55));
+  border:1px solid var(--border);padding:26px 26px 22px;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s, border-color .35s;
+}
+.appcard::before{
+  content:"";position:absolute;inset:0;opacity:0;transition:opacity .4s;
+  background:radial-gradient(500px 200px at 30% 0%, var(--accent-glow), transparent 70%);
+  pointer-events:none;
+}
+.appcard:hover{transform:translateY(-4px);border-color:#2a3a66;box-shadow:0 20px 50px -20px rgba(34,211,238,.18)}
+.appcard:hover::before{opacity:1}
+.appcard.running{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-glow),0 0 40px -6px var(--accent-glow)}
+.appcard .top-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.appcard h2{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.appcard .url{color:var(--text-faint);font-family:'JetBrains Mono',monospace;font-size:12.5px;margin-top:3px}
+.status-pill{
+  font-size:11.5px;font-weight:600;padding:4px 10px;border-radius:999px;letter-spacing:.03em;
+  background:var(--pending);color:#c7d0ea;white-space:nowrap;
+}
+.status-pill.pass{background:rgba(34,197,94,.15);color:var(--pass);border:1px solid rgba(34,197,94,.3)}
+.status-pill.fail{background:rgba(244,63,94,.15);color:var(--fail);border:1px solid rgba(244,63,94,.3)}
+.status-pill.running{background:rgba(34,211,238,.15);color:var(--accent);border:1px solid rgba(34,211,238,.3)}
+
+.statrow{display:flex;gap:22px;margin:20px 0 22px}
+.statrow .s{display:flex;flex-direction:column;gap:2px}
+.statrow .s .n{font-size:24px;font-weight:800;font-variant-numeric:tabular-nums}
+.statrow .s .l{font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.06em}
+.statrow .s.pass .n{color:var(--pass)} .statrow .s.fail .n{color:var(--fail)} .statrow .s.blocked .n{color:var(--blocked)}
+
+.playbtn{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px;border-radius:12px;border:none;cursor:pointer;font-size:15px;font-weight:700;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));color:#07101f;
+  transition:transform .15s, box-shadow .25s, opacity .2s;
+  box-shadow:0 8px 24px -8px rgba(34,211,238,.5);
+}
+.playbtn:hover:not(:disabled){transform:translateY(-1px);box-shadow:0 12px 30px -8px rgba(34,211,238,.65)}
+.playbtn:active:not(:disabled){transform:translateY(0)}
+.playbtn:disabled{opacity:.55;cursor:default}
+.playbtn svg{width:16px;height:16px}
+.playbtn.running{background:linear-gradient(135deg,#1b2744,#1b2744);color:var(--accent);box-shadow:none;border:1px solid var(--border);flex:1}
+.spinner{width:15px;height:15px;border-radius:50%;border:2px solid rgba(34,211,238,.25);border-top-color:var(--accent);animation:spin .7s linear infinite}
+
+.btn-row{display:flex;gap:10px}
+.stopbtn{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 18px;border-radius:12px;border:1px solid rgba(244,63,94,.4);cursor:pointer;
+  font-size:15px;font-weight:700;background:rgba(244,63,94,.12);color:var(--fail);
+  transition:background .2s, transform .15s;
+}
+.stopbtn:hover{background:rgba(244,63,94,.22);transform:translateY(-1px)}
+.stopbtn:active{transform:translateY(0)}
+.stopbtn svg{width:14px;height:14px}
+
+.clearcachebtn{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;margin-top:10px;
+  padding:10px 16px;border-radius:12px;border:1px solid var(--border);cursor:pointer;
+  font-size:12.5px;font-weight:600;background:transparent;color:var(--text-dim);
+  transition:background .2s, border-color .2s, color .2s;
+}
+.clearcachebtn:hover:not(:disabled){background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.4);color:var(--blocked)}
+.clearcachebtn:disabled{opacity:.4;cursor:default}
+.clearcachebtn svg{width:13px;height:13px}
+
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Section titles ---------- */
+.section-title{display:flex;align-items:center;gap:10px;margin:44px 0 16px}
+.section-title h3{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim)}
+.section-title .line{flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+.app-tabs{display:flex;gap:6px}
+.app-tab{
+  padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;
+  color:var(--text-faint);font-size:12.5px;font-weight:600;cursor:pointer;transition:.15s;
+}
+.app-tab:hover{color:var(--text)}
+.app-tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.clear-history-btn{
+  display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:8px;
+  border:1px solid var(--border);background:transparent;color:var(--text-faint);
+  cursor:pointer;font-size:11px;font-weight:600;letter-spacing:.02em;flex-shrink:0;
+  transition:background .2s, border-color .2s, color .2s;
+}
+.clear-history-btn:hover:not(:disabled){background:rgba(245,158,11,.1);border-color:rgba(245,158,11,.4);color:var(--blocked)}
+.clear-history-btn:disabled{opacity:.4;cursor:default}
+.clear-history-btn svg{width:12px;height:12px}
+
+/* ---------- Test case grid ---------- */
+.tc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+
+/* Outer card is just a 3D perspective + sizing wrapper; the two faces
+   (front/back) carry the actual visible background/border, since both must
+   render independently during the flip. */
+.tc-card{perspective:1400px;cursor:pointer;min-height:248px}
+.tc-card .flip-inner{
+  position:relative;width:100%;height:100%;min-height:248px;
+  transition:transform .55s cubic-bezier(.3,.1,.2,1);transform-style:preserve-3d;
+}
+.tc-card.flipped .flip-inner{transform:rotateY(180deg)}
+.tc-card .face{
+  position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  background:var(--panel-solid);border:1px solid var(--border-soft);border-radius:14px;
+  padding:18px 18px 16px;overflow-y:auto;transition:border-color .3s, box-shadow .3s;
+}
+.tc-card.running .face{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-glow);animation:cardpulse 1.6s infinite}
+.tc-card.pass .face{border-color:rgba(34,197,94,.4)}
+.tc-card.fail .face{border-color:rgba(244,63,94,.4)}
+.tc-card.blocked .face{border-color:rgba(245,158,11,.4)}
+.tc-card .face.back{transform:rotateY(180deg)}
+@keyframes cardpulse{0%,100%{box-shadow:0 0 0 1px var(--accent-glow)}50%{box-shadow:0 0 22px -2px var(--accent-glow)}}
+.tc-card .head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px}
+.tc-card .tcid{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--accent);font-weight:700}
+.tc-card .tctitle{font-size:13.5px;color:var(--text);font-weight:600;line-height:1.3;margin-top:3px}
+.flip-hint{position:absolute;bottom:8px;right:12px;font-size:9.5px;color:var(--text-faint);letter-spacing:.04em;text-transform:uppercase;opacity:.6}
+
+/* ---------- Back face: per-step resolution detail ---------- */
+.detail-row{display:flex;flex-direction:column;gap:3px;padding:7px 0;border-bottom:1px solid var(--border-soft)}
+.detail-row:last-child{border-bottom:none}
+.detail-row .dtop{display:flex;align-items:center;gap:7px}
+.detail-row .dnum{font-size:10px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;width:14px;flex-shrink:0}
+.source-tag{
+  font-size:9.5px;font-weight:800;padding:2px 7px;border-radius:5px;letter-spacing:.03em;
+  text-transform:uppercase;flex-shrink:0;
+}
+.source-tag.cache{background:rgba(34,197,94,.18);color:var(--pass)}
+.source-tag.fallback{background:rgba(129,140,248,.18);color:var(--accent2)}
+.source-tag.ai{background:rgba(34,211,238,.18);color:var(--accent)}
+.source-tag.unknown{background:var(--pending);color:var(--text-faint)}
+.detail-row .dtokens{font-size:10px;color:var(--text-faint);font-family:'JetBrains Mono',monospace;margin-left:auto}
+.detail-row .dreason{font-size:11px;color:var(--text-dim);line-height:1.4;padding-left:21px}
+.block-tag{
+  display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;
+  padding:2px 6px;border-radius:5px;margin-bottom:3px;
+}
+.block-tag.retry{background:rgba(129,140,248,.18);color:var(--accent2)}
+.block-tag.retry-reword{background:rgba(245,158,11,.14);color:var(--blocked)}
+.block-tag.reword{background:rgba(245,158,11,.26);color:var(--blocked)}
+.block-tag.review-queue{background:rgba(192,132,252,.18);color:#c084fc}
+.block-tag.config{background:rgba(244,63,94,.18);color:var(--fail)}
+.back-empty{color:var(--text-faint);font-style:italic;font-size:12px;text-align:center;margin-top:60px}
+.back-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);margin-bottom:10px}
+.tc-badge{width:22px;height:22px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;background:var(--pending);color:#9fb0dd;transition:all .3s}
+.tc-badge.pass{background:var(--pass);color:#06250f;box-shadow:0 0 12px var(--pass-glow)}
+.tc-badge.fail{background:var(--fail);color:#2a0008;box-shadow:0 0 12px var(--fail-glow)}
+.tc-badge.blocked{background:var(--blocked);color:#2a1700;box-shadow:0 0 12px var(--blocked-glow)}
+.tc-badge.running{background:transparent;border:2px solid var(--accent);animation:spin 1s linear infinite;border-top-color:transparent}
+
+.head-actions{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.rerun-btn{
+  height:24px;padding:0 9px;border-radius:7px;border:1px solid var(--border);background:#0e1730;
+  color:var(--text-dim);cursor:pointer;display:flex;align-items:center;gap:5px;
+  font-size:10.5px;font-weight:700;letter-spacing:.02em;
+  transition:all .2s;flex-shrink:0;
+}
+.rerun-btn:hover:not(:disabled){color:var(--accent);border-color:var(--accent);background:rgba(34,211,238,.1)}
+.rerun-btn:disabled{opacity:.3;cursor:default}
+.rerun-btn svg{width:11px;height:11px;flex-shrink:0}
+.rerun-btn.spinning svg{animation:spin .8s linear infinite}
+
+.activity{
+  height:16px;font-size:11px;color:var(--accent);font-family:'JetBrains Mono',monospace;
+  margin:6px 0 2px;opacity:0;transition:opacity .25s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.activity.show{opacity:1}
+
+.steps{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.step-box{
+  display:flex;align-items:center;gap:9px;padding:7px 10px;border-radius:9px;
+  background:#0a1226;border:1px solid var(--pending-border);
+  transition:background .35s, border-color .35s, transform .25s;
+  cursor:default;
+}
+.step-box[data-done="1"]{animation:popin .4s}
+.step-box .num{
+  width:18px;height:18px;border-radius:5px;background:var(--pending);color:#7e8cb5;
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;
+  transition:background .35s,color .35s;
+}
+.step-box .txt{flex:1;font-size:11.5px;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .3s}
+.step-box .ico{width:16px;height:16px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;opacity:0;transform:scale(.5);transition:all .3s}
+
+.step-box.pass{background:rgba(34,197,94,.08);border-color:rgba(34,197,94,.35)}
+.step-box.pass .num{background:var(--pass);color:#06250f}
+.step-box.pass .txt{color:#bdf0cf}
+.step-box.pass .ico{opacity:1;transform:scale(1);color:var(--pass)}
+
+.step-box.fail{background:rgba(244,63,94,.08);border-color:rgba(244,63,94,.35)}
+.step-box.fail .num{background:var(--fail);color:#2a0008}
+.step-box.fail .txt{color:#fbd2db}
+.step-box.fail .ico{opacity:1;transform:scale(1);color:var(--fail)}
+
+.step-box.blocked{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.35)}
+.step-box.blocked .num{background:var(--blocked);color:#2a1700}
+.step-box.blocked .txt{color:#fde3b8}
+.step-box.blocked .ico{opacity:1;transform:scale(1);color:var(--blocked)}
+
+.step-box.active{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent-glow)}
+.step-box.active .num{background:var(--accent);color:#07101f;animation:pulse 1s infinite}
+
+@keyframes popin{0%{transform:scale(.96)}50%{transform:scale(1.02)}100%{transform:scale(1)}}
+
+/* ---------- Resolution engine (cache / fallback / AI, live) ---------- */
+.engine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:860px){.engine-grid{grid-template-columns:1fr}}
+.engine-stat{
+  background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:20px 22px;
+  display:flex;align-items:center;gap:16px;position:relative;overflow:hidden;
+  transition:box-shadow .3s, border-color .3s;
+}
+.engine-stat .ico{
+  width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:20px;flex-shrink:0;
+}
+.engine-stat.cache .ico{background:rgba(34,197,94,.15);color:var(--pass)}
+.engine-stat.fallback .ico{background:rgba(129,140,248,.15);color:var(--accent2)}
+.engine-stat.ai .ico{background:rgba(34,211,238,.15);color:var(--accent)}
+.engine-stat .n{font-size:28px;font-weight:800;font-variant-numeric:tabular-nums}
+.engine-stat .l{font-size:11.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.engine-stat .sub{font-size:11px;color:var(--text-faint);margin-top:1px}
+.engine-stat.flash{animation:flashring .6s}
+@keyframes flashring{0%{box-shadow:0 0 0 0 rgba(255,255,255,.35)}100%{box-shadow:0 0 0 14px rgba(255,255,255,0)}}
+.engine-stat.cache.flash{border-color:var(--pass)}
+.engine-stat.fallback.flash{border-color:var(--accent2)}
+.engine-stat.ai.flash{border-color:var(--accent)}
+
+/* ---------- LLM usage panel ---------- */
+.llm-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+@media(max-width:860px){.llm-grid{grid-template-columns:repeat(2,1fr)}}
+.llm-stat{
+  background:var(--panel);border:1px solid var(--border);border-radius:13px;padding:18px 20px;
+  position:relative;overflow:hidden;
+}
+.llm-stat .icon{position:absolute;right:14px;top:14px;opacity:.15;font-size:34px}
+.llm-stat .n{font-size:26px;font-weight:800;font-variant-numeric:tabular-nums;color:var(--text)}
+.llm-stat .l{font-size:11.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:.05em;margin-top:4px}
+.llm-stat.accent .n{color:var(--accent)}
+.llm-stat.purple .n{color:var(--accent2)}
+.llm-stat.gold .n{color:var(--blocked)}
+
+.llm-log{background:var(--panel-solid);border:1px solid var(--border-soft);border-radius:13px;overflow:hidden}
+.llm-log table{width:100%;border-collapse:collapse;font-size:12.5px}
+.llm-log thead th{
+  text-align:left;padding:10px 14px;color:var(--text-faint);font-weight:600;font-size:11px;
+  text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border-soft);
+}
+.llm-log tbody td{padding:9px 14px;border-bottom:1px solid var(--border-soft);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--text-dim)}
+.llm-log tbody tr{opacity:0;animation:fadein .3s forwards}
+@keyframes fadein{to{opacity:1}}
+.llm-log tbody tr:hover{background:#101b36}
+.llm-log .tag{padding:2px 8px;border-radius:6px;font-size:10.5px;font-weight:700;font-family:'Inter',sans-serif}
+.tag.healing{background:rgba(245,158,11,.15);color:var(--blocked)}
+.tag.first_learning{background:rgba(34,211,238,.15);color:var(--accent)}
+.tag.live{background:rgba(129,140,248,.18);color:var(--accent2)}
+.llm-log .empty-row td{text-align:center;color:var(--text-faint);font-style:italic;padding:28px}
+
+.toast{
+  position:fixed;bottom:26px;left:50%;transform:translateX(-50%) translateY(120%);
+  background:var(--panel-solid);border:1px solid var(--border);border-radius:12px;
+  padding:14px 22px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 50px -10px rgba(0,0,0,.6);
+  transition:transform .45s cubic-bezier(.2,.9,.25,1);z-index:50;
+}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.toast .big{font-size:18px;font-weight:800}
+.toast .big.pass{color:var(--pass)} .toast .big.mixed{color:var(--blocked)}
+
+.inspect-overlay{
+  display:none;position:fixed;inset:0;background:rgba(5,8,20,.72);backdrop-filter:blur(2px);
+  z-index:100;align-items:center;justify-content:center;padding:24px;
+}
+.inspect-overlay.show{display:flex}
+.inspect-modal{
+  background:var(--panel-solid);border:1px solid var(--border);border-radius:14px;
+  width:min(900px,100%);max-height:86vh;display:flex;flex-direction:column;
+  box-shadow:0 30px 80px -15px rgba(0,0,0,.7);
+}
+.inspect-modal-head{
+  display:flex;align-items:center;justify-content:space-between;padding:16px 20px;
+  border-bottom:1px solid var(--border);
+}
+.inspect-modal-head h3{font-size:15px;font-weight:700}
+.inspect-close{background:none;border:none;color:var(--text-dim);font-size:22px;cursor:pointer;line-height:1;padding:0 4px}
+.inspect-close:hover{color:var(--text)}
+.inspect-modal-body{overflow-y:auto;padding:18px 20px;display:flex;flex-direction:column;gap:18px}
+.attempt-block{border:1px solid var(--border);border-radius:10px;padding:14px 16px;background:rgba(255,255,255,.02)}
+.attempt-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.attempt-badge{font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px;background:rgba(34,211,238,.15);color:var(--accent)}
+.attempt-meta{font-size:11.5px;color:var(--text-faint)}
+.inspect-label{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-faint);margin:10px 0 4px}
+.inspect-pre{
+  font-family:"SF Mono",Consolas,monospace;font-size:11.5px;line-height:1.5;white-space:pre-wrap;
+  word-break:break-word;background:rgba(0,0,0,.25);border:1px solid var(--border);border-radius:8px;
+  padding:10px 12px;color:var(--text-dim);max-height:260px;overflow-y:auto;
+}
+.inspect-pre.compact{color:var(--text)}
+.attempt-feedback{
+  font-size:12px;color:var(--blocked);background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.25);
+  border-radius:8px;padding:8px 10px;margin-top:8px;
+}
+details.inspect-details summary{cursor:pointer;font-size:11px;color:var(--text-faint);margin-top:8px}
+details.inspect-details summary:hover{color:var(--text)}
+.inspect-btn{
+  background:none;border:1px solid var(--border);color:var(--accent);font-size:10.5px;font-weight:600;
+  padding:3px 9px;border-radius:6px;cursor:pointer;margin-left:auto;
+}
+.inspect-btn:hover{background:rgba(34,211,238,.1);border-color:var(--accent)}
+
+/* The card is an investigation surface, not a memory game. Keep the
+   resolution outcome visible beside the step list so a failed case does not
+   require discovering a flip interaction before its cause can be read. */
+.tc-card{perspective:none;cursor:default;min-height:0}
+.tc-card .flip-inner{height:auto;min-height:0;transform:none!important;transform-style:flat;transition:none}
+.tc-card .face{position:relative;inset:auto;backface-visibility:visible;-webkit-backface-visibility:visible;overflow:visible}
+.tc-card .face.front{border-radius:14px 14px 0 0;border-bottom:none}
+.tc-card .face.back{transform:none;border-radius:0 0 14px 14px;border-top:1px solid var(--border-soft)}
+.flip-hint{display:none}
+.case-insight{margin:12px 0 2px;padding:10px 11px;border-radius:10px;background:#0a1226;border:1px solid var(--border)}
+.case-insight.pass{border-color:rgba(34,197,94,.25)}
+.case-insight.fail{border-color:rgba(244,63,94,.45);background:rgba(244,63,94,.07)}
+.case-insight.blocked{border-color:rgba(245,158,11,.45);background:rgba(245,158,11,.07)}
+.insight-line{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--text-dim);line-height:1.35}
+.insight-line strong{color:var(--text);font-size:11.5px}
+.insight-label{font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;font-weight:800;color:var(--text-faint);margin-right:2px}
+.insight-reason{margin-top:6px;font-size:11px;line-height:1.45;color:var(--text-dim);max-height:66px;overflow:auto}
+.insight-action{margin-top:7px;color:var(--accent);font-size:10.5px;font-weight:700}
+.case-metrics{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+.case-metric{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--text-faint);background:rgba(255,255,255,.03);border:1px solid var(--border-soft);padding:3px 6px;border-radius:5px}
+.source-tag.blocked{background:rgba(245,158,11,.18);color:var(--blocked)}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="badge"><span class="dot"></span> LIVE DEMO — self-healing resolution, zero mocked data</div>
+    <h1>shtaf control room</h1>
+    <p class="tag">Tier-based self-healing element resolution · watch each step resolve, verify and heal, live · <code>cache → fallback → AI → heal → refuse</code></p>
+  </header>
+
+  <div class="launchpad" id="launchpad"></div>
+
+  <div class="section-title"><h3>Resolution engine — this run</h3><div class="line"></div></div>
+  <div class="engine-grid">
+    <div class="engine-stat cache" id="engine-cache">
+      <div class="ico">⚡</div>
+      <div><div class="n" id="engine-cache-n">0</div><div class="l">Cache hits</div><div class="sub">Tier 1 — 0 tokens</div></div>
+    </div>
+    <div class="engine-stat fallback" id="engine-fallback">
+      <div class="ico">↻</div>
+      <div><div class="n" id="engine-fallback-n">0</div><div class="l">Fallback hits</div><div class="sub">Tier 2 — 0 tokens</div></div>
+    </div>
+    <div class="engine-stat ai" id="engine-ai">
+      <div class="ico">✦</div>
+      <div><div class="n" id="engine-ai-n">0</div><div class="l">AI resolutions</div><div class="sub">Tier 3 — LLM called</div></div>
+    </div>
+  </div>
+
+  <div class="section-title"><h3 id="tc-grid-title">Test cases</h3><div class="line"></div><div class="app-tabs" id="app-tabs"></div></div>
+  <div class="tc-grid" id="tc-grid"></div>
+
+  <div class="section-title"><h3>LLM usage</h3><div class="line"></div><button class="clear-history-btn" id="clear-usage-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m3 0-1 14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1L5 6"/></svg>Clear history</button></div>
+  <div class="llm-grid" id="llm-grid"></div>
+  <div class="llm-log">
+    <table>
+      <thead><tr><th>Time</th><th>Test case</th><th>Model</th><th>Reason</th><th>In</th><th>Out</th><th>Latency</th><th>Cost</th></tr></thead>
+      <tbody id="llm-log-body"><tr class="empty-row"><td colspan="8">No LLM calls logged yet</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<div class="toast" id="toast"><div class="big" id="toast-big"></div><div id="toast-sub" style="color:var(--text-dim);font-size:13px"></div></div>
+
+<div class="inspect-overlay" id="inspect-overlay" onclick="if(event.target===this) closeInspectModal()">
+  <div class="inspect-modal">
+    <div class="inspect-modal-head">
+      <h3 id="inspect-title"></h3>
+      <button class="inspect-close" onclick="closeInspectModal()" aria-label="Close">&times;</button>
+    </div>
+    <div class="inspect-modal-body" id="inspect-body"></div>
+  </div>
+</div>
+
+<script>
+const APPS = [
+  {key:"automationexercise", label:"automationexercise.com", desc:"Server-rendered forms · open self-registration · native click"},
+  {key:"bbc", label:"bbc.com", desc:"Server-rendered news site · no login required"},
+];
+let state = {};
+
+function el(tag, cls, html){ const e=document.createElement(tag); if(cls) e.className=cls; if(html!==undefined) e.innerHTML=html; return e; }
+function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+// Every Blocked reason from resolve.py starts with a "[CATEGORY] " tag
+// (see framework/resolver/resolve.py's _blocked()) answering the most
+// common question at a glance: is this worth just hitting rerun, or do I
+// need to go reword the Test Step. Split it out into its own small colored
+// badge instead of leaving it as plain text buried in a sentence.
+const BLOCK_TAG_RE = /^\[([^\]]+)\]\s*/;
+const BLOCK_TAG_CLASS = {
+  "RETRY": "retry",
+  "RETRY, THEN REWORD IF IT RECURS": "retry-reword",
+  "REWORD TEST STEP": "reword",
+  "REVIEW QUEUE": "review-queue",
+  "CONFIG": "config",
+};
+function formatBlockedReason(text){
+  const m = BLOCK_TAG_RE.exec(text || "");
+  if(!m) return escapeHtml(text);
+  const label = m[1];
+  const cls = BLOCK_TAG_CLASS[label] || "retry-reword";
+  const rest = text.slice(m[0].length);
+  return `<span class="block-tag ${cls}">${escapeHtml(label)}</span><br>${escapeHtml(rest)}`;
+}
+function fmtNum(n){ return (n||0).toLocaleString(); }
+function fmtCost(c){ return "$" + (c||0).toFixed(4); }
+function stepLabel(st){ return (st.action ? st.action.replace(/_/g," ")+": " : "") + (st.target || ""); }
+function failureInfo(tc){
+  const failed = tc.steps.find(st=>st.status==="Fail" || st.status==="Blocked");
+  if(!failed) return null;
+  const detail = (failed.detail || "").replace(/\s+/g," ").trim();
+  const category = (detail.match(/^\[([^\]]+)\]/)||[])[1] || (failed.status==="Fail" ? "ASSERTION" : "BLOCKED");
+  let action = "Review the step detail and rerun this case.";
+  if(category === "RETRY") action = "Fix the LLM/API or network issue, then rerun.";
+  else if(category.includes("REWORD")) action = "Make the target description more specific, then rerun.";
+  else if(category === "CONFIG") action = "Fix the environment or app configuration, then rerun.";
+  else if(failed.status==="Fail") action = "Investigate the application result; this is a real test failure, not healing.";
+  return {step:failed, category, detail, action};
+}
+
+function renderLaunchpad(){
+  const lp = document.getElementById("launchpad");
+  lp.innerHTML = "";
+  APPS.forEach(a=>{
+    const s = state[a.key] || {cases:[], pass:0, fail:0, blocked:0, running:false};
+    const card = el("div","appcard"+(s.running?" running":""));
+    card.id = "appcard-"+a.key;
+    const total = s.cases.length;
+    card.innerHTML = `
+      <div class="top-row">
+        <div><h2>${a.label}</h2><div class="url">${a.desc}</div></div>
+        <div class="status-pill ${s.running?'running':(s.lastRun? (s.fail||s.blocked? 'fail':'pass'):'')}" id="pill-${a.key}">
+          ${s.running ? "RUNNING" : (s.lastRun ? `${s.pass}/${total} PASS` : "IDLE")}
+        </div>
+      </div>
+      <div class="statrow">
+        <div class="s pass"><div class="n" id="stat-pass-${a.key}">${s.pass||0}</div><div class="l">Pass</div></div>
+        <div class="s fail"><div class="n" id="stat-fail-${a.key}">${s.fail||0}</div><div class="l">Fail</div></div>
+        <div class="s blocked"><div class="n" id="stat-blocked-${a.key}">${s.blocked||0}</div><div class="l">Blocked</div></div>
+        <div class="s"><div class="n">${total}</div><div class="l">Total</div></div>
+      </div>
+      <div class="btn-row">
+        <button class="playbtn ${s.running?'running':''}" id="play-${a.key}" ${isAppBusy(a.key)?'disabled':''}>
+          ${s.running
+            ? '<span class="spinner"></span> Running…'
+            : (isAppBusy(a.key) ? '<span class="spinner"></span> Rerunning a test…' : '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg> Run '+a.label)}
+        </button>
+        ${s.running ? `<button class="stopbtn" id="stop-${a.key}"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg> Stop</button>` : ""}
+      </div>
+      <button class="clearcachebtn" id="clearcache-${a.key}" ${isAppBusy(a.key)?'disabled':''}>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2m3 0-1 14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1L5 6"/></svg>
+        Reset element store &amp; account
+      </button>
+    `;
+    lp.appendChild(card);
+    card.querySelector(".playbtn").addEventListener("click", ()=>startRun(a.key));
+    const stopBtn = card.querySelector(".stopbtn");
+    if(stopBtn) stopBtn.addEventListener("click", ()=>stopRun(a.key));
+    card.querySelector(".clearcachebtn").addEventListener("click", ()=>clearCache(a.key));
+  });
+}
+
+async function clearCache(appKey){
+  if(isAppBusy(appKey)) return;
+  const label = APPS.find(a=>a.key===appKey).label;
+  if(!confirm(`Reset ${label}?\n\nThis removes every stored element record (not just marks them stale) and forgets its cached test account. The next run resolves and stores everything completely fresh via the LLM.`)) return;
+  const btn = document.getElementById("clearcache-"+appKey);
+  if(btn){ btn.disabled = true; btn.textContent = "Resetting…"; }
+  try{
+    const res = await fetch(`/api/clear-cache/${appKey}`, {method:"POST"});
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.error || "failed");
+    const big = document.getElementById("toast-big"), sub = document.getElementById("toast-sub"), t = document.getElementById("toast");
+    big.className = "big mixed";
+    big.textContent = "⚡ Reset complete";
+    sub.textContent = `${label}: ${data.message}`;
+    t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"), 5000);
+  } catch(err){
+    alert("Could not clear cache: " + err.message);
+  } finally {
+    renderLaunchpad();
+  }
+}
+
+async function clearUsageHistory(){
+  if(!confirm("Clear the LLM usage history?\n\nThis resets the call count, tokens, cost and recent-calls table to zero. A timestamped backup of the real log is kept on disk.")) return;
+  const btn = document.getElementById("clear-usage-btn");
+  if(btn) btn.disabled = true;
+  try{
+    const res = await fetch("/api/clear-usage", {method:"POST"});
+    const data = await res.json();
+    if(!res.ok) throw new Error(data.error || "failed");
+    await loadUsage();
+    const big = document.getElementById("toast-big"), sub = document.getElementById("toast-sub"), t = document.getElementById("toast");
+    big.className = "big mixed";
+    big.textContent = "🗑 History cleared";
+    sub.textContent = data.message;
+    t.classList.add("show");
+    setTimeout(()=>t.classList.remove("show"), 5000);
+  } catch(err){
+    alert("Could not clear usage history: " + err.message);
+  } finally {
+    if(btn) btn.disabled = false;
+  }
+}
+
+let currentGridApp = APPS[0].key;
+
+function renderAppTabs(){
+  const tabs = document.getElementById("app-tabs");
+  tabs.innerHTML = APPS.map(a=>
+    `<button class="app-tab${a.key===currentGridApp?" active":""}" data-app="${a.key}">${a.label}</button>`
+  ).join("");
+  tabs.querySelectorAll(".app-tab").forEach(btn=>{
+    btn.addEventListener("click", ()=>selectGridApp(btn.dataset.app));
+  });
+}
+
+function selectGridApp(appKey){
+  if(appKey === currentGridApp) return;
+  currentGridApp = appKey;
+  renderTcGrid(appKey);
+}
+
+function renderTcGrid(appKey){
+  currentGridApp = appKey;
+  renderAppTabs();
+  const grid = document.getElementById("tc-grid");
+  const titleEl = document.getElementById("tc-grid-title");
+  const s = state[appKey];
+  if(!s) return;
+  const label = APPS.find(a=>a.key===appKey).label;
+  titleEl.textContent = `Test cases — ${label}`;
+  grid.innerHTML = "";
+  s.cases.forEach(tc=>{
+    const card = el("div","tc-card"+(tc.cls?(" "+tc.cls):""));
+    card.id = "tc-"+appKey+"-"+tc.id;
+    const badgeCls = tc.cls==="running" ? "running" : (tc.overall||"");
+    const badgeContent = tc.cls==="running" ? "" : (tc.overall==="pass"?"✓":tc.overall==="fail"?"✕":tc.overall==="blocked"?"!":"");
+    const busy = isAppBusy(appKey);
+    card.innerHTML = `
+      <div class="flip-inner">
+        <div class="face front">
+          <div class="head">
+            <div><div class="tcid">${tc.id}</div><div class="tctitle">${escapeHtml(tc.title)}</div></div>
+            <div class="head-actions">
+              <button class="rerun-btn" id="rerun-${appKey}-${tc.id}" title="Run just ${tc.id}" ${busy?'disabled':''}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
+                Run
+              </button>
+              <div class="tc-badge ${badgeCls}">${badgeContent}</div>
+            </div>
+          </div>
+          <div class="activity" id="activity-${appKey}-${tc.id}"></div>
+          ${(()=>{
+            const info = failureInfo(tc);
+            if(!info) return `<div class="case-insight pass"><div class="insight-line"><span class="insight-label">Outcome</span><strong>All recorded steps passed</strong></div><div class="insight-action">No intervention required.</div></div>`;
+            return `<div class="case-insight ${tc.overall||"blocked"}">
+              <div class="insight-line"><span class="insight-label">${escapeHtml(info.category)}</span><strong>${escapeHtml(info.step.status)} at step ${info.step.no}: ${escapeHtml(stepLabel(info.step))}</strong></div>
+              <div class="insight-reason">${formatBlockedReason(info.detail || "No detail was recorded.")}</div>
+              <div class="insight-action">${escapeHtml(info.action)}</div>
+            </div>`;
+          })()}
+          <div class="steps">${tc.steps.map(st=>{
+            // st.status/st.detail come straight from the workbook's own Actual
+            // Result text (see _parse_step_outcomes in dashboard/server.py) --
+            // this is what lets a page reload show the same step colors a
+            // live run left behind, not blank boxes until the next run.
+            const stepCls = st.status==="Pass"?"pass":st.status==="Fail"?"fail":st.status==="Blocked"?"blocked":"";
+            const stepIco = st.status==="Pass"?"✓":st.status==="Fail"?"✕":st.status==="Blocked"?"!":"";
+            return `
+            <div class="step-box${stepCls?" "+stepCls:""}" id="box-${appKey}-${tc.id}-${st.no}" title="${escapeHtml(stepLabel(st))}"${stepCls?' data-done="1"':''}>
+              <span class="num">${st.no}</span>
+              <span class="txt">${escapeHtml(stepLabel(st)) || "step "+st.no}</span>
+              <span class="ico" id="ico-${appKey}-${tc.id}-${st.no}">${stepIco}</span>
+            </div>
+          `;}).join("")}</div>
+          <div class="flip-hint">click for details ↻</div>
+        </div>
+        <div class="face back" id="back-${appKey}-${tc.id}">
+          ${renderBackFaceHtml(appKey, tc)}
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+    card.querySelector(".rerun-btn").addEventListener("click", (e)=>{ e.stopPropagation(); rerunTestCase(appKey, tc.id); });
+    // Details are intentionally rendered open; only the large raw LLM prompt
+    // remains collapsible because it is diagnostic payload, not the outcome.
+  });
+}
+
+function renderBackFaceHtml(appKey, tc){
+  const detail = (resolutionDetail[appKey] && resolutionDetail[appKey][tc.id]) || {};
+  const rows = tc.steps.map(st=>{
+    const d = detail[st.no];
+    if(!d){
+      // No detail from a live run this session -- fall back to what the
+      // workbook itself remembers from the last completed run (st.status /
+      // st.detail, parsed server-side from the Actual Result cell), so a
+      // page reload shows the real last outcome instead of "not run yet".
+      if(st.status){
+        return `
+          <div class="detail-row">
+            <div class="dtop">
+              <span class="dnum">${st.no}</span>
+              <span class="source-tag unknown">Last run (${st.status})</span>
+            </div>
+            ${st.detail ? `<div class="dreason">${formatBlockedReason(st.detail)}</div>` : ""}
+          </div>
+        `;
+      }
+      return `<div class="detail-row"><div class="dtop"><span class="dnum">${st.no}</span><span class="source-tag unknown">not run yet</span></div></div>`;
+    }
+    const srcLabel = d.source==="ai" ? "AI (LLM)" : d.source==="cache" ? "Cache" : d.source==="fallback" ? "Fallback" : d.source;
+    const tokenTxt = d.source==="ai" ? `${(d.tokens_in||0)+(d.tokens_out||0)} tokens` : "0 tokens";
+    const reasonTxt = d.reason || d.outcome || "";
+    const canInspect = d.source==="ai" && d.attempts && d.attempts.length;
+    return `
+      <div class="detail-row">
+        <div class="dtop">
+          <span class="dnum">${st.no}</span>
+          <span class="source-tag ${d.source}">${srcLabel}</span>
+          <span class="dtokens">${tokenTxt}</span>
+          ${canInspect ? `<button class="inspect-btn" onclick="openInspectModal('${appKey}','${tc.id}',${st.no})">Inspect</button>` : ""}
+        </div>
+        ${reasonTxt ? `<div class="dreason">${formatBlockedReason(reasonTxt)}</div>` : ""}
+      </div>
+    `;
+  }).join("");
+  const hasAny = tc.steps.some(st => detail[st.no] || st.status);
+  return `
+    <div class="back-title">${tc.id} — resolution detail</div>
+    ${hasAny ? rows : '<div class="back-empty">No resolution detail has been recorded yet.</div>'}
+  `;
+}
+
+// Splits a raw prompt (see framework/llm/prompts.py's build_user_prompt)
+// into the short, always-useful header (target + action), the bulk
+// element-list body (often thousands of chars -- shown collapsed by
+// default), and any retry-correction feedback (shown expanded, since it's
+// short and directly explains why a second attempt happened at all).
+function splitPromptForDisplay(prompt){
+  const elIdx = prompt.indexOf("Filtered interactive elements");
+  const retryIdx = prompt.indexOf("Your previous proposal for this same target");
+  const bodyEnd = retryIdx !== -1 ? retryIdx : prompt.length;
+  const retryFeedback = retryIdx !== -1 ? prompt.slice(retryIdx).trim() : "";
+  const header = elIdx !== -1 ? prompt.slice(0, elIdx).trim() : prompt.slice(0, bodyEnd).trim();
+  const elementList = elIdx !== -1 ? prompt.slice(elIdx, bodyEnd).trim() : "";
+  return {header, elementList, retryFeedback};
+}
+
+function renderAttemptBlock(n, attempt){
+  const parts = splitPromptForDisplay(attempt.prompt || "");
+  const confText = attempt.confidence!=null ? attempt.confidence.toFixed(2) : "—";
+  return `
+    <div class="attempt-block">
+      <div class="attempt-head">
+        <span class="attempt-badge">Attempt ${n}</span>
+        <span class="attempt-meta">${attempt.model||""} · ${(attempt.tokens_in||0)+(attempt.tokens_out||0)} tokens (${attempt.tokens_in||0} in / ${attempt.tokens_out||0} out) · confidence ${confText}</span>
+      </div>
+      <div class="inspect-label">Sent to the model</div>
+      <div class="inspect-pre compact">${escapeHtml(parts.header)}</div>
+      ${parts.elementList ? `
+        <details class="inspect-details">
+          <summary>Full interactive element list sent (click to expand — this is everything the model could choose from)</summary>
+          <div class="inspect-pre">${escapeHtml(parts.elementList)}</div>
+        </details>
+      ` : ""}
+      ${parts.retryFeedback ? `<div class="attempt-feedback"><strong>Correction given before this attempt:</strong><br>${escapeHtml(parts.retryFeedback)}</div>` : ""}
+      <div class="inspect-label">Model's reply</div>
+      <div class="inspect-pre compact">index=${attempt.index ?? "—"}  confidence=${confText}${attempt.reason ? `\n\n${attempt.reason}` : ""}</div>
+    </div>
+  `;
+}
+
+function openInspectModal(appKey, tcId, stepNo){
+  const d = resolutionDetail[appKey] && resolutionDetail[appKey][tcId] && resolutionDetail[appKey][tcId][stepNo];
+  const attempts = (d && d.attempts) || [];
+  document.getElementById("inspect-title").textContent = `${tcId} — step ${stepNo} — AI resolution detail`;
+  document.getElementById("inspect-body").innerHTML = attempts.length
+    ? attempts.map((a,i)=>renderAttemptBlock(i+1, a)).join("")
+    : `<div class="back-empty">No attempt detail captured for this step.</div>`;
+  document.getElementById("inspect-overlay").classList.add("show");
+}
+
+function closeInspectModal(){
+  document.getElementById("inspect-overlay").classList.remove("show");
+}
+
+function updateStatCards(appKey){
+  const s = state[appKey];
+  document.getElementById("stat-pass-"+appKey).textContent = s.pass||0;
+  document.getElementById("stat-fail-"+appKey).textContent = s.fail||0;
+  document.getElementById("stat-blocked-"+appKey).textContent = s.blocked||0;
+  const pill = document.getElementById("pill-"+appKey);
+  if(pill){
+    pill.className = "status-pill " + (s.running?"running":(s.lastRun?((s.fail||s.blocked)?"fail":"pass"):""));
+    pill.textContent = s.running ? "RUNNING" : (s.lastRun ? `${s.pass}/${s.cases.length} PASS` : "IDLE");
+  }
+}
+
+function setActivity(appKey, tc, text){
+  const a = document.getElementById(`activity-${appKey}-${tc}`);
+  if(!a) return;
+  a.textContent = text;
+  a.classList.add("show");
+}
+
+function showToast(totals){
+  const t = document.getElementById("toast");
+  const big = document.getElementById("toast-big");
+  const sub = document.getElementById("toast-sub");
+  if(totals._stopped){
+    big.className = "big mixed";
+    big.textContent = "■ Run stopped";
+  } else {
+    const allPass = totals.failed===0 && totals.blocked===0;
+    big.className = "big " + (allPass ? "pass" : "mixed");
+    big.textContent = allPass ? "✓ All tests passed" : "Run complete";
+  }
+  sub.textContent = `${totals.passed} passed · ${totals.failed} failed · ${totals.blocked} blocked · ${totals.total} total`;
+  t.classList.add("show");
+  setTimeout(()=>t.classList.remove("show"), 5000);
+}
+
+async function loadTestCases(appKey){
+  const res = await fetch(`/api/testcases/${appKey}`);
+  const data = await res.json();
+  const cases = data.test_cases.map(tc=>{
+    const overall = tc.status==="Pass"?"pass":tc.status==="Fail"?"fail":tc.status==="Blocked"?"blocked":null;
+    return {
+      id: tc.id, title: tc.title, steps: tc.steps.length? tc.steps : [{no:1,action:"",target:""}],
+      overall, cls: overall, lastActual: tc.actual_result,
+    };
+  });
+  const pass = cases.filter(c=>c.overall==="pass").length;
+  const fail = cases.filter(c=>c.overall==="fail").length;
+  const blocked = cases.filter(c=>c.overall==="blocked").length;
+  const anyStatus = cases.some(c=>c.overall);
+  state[appKey] = {cases, pass, fail, blocked, running:false, lastRun: anyStatus};
+}
+
+async function loadUsage(){
+  const res = await fetch("/api/llm-usage");
+  const u = await res.json();
+  renderUsage(u);
+}
+
+function renderUsage(u){
+  const grid = document.getElementById("llm-grid");
+  grid.innerHTML = `
+    <div class="llm-stat accent"><div class="icon">⬡</div><div class="n" id="u-calls">${fmtNum(u.total_calls)}</div><div class="l">LLM calls</div></div>
+    <div class="llm-stat purple"><div class="icon">◈</div><div class="n" id="u-tokens">${fmtNum(u.total_tokens)}</div><div class="l">Total tokens</div></div>
+    <div class="llm-stat gold"><div class="icon">$</div><div class="n" id="u-cost">${fmtCost(u.total_cost)}</div><div class="l">Estimated cost</div></div>
+    <div class="llm-stat"><div class="icon">⏱</div><div class="n" id="u-latency">${fmtNum(u.avg_latency_ms)}ms</div><div class="l">Avg latency</div></div>
+  `;
+  const body = document.getElementById("llm-log-body");
+  if(!u.recent || !u.recent.length){
+    body.innerHTML = `<tr class="empty-row"><td colspan="8">No LLM calls logged yet</td></tr>`;
+    return;
+  }
+  body.innerHTML = u.recent.map(e=>`
+    <tr>
+      <td>${(e.timestamp||"").replace("T"," ").slice(0,19)}</td>
+      <td>${e.test_case_id||""} <span style="color:var(--text-faint)">#${e.step_no??""}</span></td>
+      <td>${e.model||""}</td>
+      <td><span class="tag ${e.reason}">${e.reason||""}</span></td>
+      <td>${fmtNum(e.input_tokens)}</td>
+      <td>${fmtNum(e.output_tokens)}</td>
+      <td>${fmtNum(e.latency_ms)}ms</td>
+      <td>${fmtCost(e.estimated_cost)}</td>
+    </tr>
+  `).join("");
+}
+
+function prependUsageRow(ev){
+  const body = document.getElementById("llm-log-body");
+  const emptyRow = body.querySelector(".empty-row");
+  if(emptyRow) emptyRow.remove();
+  const tr = el("tr","");
+  tr.innerHTML = `
+    <td>${new Date().toISOString().slice(0,19).replace("T"," ")}</td>
+    <td>${ev.tc} <span style="color:var(--text-faint)">#${ev.step}</span></td>
+    <td>${ev.model}</td>
+    <td><span class="tag live">live</span></td>
+    <td>${fmtNum(ev.tokens_in)}</td>
+    <td>${fmtNum(ev.tokens_out)}</td>
+    <td>—</td>
+    <td>confidence ${ev.confidence.toFixed(2)}</td>
+  `;
+  body.insertBefore(tr, body.firstChild);
+  const calls = document.getElementById("u-calls");
+  if(calls) calls.textContent = fmtNum((parseInt(calls.textContent.replace(/,/g,""))||0)+1);
+  const tokens = document.getElementById("u-tokens");
+  if(tokens) tokens.textContent = fmtNum((parseInt(tokens.textContent.replace(/,/g,""))||0)+ev.tokens_in+ev.tokens_out);
+}
+
+let engineCounts = {cache:0, cacheTokens:0, fallback:0, fallbackTokens:0, ai:0};
+
+function resetEngineCounts(){
+  engineCounts = {cache:0, cacheTokens:0, fallback:0, fallbackTokens:0, ai:0};
+  document.getElementById("engine-cache-n").textContent = "0";
+  document.getElementById("engine-fallback-n").textContent = "0";
+  document.getElementById("engine-ai-n").textContent = "0";
+  document.querySelector("#engine-cache .sub").textContent = "Tier 1 — 0 tokens";
+  document.querySelector("#engine-fallback .sub").textContent = "Tier 2 — 0 tokens";
+  document.querySelector("#engine-ai .sub").textContent = "Tier 3 — LLM called";
+}
+
+function bumpEngine(kind, tokens){
+  const el2 = document.getElementById("engine-"+kind);
+  const n = document.getElementById("engine-"+kind+"-n");
+  if(kind==="cache"){ engineCounts.cache++; n.textContent = engineCounts.cache; }
+  else if(kind==="fallback"){ engineCounts.fallback++; n.textContent = engineCounts.fallback; }
+  else if(kind==="ai"){ engineCounts.ai++; n.textContent = engineCounts.ai; }
+  el2.classList.remove("flash"); void el2.offsetWidth; el2.classList.add("flash");
+}
+
+let activeWs = {};
+let resolutionDetail = {}; // appKey -> tcId -> stepNo -> {source, outcome, tokens_in, tokens_out, model, reason}
+
+function recordDetail(appKey, tcId, stepNo, patch){
+  resolutionDetail[appKey] = resolutionDetail[appKey] || {};
+  resolutionDetail[appKey][tcId] = resolutionDetail[appKey][tcId] || {};
+  resolutionDetail[appKey][tcId][stepNo] = Object.assign({}, resolutionDetail[appKey][tcId][stepNo], patch);
+  refreshBackFace(appKey, tcId);
+}
+
+function refreshBackFace(appKey, tcId){
+  const backFace = document.getElementById(`back-${appKey}-${tcId}`);
+  if(backFace){
+    const tc = state[appKey] && state[appKey].cases.find(c=>c.id===tcId);
+    if(tc) backFace.innerHTML = renderBackFaceHtml(appKey, tc);
+  }
+}
+
+// A step's AI tier can retry (up to 2 attempts, per resolve.py's own
+// max_attempts) with corrective feedback before giving up -- recording
+// only the LATEST attempt's prompt/response would hide exactly the
+// correction cycle a developer most needs to see to tell "the model was
+// given bad data" apart from "the model ignored good data". Each
+// llm_call/llm_prompt/llm_reason trio for one attempt arrives in that
+// fixed order, so llm_call starts a new attempt entry and the other two
+// fill in the most recently started one.
+function recordAiAttempt(appKey, tcId, stepNo, patch){
+  resolutionDetail[appKey] = resolutionDetail[appKey] || {};
+  resolutionDetail[appKey][tcId] = resolutionDetail[appKey][tcId] || {};
+  const existing = resolutionDetail[appKey][tcId][stepNo] || {};
+  const attempts = existing.attempts ? existing.attempts.slice() : [];
+  if(patch.newAttempt){
+    attempts.push(patch.newAttempt);
+  } else if(attempts.length){
+    attempts[attempts.length - 1] = Object.assign({}, attempts[attempts.length - 1], patch);
+  }
+  resolutionDetail[appKey][tcId][stepNo] = Object.assign({}, existing, {attempts});
+  refreshBackFace(appKey, tcId);
+}
+let rerunningIds = {}; // appKey -> Set of TestCase IDs currently being individually rerun
+
+function isAppBusy(appKey){
+  const s = state[appKey];
+  return !!(s && s.running) || !!(rerunningIds[appKey] && rerunningIds[appKey].size > 0);
+}
+
+function rerunTestCase(appKey, tcId){
+  if(isAppBusy(appKey)) return;
+  rerunningIds[appKey] = rerunningIds[appKey] || new Set();
+  rerunningIds[appKey].add(tcId);
+
+  if(resolutionDetail[appKey]) delete resolutionDetail[appKey][tcId];
+
+  const card = document.getElementById(`tc-${appKey}-${tcId}`);
+  const tc = state[appKey].cases.find(c=>c.id===tcId);
+  if(tc){ tc.overall = null; tc.steps.forEach(st=>{ delete st.status; delete st.detail; }); }
+  if(card){
+    card.className = "tc-card running";
+    card.querySelectorAll(".step-box").forEach(b=>{ b.className = "step-box"; b.removeAttribute("data-done"); });
+    card.querySelectorAll(".ico").forEach(i=>i.textContent = "");
+    const backFace = document.getElementById(`back-${appKey}-${tcId}`);
+    if(backFace && tc) backFace.innerHTML = renderBackFaceHtml(appKey, tc);
+  }
+  const btn = document.getElementById(`rerun-${appKey}-${tcId}`);
+  if(btn) btn.classList.add("spinning");
+  renderLaunchpad(); // disable the main Play button while this is in flight
+
+  const proto = location.protocol === "https:" ? "wss" : "ws";
+  const ws = new WebSocket(`${proto}://${location.host}/ws/run/${appKey}?test_case_id=${encodeURIComponent(tcId)}`);
+
+  ws.onmessage = (msg)=>{
+    const ev = JSON.parse(msg.data);
+    handleRunEvent(appKey, ev, {singleRerun:true, tcId});
+  };
+  ws.onclose = ()=>{
+    rerunningIds[appKey]?.delete(tcId);
+    if(btn) btn.classList.remove("spinning");
+    renderLaunchpad();
+  };
+}
+
+function stopRun(appKey){
+  const ws = activeWs[appKey];
+  if(!ws || ws.readyState !== WebSocket.OPEN) return;
+  ws.send(JSON.stringify({type:"stop"}));
+  const btn = document.getElementById("stop-"+appKey);
+  if(btn){ btn.disabled = true; btn.textContent = "Stopping…"; }
+}
+
+function startRun(appKey){
+  if(state[appKey] && state[appKey].running) return;
+  state[appKey] = state[appKey] || {cases:[], pass:0, fail:0, blocked:0};
+  state[appKey].running = true;
+  state[appKey].pass = 0; state[appKey].fail = 0; state[appKey].blocked = 0;
+  state[appKey].cases.forEach(c=>{ c.overall=null; c.cls=null; c.steps.forEach(st=>{ delete st.status; delete st.detail; }); });
+  resolutionDetail[appKey] = {};
+  renderLaunchpad();
+  renderTcGrid(appKey);
+  resetEngineCounts();
+
+  const proto = location.protocol === "https:" ? "wss" : "ws";
+  const ws = new WebSocket(`${proto}://${location.host}/ws/run/${appKey}`);
+  activeWs[appKey] = ws;
+
+  ws.onmessage = (msg)=> handleRunEvent(appKey, JSON.parse(msg.data), {singleRerun:false});
+  ws.onclose = ()=>{
+    delete activeWs[appKey];
+    if(state[appKey] && state[appKey].running){
+      state[appKey].running = false;
+      renderLaunchpad();
+    }
+  };
+}
+
+function handleRunEvent(appKey, ev, opts){
+  if(ev.type === "test_case_start"){
+    const tc = state[appKey].cases.find(c=>c.id===ev.tc);
+    if(tc){ tc.cls = "running"; const card = document.getElementById(`tc-${appKey}-${ev.tc}`); if(card) card.className = "tc-card running"; }
+  } else if(ev.type === "tier"){
+    setActivity(appKey, ev.tc, `Tier ${ev.tier}: ${ev.outcome}`);
+    const box = document.getElementById(`box-${appKey}-${ev.tc}-${ev.step}`);
+    if(box && !box.classList.contains("pass") && !box.classList.contains("fail") && !box.classList.contains("blocked")) box.classList.add("active");
+    if(/HIT/.test(ev.outcome)){
+      if(/^1/.test(ev.tier)){
+        bumpEngine("cache");
+        recordDetail(appKey, ev.tc, ev.step, {source:"cache", outcome:"Replayed from the element store — already verified working, no LLM involved."});
+      } else if(/^2/.test(ev.tier)){
+        bumpEngine("fallback");
+        recordDetail(appKey, ev.tc, ev.step, {source:"fallback", outcome:"Primary cached strategy failed verification; an alternate stored strategy for this element worked instead."});
+      }
+    }
+  } else if(ev.type === "llm_call"){
+    setActivity(appKey, ev.tc, `LLM resolving (${ev.model}, ${ev.tokens_in+ev.tokens_out} tokens)…`);
+    prependUsageRow(ev);
+    bumpEngine("ai");
+    recordDetail(appKey, ev.tc, ev.step, {
+      source:"ai", model:ev.model, tokens_in:ev.tokens_in, tokens_out:ev.tokens_out, confidence:ev.confidence,
+    });
+    recordAiAttempt(appKey, ev.tc, ev.step, {newAttempt: {
+      model: ev.model, tokens_in: ev.tokens_in, tokens_out: ev.tokens_out, confidence: ev.confidence,
+    }});
+  } else if(ev.type === "llm_prompt"){
+    recordAiAttempt(appKey, ev.tc, ev.step, {prompt: ev.prompt});
+  } else if(ev.type === "llm_reason"){
+    recordDetail(appKey, ev.tc, ev.step, {reason: ev.reason});
+    recordAiAttempt(appKey, ev.tc, ev.step, {reason: ev.reason, index: ev.index});
+  } else if(ev.type === "action"){
+    setActivity(appKey, ev.tc, `${ev.verb} → ${ev.selector}`);
+  } else if(ev.type === "step_result"){
+    const box = document.getElementById(`box-${appKey}-${ev.tc}-${ev.step}`);
+    const ico = document.getElementById(`ico-${appKey}-${ev.tc}-${ev.step}`);
+    if(box){
+      const cls = ev.status==="Pass"?"pass":ev.status==="Fail"?"fail":"blocked";
+      box.classList.remove("active");
+      box.classList.add(cls);
+      box.setAttribute("data-done","1");
+      if(ico) ico.textContent = ev.status==="Pass"?"✓":ev.status==="Fail"?"✕":"!";
+    }
+  } else if(ev.type === "run_summary" && ev.totals){
+    showToast(ev.totals);
+  } else if(ev.type === "final_state"){
+    // Authoritative re-read of the whole workbook from the server -- safe
+    // to apply wholesale even for a single-test rerun, since only the
+    // rerun row's cells could have changed on disk; every other row's data
+    // just gets re-confirmed as unchanged.
+    const cases = ev.test_cases.map(tc=>{
+      const overall = tc.status==="Pass"?"pass":tc.status==="Fail"?"fail":tc.status==="Blocked"?"blocked":null;
+      return { id: tc.id, title: tc.title, steps: tc.steps.length? tc.steps : [{no:1,action:"",target:""}], overall, cls: overall, lastActual: tc.actual_result };
+    });
+    state[appKey].cases = cases;
+    state[appKey].pass = cases.filter(c=>c.overall==="pass").length;
+    state[appKey].fail = cases.filter(c=>c.overall==="fail").length;
+    state[appKey].blocked = cases.filter(c=>c.overall==="blocked").length;
+    state[appKey].lastRun = true;
+    renderTcGrid(appKey);
+    loadUsage();
+  } else if(ev.type === "run_finished"){
+    if(!opts.singleRerun){
+      state[appKey].running = false;
+      delete activeWs[appKey];
+      renderLaunchpad();
+      if(ev.stopped) showToast({passed: state[appKey].pass, failed: state[appKey].fail, blocked: state[appKey].blocked, total: state[appKey].cases.length, _stopped: true});
+    }
+    updateStatCards(appKey);
+  } else if(ev.type === "error"){
+    if(!opts.singleRerun){
+      state[appKey].running = false;
+      delete activeWs[appKey];
+    }
+    renderLaunchpad();
+  }
+}
+
+(async function init(){
+  for(const a of APPS){ await loadTestCases(a.key); }
+  renderLaunchpad();
+  renderTcGrid(APPS[0].key);
+  await loadUsage();
+  document.getElementById("clear-usage-btn").addEventListener("click", clearUsageHistory);
+  document.addEventListener("keydown", e=>{ if(e.key==="Escape") closeInspectModal(); });
+})();
+</script>
+</body>
+</html>
